@@ -90,8 +90,7 @@ function renderSocials() {
     .map(
       (item) => `
         <a class="social-link" href="${item.href}" target="_blank" rel="noreferrer">
-          <p class="social-link-title">${item.title}</p>
-          <span class="social-link-arrow">OPEN</span>
+          <span class="social-link-title">${item.title}</span>
         </a>
       `
     )
