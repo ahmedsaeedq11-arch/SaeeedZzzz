@@ -32,3 +32,11 @@ Then open `index.html` directly or serve the folder with any static server.
 - File URL: `https://www.figma.com/design/0YZwi96bSg4QVBKHOEGUUD`
 
 The Figma file was created for this portfolio direction. Automated population was blocked by the current Figma Starter-plan MCP rate limit during implementation.
+
+## Deployment note
+
+If the GitHub Actions deploy workflow fails on `Setup Pages`, open the repository on GitHub and enable:
+
+`Settings -> Pages -> Build and deployment -> Source -> GitHub Actions`
+
+After that, re-run the `Deploy Portfolio` workflow or push a new commit.
