@@ -22,6 +22,7 @@ Retro-inspired bilingual portfolio for Ahmed Saeed (`Saeed`) from Innovation Uni
 npm install
 npm run generate:qr
 npm run generate:qr-card
+npm run build
 ```
 
 Then open `index.html` directly or serve the folder with any static server.
