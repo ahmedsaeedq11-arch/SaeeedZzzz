@@ -1,5 +1,91 @@
-import { portfolioContent } from "./data/content.js";
+/* ══════════════════════════════════════════
+   PORTFOLIO CONTENT — embedded directly
+   (no external data file needed)
+══════════════════════════════════════════ */
+const portfolioContent = {
+  siteUrl: "https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/",
+  person: {
+    fullName: "Ahmed Saeed",
+    displayName: "Saeed",
+    university: "Innovation University",
+    level: "Second-year student",
+    aboutEn:
+      "I am a design student focused on building work that communicates clearly and feels worth using. I care about direction, atmosphere, and whether an idea genuinely serves the person receiving it.",
+    philosophyEn:
+      "Anything I make has to be useful to the person receiving it, come from real conviction, and deliver its purpose without pretending.",
+    stats: [
+      { value: "03", label: "Selected portfolio missions prepared for final upload" },
+      { value: "AR/EN", label: "Bilingual presentation for academic and professional contexts" },
+      { value: "PIXEL", label: "Arcade-inspired identity with a clean mobile reading flow" }
+    ],
+    meta: [
+      { label: "Alias", value: "Saeed" },
+      { label: "Base", value: "Innovation University" },
+      { label: "Role", value: "Design Student" },
+      { label: "Stage", value: "Year 02" },
+      { label: "∞ Experience", value: "Unlimited" }
+    ]
+  },
+  skills: {
+    xp: 1337,
+    tools: [
+      { name: "3DS Max", icon: "star", level: 4, max: 5 },
+      { name: "AutoCAD", icon: "scroll", level: 4, max: 5 },
+      { name: "Blender", icon: "wand", level: 2, max: 5 },
+      { name: "Revit", icon: "shield", level: 1, max: 5 }
+    ],
+    passions: [
+      { name: "Fast Learner", hearts: 5, max: 5 },
+      { name: "Creative", hearts: 4, max: 5 },
+      { name: "Social", hearts: 1.5, max: 5 },
+      { name: "Spatial Vision", hearts: 5, max: 5 },
+      { name: "Passionate", hearts: 5, max: 5 },
+      { name: "AI-Forward", hearts: 5, max: 5 }
+    ]
+  },
+  projects: [
+    {
+      slug: "zaraz-rebrand",
+      titleEn: "ZaraZ Menswear Rebrand",
+      summaryEn: "A retail identity project focused on sharpening perception, masculinity, and store presence.",
+      role: "Brand direction / visual identity",
+      status: "Awaiting full case study",
+      designIntent: "Prepare a strong frame for strategy, identity assets, and before/after transformation once the full materials are added.",
+      visualLabel: "BRAND GRID / REBRAND PLACEHOLDER",
+      images: ["Logo passes", "Store touchpoints", "Color system"]
+    },
+    {
+      slug: "wabi-sabi-kitchen",
+      titleEn: "Wabi-Sabi Style Kitchen",
+      summaryEn: "An interior concept built around calm imperfection, material balance, and spatial mood.",
+      role: "Concept design / spatial mood",
+      status: "Awaiting full case study",
+      designIntent: "Reserve space for layout sketches, mood framing, and material storytelling without changing the final portfolio structure.",
+      visualLabel: "SPACE MOOD / MATERIAL PLACEHOLDER",
+      images: ["Mood frame", "Material board", "Scene composition"]
+    },
+    {
+      slug: "el-abd-booth",
+      titleEn: "El Abd Booth Concept",
+      summaryEn: "A personal concept for a branded booth developed through independent thinking and presentation strength.",
+      role: "Personal concept / booth experience",
+      status: "Merit-grade placeholder",
+      designIntent: "Highlight that this piece came from personal direction, with room for the final renders and explanation after the detailed material arrives.",
+      visualLabel: "BOOTH SYSTEM / EXPERIENCE PLACEHOLDER",
+      images: ["Booth zoning", "Brand moments", "Visitor flow"]
+    }
+  ],
+  socials: [
+    { title: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/ahmed-saeed-682673338?utm_source=share_via&utm_content=profile&utm_medium=member_android", copy: "Professional profile" },
+    { title: "Behance", icon: "behance", href: "https://www.behance.net/ahmedsaeed375", copy: "Creative work archive" },
+    { title: "Instagram", icon: "instagram", href: "https://www.instagram.com/ahmed_saeed2_0?igsh=MTltcHU4bjF2aHZ5Yg==", copy: "Updates and visual snippets" },
+    { title: "GitHub", icon: "github", href: "https://github.com/ahmedsaeedq11-arch/SaeeedZzzz.git", copy: "Source repository" }
+  ]
+};
 
+/* ══════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════ */
 const byId = (id) => document.getElementById(id);
 
 /* ══════════════════════════════════════════
@@ -8,57 +94,57 @@ const byId = (id) => document.getElementById(id);
 const PIXEL_ICONS = {
   linkedin: `
     <svg class="social-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="0"  y="0"  width="16" height="2"  fill="currentColor"/>
-      <rect x="0"  y="14" width="16" height="2"  fill="currentColor"/>
-      <rect x="0"  y="0"  width="2"  height="16" fill="currentColor"/>
-      <rect x="14" y="0"  width="2"  height="16" fill="currentColor"/>
-      <rect x="3"  y="4"  width="2"  height="2"  fill="currentColor"/>
-      <rect x="3"  y="7"  width="2"  height="5"  fill="currentColor"/>
-      <rect x="7"  y="7"  width="2"  height="5"  fill="currentColor"/>
-      <rect x="9"  y="7"  width="3"  height="2"  fill="currentColor"/>
-      <rect x="9"  y="9"  width="2"  height="3"  fill="currentColor"/>
+      <rect x="0" y="0" width="16" height="2" fill="currentColor"/>
+      <rect x="0" y="14" width="16" height="2" fill="currentColor"/>
+      <rect x="0" y="0" width="2" height="16" fill="currentColor"/>
+      <rect x="14" y="0" width="2" height="16" fill="currentColor"/>
+      <rect x="3" y="4" width="2" height="2" fill="currentColor"/>
+      <rect x="3" y="7" width="2" height="5" fill="currentColor"/>
+      <rect x="7" y="7" width="2" height="5" fill="currentColor"/>
+      <rect x="9" y="7" width="3" height="2" fill="currentColor"/>
+      <rect x="9" y="9" width="2" height="3" fill="currentColor"/>
     </svg>`,
 
   behance: `
     <svg class="social-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="0"  y="0"  width="16" height="2"  fill="currentColor"/>
-      <rect x="0"  y="14" width="16" height="2"  fill="currentColor"/>
-      <rect x="0"  y="0"  width="2"  height="16" fill="currentColor"/>
-      <rect x="14" y="0"  width="2"  height="16" fill="currentColor"/>
-      <rect x="3"  y="3"  width="2"  height="10" fill="currentColor"/>
-      <rect x="5"  y="3"  width="3"  height="2"  fill="currentColor"/>
-      <rect x="8"  y="5"  width="2"  height="2"  fill="currentColor"/>
-      <rect x="5"  y="7"  width="3"  height="2"  fill="currentColor"/>
-      <rect x="8"  y="9"  width="2"  height="2"  fill="currentColor"/>
-      <rect x="5"  y="11" width="3"  height="2"  fill="currentColor"/>
+      <rect x="0" y="0" width="16" height="2" fill="currentColor"/>
+      <rect x="0" y="14" width="16" height="2" fill="currentColor"/>
+      <rect x="0" y="0" width="2" height="16" fill="currentColor"/>
+      <rect x="14" y="0" width="2" height="16" fill="currentColor"/>
+      <rect x="3" y="3" width="2" height="10" fill="currentColor"/>
+      <rect x="5" y="3" width="3" height="2" fill="currentColor"/>
+      <rect x="8" y="5" width="2" height="2" fill="currentColor"/>
+      <rect x="5" y="7" width="3" height="2" fill="currentColor"/>
+      <rect x="8" y="9" width="2" height="2" fill="currentColor"/>
+      <rect x="5" y="11" width="3" height="2" fill="currentColor"/>
     </svg>`,
 
   instagram: `
     <svg class="social-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="1"  y="1"  width="14" height="2"  fill="currentColor"/>
-      <rect x="1"  y="13" width="14" height="2"  fill="currentColor"/>
-      <rect x="1"  y="1"  width="2"  height="14" fill="currentColor"/>
-      <rect x="13" y="1"  width="2"  height="14" fill="currentColor"/>
-      <rect x="5"  y="5"  width="6"  height="2"  fill="currentColor"/>
-      <rect x="5"  y="9"  width="6"  height="2"  fill="currentColor"/>
-      <rect x="5"  y="5"  width="2"  height="6"  fill="currentColor"/>
-      <rect x="9"  y="5"  width="2"  height="6"  fill="currentColor"/>
-      <rect x="11" y="3"  width="2"  height="2"  fill="currentColor"/>
+      <rect x="1" y="1" width="14" height="2" fill="currentColor"/>
+      <rect x="1" y="13" width="14" height="2" fill="currentColor"/>
+      <rect x="1" y="1" width="2" height="14" fill="currentColor"/>
+      <rect x="13" y="1" width="2" height="14" fill="currentColor"/>
+      <rect x="5" y="5" width="6" height="2" fill="currentColor"/>
+      <rect x="5" y="9" width="6" height="2" fill="currentColor"/>
+      <rect x="5" y="5" width="2" height="6" fill="currentColor"/>
+      <rect x="9" y="5" width="2" height="6" fill="currentColor"/>
+      <rect x="11" y="3" width="2" height="2" fill="currentColor"/>
     </svg>`,
 
   github: `
     <svg class="social-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="5"  y="1"  width="6"  height="2"  fill="currentColor"/>
-      <rect x="3"  y="3"  width="2"  height="4"  fill="currentColor"/>
-      <rect x="11" y="3"  width="2"  height="4"  fill="currentColor"/>
-      <rect x="5"  y="7"  width="6"  height="2"  fill="currentColor"/>
-      <rect x="3"  y="9"  width="4"  height="2"  fill="currentColor"/>
-      <rect x="9"  y="9"  width="4"  height="2"  fill="currentColor"/>
-      <rect x="1"  y="11" width="4"  height="2"  fill="currentColor"/>
-      <rect x="11" y="11" width="4"  height="2"  fill="currentColor"/>
-      <rect x="1"  y="13" width="4"  height="2"  fill="currentColor"/>
-      <rect x="11" y="13" width="4"  height="2"  fill="currentColor"/>
-      <rect x="7"  y="11" width="2"  height="2"  fill="currentColor"/>
+      <rect x="5" y="1" width="6" height="2" fill="currentColor"/>
+      <rect x="3" y="3" width="2" height="4" fill="currentColor"/>
+      <rect x="11" y="3" width="2" height="4" fill="currentColor"/>
+      <rect x="5" y="7" width="6" height="2" fill="currentColor"/>
+      <rect x="3" y="9" width="4" height="2" fill="currentColor"/>
+      <rect x="9" y="9" width="4" height="2" fill="currentColor"/>
+      <rect x="1" y="11" width="4" height="2" fill="currentColor"/>
+      <rect x="11" y="11" width="4" height="2" fill="currentColor"/>
+      <rect x="1" y="13" width="4" height="2" fill="currentColor"/>
+      <rect x="11" y="13" width="4" height="2" fill="currentColor"/>
+      <rect x="7" y="11" width="2" height="2" fill="currentColor"/>
     </svg>`
 };
 
@@ -89,7 +175,7 @@ function pixelAvatar(size = 52, extraStyle = "") {
    SPARK SYSTEM
    Scatter blinking pixel dots in any container
 ══════════════════════════════════════════ */
-const SPARK_COLORS   = ["", "orange", "red", "purple"];
+const SPARK_COLORS = ["", "orange", "red", "purple"];
 
 /**
  * Fill a spark container with randomly placed blinking pixel dots.
@@ -100,7 +186,7 @@ function fillSparks(container, count = 10) {
   if (!container) return;
   container.innerHTML = "";
   for (let i = 0; i < count; i++) {
-    const dot   = document.createElement("span");
+    const dot = document.createElement("span");
     const color = SPARK_COLORS[i % SPARK_COLORS.length];
     const blink = (0.6 + Math.random() * 1.5).toFixed(2);
     dot.className = `spark-dot ${color}`;
@@ -125,10 +211,10 @@ function initAllSparks() {
 ══════════════════════════════════════════ */
 function setWatermarks() {
   const map = {
-    about:      "ABOUT",
+    about: "ABOUT",
     philosophy: "PHILOSOPHY",
-    projects:   "MISSIONS",
-    contact:    "CONNECT",
+    projects: "MISSIONS",
+    contact: "CONNECT",
   };
   Object.entries(map).forEach(([id, text]) => {
     const el = document.getElementById(id);
@@ -153,7 +239,7 @@ function attachRipple(card) {
 
     /* burst spark pixels */
     for (let i = 0; i < 8; i++) {
-      const s   = document.createElement("span");
+      const s = document.createElement("span");
       const col = SPARK_COLORS[i % SPARK_COLORS.length];
       s.className = `spark-dot ${col}`;
       s.style.cssText = `
@@ -202,7 +288,7 @@ function observeCards() {
    FILL STATIC TEXT
 ══════════════════════════════════════════ */
 function fillTextContent() {
-  byId("about-en").textContent      = portfolioContent.person.aboutEn;
+  byId("about-en").textContent = portfolioContent.person.aboutEn;
   byId("philosophy-en").textContent = portfolioContent.person.philosophyEn;
 }
 
@@ -211,99 +297,97 @@ function fillTextContent() {
 ══════════════════════════════════════════ */
 const PIXEL_WEAPON_ICONS = {
   sword: `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-    <rect x="14" y="0"  width="2" height="2" fill="#f4f0f5"/>
-    <rect x="12" y="2"  width="2" height="2" fill="#f4f0f5"/>
-    <rect x="10" y="4"  width="2" height="2" fill="#f4f0f5"/>
-    <rect x="8"  y="6"  width="2" height="2" fill="#f4f0f5"/>
-    <rect x="4"  y="6"  width="8" height="2" fill="#f18b2c"/>
-    <rect x="8"  y="2"  width="2" height="8" fill="#f18b2c"/>
-    <rect x="4"  y="8"  width="2" height="2" fill="#d4a050"/>
-    <rect x="2"  y="10" width="2" height="2" fill="#d4a050"/>
-    <rect x="0"  y="12" width="2" height="4" fill="#d4a050"/>
-    <rect x="0"  y="14" width="4" height="2" fill="#f8d94c"/>
+    <rect x="14" y="0" width="2" height="2" fill="#f4f0f5"/>
+    <rect x="12" y="2" width="2" height="2" fill="#f4f0f5"/>
+    <rect x="10" y="4" width="2" height="2" fill="#f4f0f5"/>
+    <rect x="8" y="6" width="2" height="2" fill="#f4f0f5"/>
+    <rect x="4" y="6" width="8" height="2" fill="#f18b2c"/>
+    <rect x="8" y="2" width="2" height="8" fill="#f18b2c"/>
+    <rect x="4" y="8" width="2" height="2" fill="#d4a050"/>
+    <rect x="2" y="10" width="2" height="2" fill="#d4a050"/>
+    <rect x="0" y="12" width="2" height="4" fill="#d4a050"/>
+    <rect x="0" y="14" width="4" height="2" fill="#f8d94c"/>
   </svg>`,
   shield: `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2"  y="0"  width="12" height="2" fill="#ab83ff"/>
-    <rect x="0"  y="2"  width="16" height="8" fill="#ab83ff"/>
-    <rect x="2"  y="10" width="12" height="2" fill="#ab83ff"/>
-    <rect x="4"  y="12" width="8"  height="2" fill="#ab83ff"/>
-    <rect x="6"  y="14" width="4"  height="2" fill="#ab83ff"/>
-    <rect x="2"  y="2"  width="12" height="8" fill="#3d2b63"/>
-    <rect x="7"  y="2"  width="2"  height="8" fill="#f8d94c"/>
-    <rect x="3"  y="5"  width="10" height="2" fill="#f8d94c"/>
+    <rect x="2" y="0" width="12" height="2" fill="#ab83ff"/>
+    <rect x="0" y="2" width="16" height="8" fill="#ab83ff"/>
+    <rect x="2" y="10" width="12" height="2" fill="#ab83ff"/>
+    <rect x="4" y="12" width="8" height="2" fill="#ab83ff"/>
+    <rect x="6" y="14" width="4" height="2" fill="#ab83ff"/>
+    <rect x="2" y="2" width="12" height="8" fill="#3d2b63"/>
+    <rect x="7" y="2" width="2" height="8" fill="#f8d94c"/>
+    <rect x="3" y="5" width="10" height="2" fill="#f8d94c"/>
   </svg>`,
   wand: `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0"  y="12" width="2" height="4" fill="#8f63ea"/>
-    <rect x="2"  y="10" width="2" height="2" fill="#8f63ea"/>
-    <rect x="4"  y="8"  width="2" height="2" fill="#8f63ea"/>
-    <rect x="6"  y="6"  width="2" height="2" fill="#ab83ff"/>
-    <rect x="8"  y="4"  width="2" height="2" fill="#ab83ff"/>
-    <rect x="10" y="2"  width="2" height="2" fill="#f8d94c"/>
-    <rect x="10" y="0"  width="6" height="2" fill="#f8d94c"/>
-    <rect x="14" y="0"  width="2" height="6" fill="#f8d94c"/>
-    <rect x="12" y="2"  width="2" height="2" fill="#fff"/>
-    <rect x="4"  y="12" width="2" height="2" fill="#f18b2c"/>
-    <rect x="0"  y="8"  width="2" height="2" fill="#f8d94c"/>
+    <rect x="0" y="12" width="2" height="4" fill="#8f63ea"/>
+    <rect x="2" y="10" width="2" height="2" fill="#8f63ea"/>
+    <rect x="4" y="8" width="2" height="2" fill="#8f63ea"/>
+    <rect x="6" y="6" width="2" height="2" fill="#ab83ff"/>
+    <rect x="8" y="4" width="2" height="2" fill="#ab83ff"/>
+    <rect x="10" y="2" width="2" height="2" fill="#f8d94c"/>
+    <rect x="10" y="0" width="6" height="2" fill="#f8d94c"/>
+    <rect x="14" y="0" width="2" height="6" fill="#f8d94c"/>
+    <rect x="12" y="2" width="2" height="2" fill="#fff"/>
+    <rect x="4" y="12" width="2" height="2" fill="#f18b2c"/>
+    <rect x="0" y="8" width="2" height="2" fill="#f8d94c"/>
   </svg>`,
   scroll: `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2"  y="0"  width="12" height="2" fill="#f8d94c"/>
-    <rect x="0"  y="2"  width="16" height="2" fill="#d4a050"/>
-    <rect x="2"  y="4"  width="12" height="8" fill="#f4f0f5"/>
-    <rect x="4"  y="5"  width="8"  height="1" fill="#4b4560"/>
-    <rect x="4"  y="7"  width="6"  height="1" fill="#4b4560"/>
-    <rect x="4"  y="9"  width="8"  height="1" fill="#4b4560"/>
-    <rect x="4"  y="11" width="4"  height="1" fill="#4b4560"/>
-    <rect x="0"  y="12" width="16" height="2" fill="#d4a050"/>
-    <rect x="2"  y="14" width="12" height="2" fill="#f8d94c"/>
+    <rect x="2" y="0" width="12" height="2" fill="#f8d94c"/>
+    <rect x="0" y="2" width="16" height="2" fill="#d4a050"/>
+    <rect x="2" y="4" width="12" height="8" fill="#f4f0f5"/>
+    <rect x="4" y="5" width="8" height="1" fill="#4b4560"/>
+    <rect x="4" y="7" width="6" height="1" fill="#4b4560"/>
+    <rect x="4" y="9" width="8" height="1" fill="#4b4560"/>
+    <rect x="4" y="11" width="4" height="1" fill="#4b4560"/>
+    <rect x="0" y="12" width="16" height="2" fill="#d4a050"/>
+    <rect x="2" y="14" width="12" height="2" fill="#f8d94c"/>
   </svg>`,
   star: `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-    <rect x="6"  y="0"  width="4"  height="16" fill="#f8d94c"/>
-    <rect x="0"  y="6"  width="16" height="4"  fill="#f8d94c"/>
-    <rect x="2"  y="2"  width="4"  height="4"  fill="#f8d94c"/>
-    <rect x="10" y="2"  width="4"  height="4"  fill="#f8d94c"/>
-    <rect x="2"  y="10" width="4"  height="4"  fill="#f8d94c"/>
-    <rect x="10" y="10" width="4"  height="4"  fill="#f8d94c"/>
-    <rect x="6"  y="0"  width="4"  height="2"  fill="#f18b2c"/>
-    <rect x="6"  y="14" width="4"  height="2"  fill="#f18b2c"/>
-    <rect x="0"  y="6"  width="2"  height="4"  fill="#f18b2c"/>
-    <rect x="14" y="6"  width="2"  height="4"  fill="#f18b2c"/>
-    <rect x="7"  y="7"  width="2"  height="2"  fill="#fff"/>
+    <rect x="6" y="0" width="4" height="16" fill="#f8d94c"/>
+    <rect x="0" y="6" width="16" height="4" fill="#f8d94c"/>
+    <rect x="2" y="2" width="4" height="4" fill="#f8d94c"/>
+    <rect x="10" y="2" width="4" height="4" fill="#f8d94c"/>
+    <rect x="2" y="10" width="4" height="4" fill="#f8d94c"/>
+    <rect x="10" y="10" width="4" height="4" fill="#f8d94c"/>
+    <rect x="6" y="0" width="4" height="2" fill="#f18b2c"/>
+    <rect x="6" y="14" width="4" height="2" fill="#f18b2c"/>
+    <rect x="0" y="6" width="2" height="4" fill="#f18b2c"/>
+    <rect x="14" y="6" width="2" height="4" fill="#f18b2c"/>
+    <rect x="7" y="7" width="2" height="2" fill="#fff"/>
   </svg>`
 };
 
 const HEART_FILLED = `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <rect x="2"  y="2"  width="4"  height="4" fill="#e83a3a"/>
-  <rect x="10" y="2"  width="4"  height="4" fill="#e83a3a"/>
-  <rect x="0"  y="4"  width="16" height="6" fill="#e83a3a"/>
-  <rect x="2"  y="10" width="12" height="2" fill="#e83a3a"/>
-  <rect x="4"  y="12" width="8"  height="2" fill="#e83a3a"/>
-  <rect x="6"  y="14" width="4"  height="2" fill="#e83a3a"/>
-  <rect x="4"  y="4"  width="3"  height="3" fill="#ff7070"/>
+  <rect x="2" y="2" width="4" height="4" fill="#e83a3a"/>
+  <rect x="10" y="2" width="4" height="4" fill="#e83a3a"/>
+  <rect x="0" y="4" width="16" height="6" fill="#e83a3a"/>
+  <rect x="2" y="10" width="12" height="2" fill="#e83a3a"/>
+  <rect x="4" y="12" width="8" height="2" fill="#e83a3a"/>
+  <rect x="6" y="14" width="4" height="2" fill="#e83a3a"/>
+  <rect x="4" y="4" width="3" height="3" fill="#ff7070"/>
 </svg>`;
 
 const HEART_EMPTY = `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <rect x="2"  y="2"  width="4"  height="4" fill="rgba(255,255,255,0.12)"/>
-  <rect x="10" y="2"  width="4"  height="4" fill="rgba(255,255,255,0.12)"/>
-  <rect x="0"  y="4"  width="16" height="6" fill="rgba(255,255,255,0.12)"/>
-  <rect x="2"  y="10" width="12" height="2" fill="rgba(255,255,255,0.12)"/>
-  <rect x="4"  y="12" width="8"  height="2" fill="rgba(255,255,255,0.12)"/>
-  <rect x="6"  y="14" width="4"  height="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="2" y="2" width="4" height="4" fill="rgba(255,255,255,0.12)"/>
+  <rect x="10" y="2" width="4" height="4" fill="rgba(255,255,255,0.12)"/>
+  <rect x="0" y="4" width="16" height="6" fill="rgba(255,255,255,0.12)"/>
+  <rect x="2" y="10" width="12" height="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="4" y="12" width="8" height="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="6" y="14" width="4" height="2" fill="rgba(255,255,255,0.12)"/>
 </svg>`;
 
 /* Half heart — left filled, right empty */
 const HEART_HALF = `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <!-- left half filled -->
-  <rect x="2"  y="2"  width="4"  height="4" fill="#e83a3a"/>
-  <rect x="0"  y="4"  width="8"  height="6" fill="#e83a3a"/>
-  <rect x="2"  y="10" width="6"  height="2" fill="#e83a3a"/>
-  <rect x="4"  y="12" width="4"  height="2" fill="#e83a3a"/>
-  <rect x="6"  y="14" width="2"  height="2" fill="#e83a3a"/>
-  <rect x="4"  y="4"  width="2"  height="2" fill="#ff7070"/>
-  <!-- right half empty -->
-  <rect x="10" y="2"  width="4"  height="4" fill="rgba(255,255,255,0.12)"/>
-  <rect x="8"  y="4"  width="8"  height="6" fill="rgba(255,255,255,0.12)"/>
-  <rect x="8"  y="10" width="6"  height="2" fill="rgba(255,255,255,0.12)"/>
-  <rect x="8"  y="12" width="4"  height="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="2" y="2" width="4" height="4" fill="#e83a3a"/>
+  <rect x="0" y="4" width="8" height="6" fill="#e83a3a"/>
+  <rect x="2" y="10" width="6" height="2" fill="#e83a3a"/>
+  <rect x="4" y="12" width="4" height="2" fill="#e83a3a"/>
+  <rect x="6" y="14" width="2" height="2" fill="#e83a3a"/>
+  <rect x="4" y="4" width="2" height="2" fill="#ff7070"/>
+  <rect x="10" y="2" width="4" height="4" fill="rgba(255,255,255,0.12)"/>
+  <rect x="8" y="4" width="8" height="6" fill="rgba(255,255,255,0.12)"/>
+  <rect x="8" y="10" width="6" height="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="8" y="12" width="4" height="2" fill="rgba(255,255,255,0.12)"/>
 </svg>`;
 
 function renderPips(level, max) {
@@ -316,11 +400,11 @@ function renderPips(level, max) {
 
 function renderHearts(hearts, max) {
   let html = "";
-  const full    = Math.floor(hearts);
+  const full = Math.floor(hearts);
   const hasHalf = hearts % 1 >= 0.5;
-  const empty   = max - full - (hasHalf ? 1 : 0);
-  for (let i = 0; i < full;  i++) html += HEART_FILLED;
-  if (hasHalf)                     html += HEART_HALF;
+  const empty = max - full - (hasHalf ? 1 : 0);
+  for (let i = 0; i < full; i++) html += HEART_FILLED;
+  if (hasHalf) html += HEART_HALF;
   for (let i = 0; i < empty; i++) html += HEART_EMPTY;
   return `<div class="passion-hearts">${html}</div>`;
 }
@@ -343,24 +427,16 @@ function animateXP(target) {
    PIXEL DOG — 20×12 facing left, chasing
 ══════════════════════════════════════════ */
 const PIXEL_DOG_SVG = `<svg viewBox="0 0 20 12" xmlns="http://www.w3.org/2000/svg" width="40" height="24" class="dog-svg">
-  <!-- ear -->
   <rect x="0" y="0" width="2" height="3" fill="#c8a04a"/>
-  <!-- head -->
   <rect x="0" y="3" width="5" height="5" fill="#c8a04a"/>
-  <!-- eye -->
   <rect x="1" y="4" width="2" height="2" fill="#1a0800"/>
-  <!-- snout -->
   <rect x="0" y="7" width="4" height="2" fill="#c8a04a"/>
-  <!-- tongue -->
   <rect x="0" y="8" width="3" height="2" fill="#e05050"/>
-  <!-- body -->
   <rect x="5" y="2" width="11" height="7" fill="#c8a04a"/>
-  <!-- tail wag up -->
   <rect x="15" y="0" width="2" height="3" fill="#c8a04a"/>
   <rect x="17" y="0" width="2" height="2" fill="#c8a04a"/>
-  <!-- legs -->
-  <rect x="5"  y="9" width="2" height="3" fill="#c8a04a"/>
-  <rect x="9"  y="9" width="2" height="3" fill="#c8a04a"/>
+  <rect x="5" y="9" width="2" height="3" fill="#c8a04a"/>
+  <rect x="9" y="9" width="2" height="3" fill="#c8a04a"/>
   <rect x="13" y="9" width="2" height="3" fill="#c8a04a"/>
 </svg>`;
 
@@ -459,8 +535,8 @@ function renderProjects() {
           <div class="visual-main" data-label="${project.visualLabel}"></div>
           <div class="visual-strip">
             ${project.images.map((img) =>
-              `<div class="thumb" aria-label="${img}" title="${img}"></div>`
-            ).join("")}
+      `<div class="thumb" aria-label="${img}" title="${img}"></div>`
+    ).join("")}
           </div>
         </div>
       </article>`)
