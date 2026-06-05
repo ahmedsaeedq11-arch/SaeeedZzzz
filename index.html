@@ -6,23 +6,17 @@
     <title>Saeed | Pixel Portfolio</title>
     <meta
       name="description"
-      content="Ahmed Saeed's bilingual pixel-inspired portfolio from Innovation University."
+      content="Ahmed Saeed's pixel-inspired portfolio from Innovation University."
     />
-    <meta
-      property="og:title"
-      content="Saeed | Pixel Portfolio"
-    />
-    <meta
-      property="og:description"
-      content="A retro-arcade bilingual portfolio for Ahmed Saeed."
-    />
+    <meta property="og:title" content="Saeed | Pixel Portfolio" />
+    <meta property="og:description" content="A retro-arcade portfolio for Ahmed Saeed." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/" />
     <meta name="theme-color" content="#111111" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -40,17 +34,18 @@
       </header>
 
       <main id="app">
+
+        <!-- ══════ HERO ══════ -->
         <section id="hero" class="hero panel panel-hero">
           <div class="hero-system-bar">
             <span>LANDING PAGE</span>
-            <span>EACH SECTION FEELS LIKE A NEW LEVEL</span>
             <span>DESKTOP 1920</span>
           </div>
+
+          <!-- Left: copy -->
           <div class="hero-copy">
-            <p class="eyebrow">PIXEL PORTFOLIO / ARCADE PROFILE</p>
             <h1 class="hero-title">
               Ahmed Saeed
-              <span class="hero-title-alt">aka Saeed</span>
             </h1>
             <p class="hero-subtitle">
               Second-year student at
@@ -58,10 +53,9 @@
             </p>
             <p class="hero-description">
               Building visual work that feels honest, useful, and intentional.
-              <span lang="ar" dir="rtl">بصمم شغل يكون صادق ونافع وبيوصل هدفه بوضوح.</span>
             </p>
 
-            <div class="hero-stats" id="hero-stats" aria-label="Portfolio highlights"></div>
+            <div class="hero-skills" id="hero-skills"></div>
 
             <div class="hero-actions">
               <a class="button button-primary" href="#projects">View Missions</a>
@@ -69,58 +63,71 @@
             </div>
           </div>
 
-          <aside class="hero-card pixel-screen" aria-label="Identity card">
-            <div class="screen-header">
-              <span>PROFILE CARD</span>
-              <span>LVL 02</span>
+          <!-- Right: photo + identity card stacked -->
+          <div class="hero-right">
+            <!-- Official photo -->
+            <div class="hero-photo-frame pixel-screen">
+              <div class="hero-photo-label">PLAYER 01 / SAEED</div>
+              <img
+                src="./assets/photo.jpg"
+                alt="Ahmed Saeed — official photo"
+                class="hero-photo-img"
+              />
+              <div class="hero-photo-sparks" aria-hidden="true"></div>
             </div>
-            <div class="screen-grid">
-              <div class="screen-avatar">
-                <span>SA</span>
+
+            <!-- Identity card -->
+            <aside class="hero-card pixel-screen" aria-label="Identity card">
+              <div class="screen-header">
+                <span>PROFILE CARD</span>
+                <span>LVL 02</span>
               </div>
-              <div class="screen-meta" id="hero-meta"></div>
-            </div>
-            <div class="signal-row" aria-hidden="true">
-              <span></span><span></span><span></span><span></span><span></span>
-            </div>
-          </aside>
+              <div class="screen-grid">
+                <div class="screen-avatar">
+                  <div class="screen-avatar-sprite" role="img" aria-label="Saeed pixel avatar front"></div>
+                </div>
+                <div class="screen-meta" id="hero-meta"></div>
+              </div>
+              <div class="signal-row" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </aside>
+          </div>
         </section>
 
+        <!-- ══════ ABOUT ══════ -->
         <section id="about" class="panel section-grid">
+          <div class="section-sparks" aria-hidden="true"></div>
           <div class="section-heading">
             <p class="eyebrow">PLAYER 01 / ABOUT</p>
             <h2>About Saeed</h2>
           </div>
           <div class="about-layout">
-            <article class="info-card">
-              <p class="info-title">English</p>
+            <article class="info-card pixel-card">
+              <p class="info-title">Who I Am</p>
               <p id="about-en"></p>
-            </article>
-            <article class="info-card info-card-ar" lang="ar" dir="rtl">
-              <p class="info-title">العربي</p>
-              <p id="about-ar"></p>
             </article>
           </div>
         </section>
 
+        <!-- ══════ PHILOSOPHY ══════ -->
         <section id="philosophy" class="panel section-grid">
+          <div class="section-sparks" aria-hidden="true"></div>
           <div class="section-heading">
             <p class="eyebrow">CORE CODE / PHILOSOPHY</p>
             <h2>Design Philosophy</h2>
           </div>
           <div class="philosophy-layout">
-            <article class="quote-card">
+            <article class="quote-card pixel-card">
               <p class="quote-mark">"</p>
               <p id="philosophy-en"></p>
-            </article>
-            <article class="quote-card quote-card-ar" lang="ar" dir="rtl">
-              <p class="quote-mark">"</p>
-              <p id="philosophy-ar"></p>
             </article>
           </div>
         </section>
 
+        <!-- ══════ PROJECTS ══════ -->
         <section id="projects" class="panel section-grid">
+          <div class="section-sparks" aria-hidden="true"></div>
           <div class="section-heading">
             <p class="eyebrow">MISSION LOG / SELECTED PROJECTS</p>
             <h2>Selected Projects</h2>
@@ -128,57 +135,26 @@
           <div id="projects-grid" class="projects-grid" aria-live="polite"></div>
         </section>
 
+        <!-- ══════ CONTACT ══════ -->
         <section id="contact" class="panel section-grid contact-panel">
+          <div class="section-sparks" aria-hidden="true"></div>
           <div class="section-heading">
-            <p class="eyebrow">PORTAL / CONTACT & SOCIALS</p>
+            <p class="eyebrow">PORTAL / CONTACT &amp; SOCIALS</p>
             <h2>Scan, Open, Connect</h2>
           </div>
-          <div class="contact-layout">
-            <article class="qr-card pixel-screen">
-              <div class="screen-header">
-                <span>QR ACCESS</span>
-                <span>MOBILE READY</span>
-              </div>
-              <img
-                class="qr-image"
-                src="./assets/qr/saeed-portfolio-qr.png"
-                alt="QR code for Saeed portfolio"
-              />
-              <p class="qr-caption">
-                Scan to open the portfolio on mobile.
-              </p>
-              <a
-                class="button button-primary button-full"
-                href="https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open Portfolio URL
-              </a>
-              <a
-                class="button button-secondary button-full"
-                href="./assets/qr/saeed-qr-card.svg"
-                download
-              >
-                Download Print QR Card
-              </a>
-            </article>
-
-            <article class="contact-card">
+          <div class="contact-layout-full">
+            <article class="contact-card pixel-card">
               <div class="contact-copy">
                 <p>
                   This page is prepared for final project presentation and can be
                   expanded later with full case studies and visuals.
-                </p>
-                <p lang="ar" dir="rtl">
-                  الصفحة دي جاهزة للعرض الحالي، وبعدها نقدر نبدل الـplaceholders
-                  بتفاصيل المشاريع الكاملة بدون تغيير شكل البورتفوليو.
                 </p>
               </div>
               <div id="social-links" class="social-links"></div>
             </article>
           </div>
         </section>
+
       </main>
     </div>
 

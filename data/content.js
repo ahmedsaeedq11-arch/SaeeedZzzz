@@ -7,12 +7,8 @@ export const portfolioContent = {
     level: "Second-year student",
     aboutEn:
       "I am a design student focused on building work that communicates clearly and feels worth using. I care about direction, atmosphere, and whether an idea genuinely serves the person receiving it.",
-    aboutAr:
-      "أنا طالب تصميم في السنة الثانية، وبهتم إن أي شغل أقدمه يكون واضح، ليه اتجاه، ويحسّ اللي قدامه إنه معمول علشانه فعلًا. بالنسبة لي القيمة الحقيقية مش في الشكل بس، لكن في إحساس الفكرة ومدى فائدتها للشخص اللي هيستخدمها.",
     philosophyEn:
       "Anything I make has to be useful to the person receiving it, come from real conviction, and deliver its purpose without pretending.",
-    philosophyAr:
-      "أي حاجة بعملها لازم تفيد اللي هيستخدمها، وتكون طالعة من اقتناع حقيقي، وتوصل هدفها بوضوح من غير ادعاء.",
     stats: [
       {
         value: "03",
@@ -31,18 +27,33 @@ export const portfolioContent = {
       { label: "Alias", value: "Saeed" },
       { label: "Base", value: "Innovation University" },
       { label: "Role", value: "Design Student" },
-      { label: "Stage", value: "Year 02" }
+      { label: "Stage", value: "Year 02" },
+      { label: "\u221e Experience", value: "Unlimited" }
+    ]
+  },
+  skills: {
+    xp: 1337,
+    tools: [
+      { name: "3DS Max",  icon: "star",   level: 4, max: 5 },
+      { name: "AutoCAD",  icon: "scroll", level: 4, max: 5 },
+      { name: "Blender",  icon: "wand",   level: 2, max: 5 },
+      { name: "Revit",    icon: "shield", level: 1, max: 5 }
+    ],
+    passions: [
+      { name: "Fast Learner",   hearts: 5,   max: 5 },
+      { name: "Creative",       hearts: 4,   max: 5 },
+      { name: "Social",         hearts: 1.5, max: 5 },
+      { name: "Spatial Vision", hearts: 5,   max: 5 },
+      { name: "Passionate",     hearts: 5,   max: 5 },
+      { name: "AI-Forward",     hearts: 5,   max: 5 }
     ]
   },
   projects: [
     {
       slug: "zaraz-rebrand",
       titleEn: "ZaraZ Menswear Rebrand",
-      titleAr: "إعادة هوية زاراز للملابس الرجالي",
       summaryEn:
-        "A retail identity placeholder focused on sharpening perception, masculinity, and store presence.",
-      summaryAr:
-        "تصور مبدئي لمشروع إعادة هوية يركز على وضوح الصورة الذهنية والطابع الرجالي وحضور المحل.",
+        "A retail identity project focused on sharpening perception, masculinity, and store presence.",
       role: "Brand direction / visual identity",
       status: "Awaiting full case study",
       designIntent:
@@ -53,11 +64,8 @@ export const portfolioContent = {
     {
       slug: "wabi-sabi-kitchen",
       titleEn: "Wabi-Sabi Style Kitchen",
-      titleAr: "مطبخ بطابع وابي سابي",
       summaryEn:
-        "An interior concept placeholder built around calm imperfection, material balance, and spatial mood.",
-      summaryAr:
-        "تصور أولي لمشروع داخلي يركز على البساطة، الهدوء، وتوازن الخامات بروح وابي سابي.",
+        "An interior concept built around calm imperfection, material balance, and spatial mood.",
       role: "Concept design / spatial mood",
       status: "Awaiting full case study",
       designIntent:
@@ -68,11 +76,8 @@ export const portfolioContent = {
     {
       slug: "el-abd-booth",
       titleEn: "El Abd Booth Concept",
-      titleAr: "بوث العبد",
       summaryEn:
-        "A personal concept placeholder for a branded booth developed through independent thinking and presentation strength.",
-      summaryAr:
-        "تصور مبدئي لبوث براند العبد من شغلي الشخصي وتفكيري الخاص، ومتجه لعرض قوي داخل البورتفوليو.",
+        "A personal concept for a branded booth developed through independent thinking and presentation strength.",
       role: "Personal concept / booth experience",
       status: "Merit-grade placeholder",
       designIntent:
@@ -84,23 +89,27 @@ export const portfolioContent = {
   socials: [
     {
       title: "LinkedIn",
+      icon: "linkedin",
       href: "https://www.linkedin.com/in/ahmed-saeed-682673338?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-      copy: "Professional profile / الملف المهني"
+      copy: "Professional profile"
     },
     {
       title: "Behance",
+      icon: "behance",
       href: "https://www.behance.net/ahmedsaeed375",
-      copy: "Creative work archive / معرض الأعمال"
+      copy: "Creative work archive"
     },
     {
       title: "Instagram",
+      icon: "instagram",
       href: "https://www.instagram.com/ahmed_saeed2_0?igsh=MTltcHU4bjF2aHZ5Yg==",
-      copy: "Updates and visual snippets / لقطات وتحديثات"
+      copy: "Updates and visual snippets"
     },
     {
       title: "GitHub",
+      icon: "github",
       href: "https://github.com/ahmedsaeedq11-arch/SaeeedZzzz.git",
-      copy: "Source repository / الريبو المصدر"
+      copy: "Source repository"
     }
   ]
 };
