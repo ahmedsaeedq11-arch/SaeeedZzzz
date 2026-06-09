@@ -8,7 +8,7 @@ const QRCode = require('qrcode');
 const fs     = require('fs');
 const path   = require('path');
 
-const URL        = 'https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/preview.html';
+const URL        = 'https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/';
 const OUT_DIR    = path.join(__dirname, 'assets', 'qr');
 const CELL       = 14;          // px per QR module (high-res for print)
 const QUIET      = 4;           // quiet zone modules
