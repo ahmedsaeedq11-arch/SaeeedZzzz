@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PREVIEW — Saeed Portfolio Creative Updates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pixel: "Press Start 2P", monospace;
+      --silk:  "Silkscreen", monospace;
+      --body:  "Space Grotesk", sans-serif;
+      --purple-900: #0d0820;
+      --purple-800: #1e123a;
+      --purple-700: #2d1b5a;
+      --purple-500: #6845b0;
+      --purple-400: #9566f0;
+      --purple-300: #b08af5;
+      --gold: #f4c842;
+      --gold-dim: #c9a42a;
+      --green: #4ade80;
+      --red: #f87171;
+      --white: #f0eaff;
+      --muted: #8b7aaa;
+      --pixel-border: 4px solid #6845b0;
+      --shadow: 0 0 0 2px #9566f0, 6px 6px 0 #1e123a;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--purple-900);
+      color: var(--white);
+      font-family: var(--body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* CRT OVERLAY */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 3px);
+      box-shadow: inset 0 0 120px rgba(0,0,0,0.5);
+      animation: crt-flicker 8s infinite;
+    }
+    @keyframes crt-flicker {
+      0%,100%{opacity:1} 92%{opacity:1} 93%{opacity:0.92} 94%{opacity:1} 96%{opacity:0.96} 97%{opacity:1}
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar       { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--purple-800); }
+    ::-webkit-scrollbar-thumb { background: var(--purple-500); border: 2px solid var(--purple-400); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--purple-400); }
+
+    /* PREVIEW BANNER */
+    .preview-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      background: var(--gold); color: #000;
+      font-family: var(--silk); font-size: 0.75rem;
+      text-align: center; padding: 0.4rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      position: sticky; top: 1.8rem; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.85rem 1.5rem;
+      background: rgba(13,8,32,0.94);
+      border-bottom: 2px solid var(--purple-500);
+      backdrop-filter: blur(10px);
+    }
+    .brand { font-family: var(--pixel); font-size: 0.85rem; color: var(--gold); text-decoration: none; }
+    .hud-left { display: flex; align-items: center; gap: 1.25rem; }
+    .press-start { font-family: var(--silk); font-size: 0.75rem; color: var(--green); animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .topnav { display: flex; gap: 1.5rem; }
+    .topnav a { font-family: var(--silk); font-size: 0.75rem; color: var(--muted); text-decoration: none; transition: color .15s; }
+    .topnav a:hover { color: var(--gold); }
+    .hud-score { font-family: var(--silk); font-size: 0.75rem; color: var(--purple-300); letter-spacing: .1em; }
+    .hud-score span { color: var(--gold); font-size: 0.85rem; }
+
+    /* PAGE SHELL */
+    .page-shell {
+      display: grid;
+      grid-template-columns: 265px 1fr;
+      gap: 1.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    /* ═══ STICKY SIDEBAR ═══ */
+    .sidebar { position: sticky; top: 4.5rem; height: fit-content; display: flex; flex-direction: column; gap: 1rem; }
+    .profile-hud {
+      border: var(--pixel-border);
+      background: var(--purple-800);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+    }
+    .hud-header {
+      font-family: var(--silk); font-size: 0.7rem; color: var(--gold);
+      border-bottom: 2px solid var(--purple-500);
+      padding-bottom: 0.5rem; margin-bottom: 0.75rem;
+      display: flex; justify-content: space-between; letter-spacing: .08em;
+    }
+    .avatar-photo-wrap {
+      width: 100%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border: var(--pixel-border);
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+    .avatar-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      image-rendering: auto;
+      display: block;
+    }
+    .avatar-photo-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      font-family: var(--silk); font-size: 0.6rem;
+      background: rgba(13,8,32,0.85); color: var(--gold);
+      padding: 0.35rem 0.5rem; letter-spacing: .08em;
+      text-align: center;
+    }
+    .hud-meta { display: flex; flex-direction: column; gap: 0.5rem; }
+    .hud-meta-row {
+      display: flex; justify-content: space-between;
+      font-family: var(--silk); font-size: 0.62rem; color: var(--muted);
+    }
+    .hud-meta-row span:last-child { color: var(--white); }
+    .stat-bars { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
+    .stat-row { display: flex; align-items: center; gap: 0.5rem; }
+    .stat-label { font-family: var(--silk); font-size: 0.6rem; width: 24px; }
+    .stat-bar-bg { flex: 1; height: 10px; background: var(--purple-700); border: 1px solid var(--purple-500); overflow: hidden; }
+    .stat-bar-fill { height: 100%; }
+    .stat-bar-fill.hp  { background: var(--green); width: 88%; animation: pulse-bar 2.2s ease-in-out infinite; }
+    .stat-bar-fill.xp  { background: var(--gold); width: 100%; animation: pulse-bar 2s ease-in-out infinite; }
+    .stat-bar-fill.mp  { background: var(--purple-300); width: 72%; animation: pulse-bar 1.8s ease-in-out infinite; }
+    @keyframes pulse-bar { 0%,100%{opacity:1} 50%{opacity:0.7} }
+    .stat-val { font-family: var(--silk); font-size: 0.6rem; min-width: 22px; text-align: right; }
+
+    /* tools sidebar block */
+    .tools-hud { border: var(--pixel-border); background: var(--purple-800); box-shadow: var(--shadow); padding: 0.9rem 1rem; }
+    .tool-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.45rem; }
+    .tool-name { font-family: var(--silk); font-size: 0.62rem; color: var(--white); flex: 1; }
+    .tool-bar-bg { width: 75px; height: 8px; background: var(--purple-700); border: 1px solid var(--purple-500); overflow: hidden; }
+    .tool-bar-fill { height: 100%; }
+    .tool-lv { font-family: var(--silk); font-size: 0.6rem; min-width: 28px; text-align: right; }
+
+    /* ═══ MAIN CONTENT ═══ */
+    .main-content { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    /* PANEL BASE */
+    .panel {
+      border: var(--pixel-border);
+      background: linear-gradient(160deg, rgba(149,102,240,0.08), rgba(13,8,32,0.98));
+      box-shadow: var(--shadow); overflow: hidden; position: relative;
+    }
+
+    /* RETRO WINDOW TITLEBAR */
+    .retro-titlebar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.45rem 0.85rem;
+      background: var(--purple-500);
+      border-bottom: 2px solid var(--purple-400);
+    }
+    .retro-btns { display: flex; gap: 0.4rem; }
+    .retro-btn { width: 11px; height: 11px; border: 2px solid rgba(255,255,255,0.35); display: inline-block; }
+    .retro-btn.c { background: var(--red); }
+    .retro-btn.m { background: var(--gold); }
+    .retro-btn.x { background: var(--green); }
+    .retro-title { font-family: var(--silk); font-size: 0.7rem; color: #fff; letter-spacing: .1em; }
+    .retro-body { padding: 1.5rem 1.75rem; }
+
+    /* SECTION HEADINGS */
+    .section-heading { margin-bottom: 1.25rem; }
+    .eyebrow { font-family: var(--silk); font-size: 0.7rem; color: var(--gold); letter-spacing: .14em; margin-bottom: 0.5rem; }
+    .section-heading h2 { font-family: var(--pixel); font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--white); line-height: 1.5; }
+
+    /* HERO */
+    .hero-panel {
+      padding: 2.75rem 2rem 2rem;
+      background: linear-gradient(160deg, rgba(149,102,240,0.92) 0%, rgba(70,42,130,0.96) 50%, rgba(30,18,58,0.99) 100%);
+    }
+    .hero-system-bar {
+      position: absolute; top: 0.65rem; left: 0.9rem;
+      font-family: var(--silk); font-size: 0.6rem; color: rgba(176,138,245,0.6); letter-spacing: .1em;
+    }
+    .hero-title { font-family: var(--pixel); font-size: clamp(1.6rem, 4vw, 2.5rem); color: var(--white); line-height: 1.4; margin-bottom: 0.75rem; }
+    .hero-subtitle { font-family: var(--silk); font-size: 0.8rem; color: var(--purple-300); letter-spacing: .1em; margin-bottom: 0.6rem; }
+    .hero-subtitle span { color: var(--gold); }
+    .hero-description { font-family: var(--body); font-size: 1.15rem; color: rgba(240,234,255,0.85); line-height: 1.75; margin-bottom: 1.5rem; max-width: 520px; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { font-family: var(--silk); font-size: 0.75rem; padding: 0.75rem 1.5rem; border: 2px solid; cursor: pointer; text-decoration: none; letter-spacing: .08em; transition: all .15s; display: inline-block; }
+    .btn-primary  { background: var(--gold); color: #000; border-color: var(--gold-dim); }
+    .btn-secondary{ background: transparent; color: var(--white); border-color: var(--purple-500); }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 0 rgba(0,0,0,0.5); }
+
+    /* RPG DIALOGUE BOX */
+    .dialogue-box {
+      border: 3px solid var(--gold); background: rgba(13,8,32,0.95);
+      padding: 1.25rem 1.5rem 1.5rem 5rem;
+      position: relative; box-shadow: inset 0 0 30px rgba(148,102,240,.1), var(--shadow);
+      min-height: 110px;
+    }
+    .dialogue-portrait {
+      position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%);
+      width: 62px; height: 62px;
+      background: url('./assets/pixel-me.png') no-repeat center/contain;
+      image-rendering: pixelated;
+      border: 2px solid var(--purple-500);
+    }
+    .dialogue-name {
+      position: absolute; top: -1.1rem; left: 0.75rem;
+      font-family: var(--silk); font-size: 0.65rem;
+      background: var(--gold); color: #000; padding: 0.2rem 0.6rem; letter-spacing: .1em;
+    }
+    .dialogue-text { font-family: var(--silk); font-size: 0.72rem; color: var(--white); line-height: 2; letter-spacing: .03em; }
+    .dialogue-cursor { display: inline-block; width: 9px; height: 0.75rem; background: var(--white); margin-left: 2px; animation: blink .7s step-end infinite; vertical-align: bottom; }
+    .dialogue-advance { position: absolute; bottom: 0.5rem; right: 1rem; font-family: var(--silk); font-size: 0.6rem; color: var(--gold); animation: blink 1s step-end infinite; }
+
+    /* QUOTE */
+    .quote-card { border: var(--pixel-border); background: rgba(13,8,32,.8); padding: 1.75rem; }
+    .quote-mark { font-family: var(--pixel); font-size: 3.5rem; color: var(--purple-500); line-height: .5; margin-bottom: 1rem; }
+    .quote-text { font-family: var(--silk); font-size: 0.75rem; color: var(--white); line-height: 2.2; letter-spacing: .04em; }
+
+    /* ═══ LEVEL MAP PROJECTS ═══ */
+    .level-map { position: relative; padding: 0.5rem 0; }
+    .level-path {
+      position: absolute; left: 50%; top: 0; bottom: 0; width: 4px;
+      background: repeating-linear-gradient(180deg, var(--purple-500) 0 10px, transparent 10px 18px);
+      transform: translateX(-50%); z-index: 0;
+    }
+    .level-node {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 50px 1fr;
+      align-items: start; margin-bottom: 2.5rem;
+    }
+    .level-node:last-child { margin-bottom: 0; }
+    .level-node.left  .level-card  { grid-column:1; margin-right:.85rem; }
+    .level-node.left  .level-icon  { grid-column:2; }
+    .level-node.left  .level-empty { grid-column:3; }
+    .level-node.right .level-empty { grid-column:1; }
+    .level-node.right .level-icon  { grid-column:2; }
+    .level-node.right .level-card  { grid-column:3; margin-left:.85rem; }
+    .level-node .level-icon { grid-row:1; display:flex; justify-content:center; padding-top:1rem; }
+
+    .level-badge {
+      width: 46px; height: 46px;
+      background: var(--purple-700); border: var(--pixel-border);
+      display: grid; place-items: center;
+      font-family: var(--silk); font-size: 0.62rem; color: var(--gold);
+      box-shadow: 0 0 14px rgba(148,102,240,0.7); z-index: 2;
+    }
+    .level-card {
+      border: var(--pixel-border); background: var(--purple-800);
+      box-shadow: var(--shadow); padding: 1.1rem 1.2rem;
+      cursor: pointer; transition: transform .15s, box-shadow .15s;
+    }
+    .level-card:hover { transform: translateY(-3px); box-shadow: 0 0 0 2px var(--gold), 6px 6px 0 #1e123a; }
+    .level-label { font-family: var(--silk); font-size: 0.62rem; color: var(--gold); letter-spacing: .12em; margin-bottom: 0.4rem; }
+    .level-title { font-family: var(--pixel); font-size: 0.72rem; color: var(--white); line-height: 1.6; margin-bottom: 0.5rem; }
+    .level-summary { font-family: var(--body); font-size: 1rem; color: rgba(240,234,255,.8); line-height: 1.6; margin-bottom: 0.6rem; }
+    .level-role { font-family: var(--silk); font-size: 0.62rem; color: var(--muted); margin-bottom: 0.6rem; }
+    .progress-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .progress-row { display: flex; align-items: center; gap: 0.6rem; }
+    .progress-label { font-family: var(--silk); font-size: 0.58rem; color: var(--muted); width: 95px; white-space: nowrap; }
+    .progress-bar-bg { flex: 1; height: 8px; background: var(--purple-700); border: 1px solid var(--purple-500); overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--purple-400); }
+    .progress-pct { font-family: var(--silk); font-size: 0.58rem; color: var(--purple-300); min-width: 32px; text-align: right; }
+
+    /* scroll-to anchor btn */
+    .goto-project-btn {
+      display: block; margin-top: 0.85rem; width: 100%;
+      font-family: var(--silk); font-size: 0.62rem; letter-spacing: .08em;
+      padding: 0.55rem; text-align: center;
+      background: rgba(148,102,240,0.15); border: 2px solid var(--purple-500); color: var(--purple-300);
+      cursor: pointer; transition: all .15s; text-decoration: none;
+    }
+    .goto-project-btn:hover { background: rgba(148,102,240,0.35); border-color: var(--gold); color: var(--gold); }
+
+    /* ═══ FULL PROJECT PAGE SECTIONS ═══ */
+    .project-page {
+      border: var(--pixel-border);
+      background: var(--purple-800);
+      box-shadow: 0 0 0 2px var(--gold), 8px 8px 0 #1e123a;
+      overflow: hidden;
+      margin-top: 1.5rem;
+    }
+    .project-page-titlebar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.6rem 1rem;
+      background: var(--gold);
+      border-bottom: 2px solid var(--gold-dim);
+    }
+    .project-page-title-text {
+      font-family: var(--silk); font-size: 0.72rem;
+      color: #000; letter-spacing: .1em;
+    }
+    .project-page-body { padding: 2rem; }
+    .proj-level-tag {
+      display: inline-block;
+      font-family: var(--silk); font-size: 0.65rem; color: #000;
+      background: var(--gold); padding: 0.25rem 0.65rem;
+      letter-spacing: .12em; margin-bottom: 0.75rem;
+    }
+    .proj-title {
+      font-family: var(--pixel); font-size: clamp(1.1rem, 3vw, 1.55rem);
+      color: var(--white); line-height: 1.5; margin-bottom: 0.5rem;
+    }
+    .proj-role {
+      font-family: var(--silk); font-size: 0.7rem;
+      color: var(--purple-300); letter-spacing: .08em; margin-bottom: 0.5rem;
+    }
+    .proj-status {
+      display: inline-block;
+      font-family: var(--silk); font-size: 0.62rem; letter-spacing: .1em;
+      background: rgba(248,113,113,0.15); border: 2px solid var(--red); color: var(--red);
+      padding: 0.3rem 0.75rem; margin-bottom: 1.5rem;
+    }
+    .proj-divider { border: none; border-top: 2px solid var(--purple-500); margin: 1.25rem 0; }
+    .proj-section-label {
+      font-family: var(--silk); font-size: 0.68rem; color: var(--gold);
+      letter-spacing: .12em; margin-bottom: 0.65rem;
+    }
+    .proj-summary {
+      font-family: var(--body); font-size: 1.05rem;
+      color: rgba(240,234,255,.88); line-height: 1.75; margin-bottom: 1.5rem;
+    }
+    .proj-intent {
+      font-family: var(--body); font-size: 1rem;
+      color: rgba(240,234,255,.72); line-height: 1.75; margin-bottom: 1.5rem;
+      border-left: 4px solid var(--purple-500); padding-left: 1.25rem;
+      font-style: italic;
+    }
+    .proj-assets {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.85rem; margin-bottom: 1.5rem;
+    }
+    .proj-asset {
+      border: var(--pixel-border); background: rgba(13,8,32,.85);
+      padding: 1rem 0.75rem; text-align: center;
+    }
+    .proj-asset-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+    .proj-asset-name { font-family: var(--silk); font-size: 0.6rem; color: var(--muted); letter-spacing: .06em; }
+    .proj-stats { display: flex; flex-direction: column; gap: 0.6rem; }
+    .proj-stat-row { display: flex; align-items: center; gap: 0.75rem; }
+    .proj-stat-label { font-family: var(--silk); font-size: 0.62rem; color: var(--muted); width: 120px; white-space: nowrap; }
+    .proj-stat-bar { flex: 1; height: 10px; background: var(--purple-700); border: 1px solid var(--purple-500); overflow: hidden; }
+    .proj-stat-fill { height: 100%; }
+    .proj-stat-pct { font-family: var(--silk); font-size: 0.62rem; color: var(--purple-300); min-width: 36px; text-align: right; }
+
+    /* ═══ PROJECT DETAIL PAGE / MODAL ═══ */
+    .project-detail-overlay {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,0.85);
+      display: none; place-items: center;
+      overflow-y: auto; padding: 2rem 1rem;
+    }
+    .project-detail-overlay.open { display: grid; }
+
+    .project-detail-page {
+      width: min(800px, 100%);
+      border: var(--pixel-border);
+      background: var(--purple-800);
+      box-shadow: 0 0 0 2px var(--gold), 10px 10px 0 #1e123a;
+      overflow: hidden;
+      animation: slideIn .2s ease;
+    }
+    @keyframes slideIn { from { transform: translateY(30px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+
+    .detail-titlebar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.55rem 1rem;
+      background: var(--purple-500);
+      border-bottom: 2px solid var(--purple-400);
+    }
+    .detail-titlebar .retro-btns { }
+    .detail-title { font-family: var(--silk); font-size: 0.52rem; color: #fff; letter-spacing: .1em; }
+
+    .close-detail {
+      width: 32px; height: 32px;
+      background: var(--red); border: var(--pixel-border);
+      color: #fff; font-family: var(--pixel); font-size: 0.55rem;
+      cursor: pointer; display: grid; place-items: center;
+      transition: transform .1s;
+    }
+    .close-detail:hover { transform: scale(1.1); }
+
+    .detail-body { padding: 2rem; }
+    .detail-level-tag {
+      font-family: var(--silk); font-size: 0.5rem; color: var(--gold);
+      letter-spacing: .14em; margin-bottom: 0.5rem;
+    }
+    .detail-project-title {
+      font-family: var(--pixel); font-size: clamp(1rem, 3vw, 1.5rem);
+      color: var(--white); line-height: 1.5; margin-bottom: 0.6rem;
+    }
+    .detail-role {
+      font-family: var(--silk); font-size: 0.5rem; color: var(--purple-300);
+      letter-spacing: .08em; margin-bottom: 1.25rem;
+    }
+    .detail-divider { border: none; border-top: 2px solid var(--purple-500); margin: 1rem 0; }
+    .detail-section-label {
+      font-family: var(--silk); font-size: 0.48rem; color: var(--gold);
+      letter-spacing: .12em; margin-bottom: 0.5rem;
+    }
+    .detail-summary {
+      font-family: var(--body); font-size: 1rem; color: rgba(240,234,255,.85); line-height: 1.7; margin-bottom: 1.25rem;
+    }
+    .detail-intent {
+      font-family: var(--body); font-size: 0.95rem; color: rgba(240,234,255,.7); line-height: 1.7; margin-bottom: 1.25rem;
+      border-left: 3px solid var(--purple-500); padding-left: 1rem;
+      font-style: italic;
+    }
+    .detail-status-chip {
+      display: inline-block;
+      font-family: var(--silk); font-size: 0.44rem; letter-spacing: .1em;
+      background: rgba(248,113,113,0.2); border: 1px solid var(--red); color: var(--red);
+      padding: 0.3rem 0.65rem; margin-bottom: 1.25rem;
+    }
+    .detail-assets-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .detail-asset-card {
+      border: var(--pixel-border); background: rgba(13,8,32,.8);
+      padding: 0.75rem; text-align: center;
+    }
+    .detail-asset-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .detail-asset-name { font-family: var(--silk); font-size: 0.42rem; color: var(--muted); letter-spacing: .06em; }
+    .detail-progress { display: flex; flex-direction: column; gap: 0.45rem; }
+
+    /* ═══ CONTACT ═══ */
+    .contact-card { padding: 1.75rem; }
+    .contact-text { font-family: var(--body); font-size: 1.05rem; color: rgba(240,234,255,.8); line-height: 1.75; margin-bottom: 1.5rem; }
+    .social-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+    .social-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.75rem 1rem; border: 2px solid var(--purple-500);
+      background: rgba(104,69,176,.1); text-decoration: none; transition: all .15s;
+    }
+    .social-item:hover { background: rgba(104,69,176,.3); border-color: var(--gold); transform: translateX(4px); }
+    .social-icon-box {
+      width: 36px; height: 36px; background: var(--purple-500); border: 2px solid var(--purple-400);
+      display: grid; place-items: center; flex-shrink: 0;
+      font-family: var(--silk); font-size: 0.62rem; color: var(--gold);
+    }
+    .social-name { font-family: var(--silk); font-size: 0.72rem; color: var(--white); letter-spacing: .08em; }
+    .social-copy { font-family: var(--silk); font-size: 0.58rem; color: var(--muted); margin-left: auto; }
+
+    /* ═══ PROJECT NAV FOOTER ═══ */
+    .proj-nav-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 2rem; padding-top: 1.5rem;
+      border-top: 2px solid var(--purple-500);
+      gap: 0.75rem; flex-wrap: wrap;
+    }
+    .proj-nav-btn {
+      font-family: var(--silk); font-size: 0.68rem; letter-spacing: .08em;
+      padding: 0.65rem 1.25rem; border: 2px solid;
+      cursor: pointer; text-decoration: none; display: inline-flex;
+      align-items: center; gap: 0.5rem; transition: all .15s;
+      background: none;
+    }
+    .proj-nav-btn.return { border-color: var(--purple-500); color: var(--purple-300); }
+    .proj-nav-btn.return:hover { border-color: var(--purple-300); color: var(--white); background: rgba(104,69,176,.3); }
+    .proj-nav-btn.next { background: var(--gold); border-color: var(--gold-dim); color: #000; }
+    .proj-nav-btn.next:hover { transform: translateX(3px); box-shadow: -3px 3px 0 rgba(0,0,0,0.4); }
+    .proj-nav-btn.prev { border-color: var(--purple-500); color: var(--muted); }
+    .proj-nav-btn.prev:hover { border-color: var(--white); color: var(--white); }
+
+    /* mission complete state on level card */
+    .level-card.mission-complete {
+      border-color: var(--green) !important;
+      box-shadow: 0 0 0 2px var(--green), 6px 6px 0 #0d2a14 !important;
+      background: rgba(74,222,128,0.07) !important;
+    }
+    .mission-complete-badge {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-family: var(--silk); font-size: 0.55rem; color: var(--green);
+      background: rgba(74,222,128,0.15); border: 1px solid var(--green);
+      padding: 0.2rem 0.5rem; margin-top: 0.5rem;
+      animation: pulse-green 2s ease-in-out infinite;
+    }
+    @keyframes pulse-green { 0%,100%{opacity:1} 50%{opacity:0.6} }
+
+    /* ═══ SKILLS LOADOUT ═══ */
+    .skills-section-wrap { padding: 1.5rem 1.75rem; }
+    .skills-loadout {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+    }
+    .skills-char {
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      flex-shrink: 0;
+    }
+    .skills-char-sprite {
+      width: 64px; height: 64px;
+      image-rendering: pixelated;
+      background: url('./assets/photo.jpg') no-repeat center/cover;
+      border: var(--pixel-border);
+    }
+    .skills-char-label {
+      font-family: var(--silk); font-size: 0.52rem;
+      color: var(--gold); text-align: center; line-height: 1.6; letter-spacing: .06em;
+    }
+    .skills-content { flex: 1; }
+    .skills-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 0.85rem;
+    }
+    .skills-title {
+      font-family: var(--silk); font-size: 0.72rem;
+      color: var(--white); letter-spacing: .1em;
+    }
+    .xp-badge {
+      font-family: var(--silk); font-size: 0.62rem;
+      background: rgba(244,200,66,0.15); border: 2px solid var(--gold);
+      color: var(--gold); padding: 0.2rem 0.6rem; letter-spacing: .08em;
+    }
+    .skills-weapons {
+      display: flex; flex-direction: column; gap: 0.6rem;
+      margin-bottom: 0.85rem;
+    }
+    .weapon-item {
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .weapon-icon { width: 22px; height: 22px; flex-shrink: 0; image-rendering: pixelated; }
+    .weapon-icon svg { width: 100%; height: 100%; }
+    .weapon-name {
+      font-family: var(--silk); font-size: 0.62rem;
+      color: var(--white); width: 90px; flex-shrink: 0;
+    }
+    .weapon-pips { display: flex; gap: 3px; }
+    .weapon-pip {
+      width: 10px; height: 10px;
+      border: 2px solid var(--purple-500);
+    }
+    .weapon-pip.filled { background: var(--gold); border-color: var(--gold-dim); }
+    .weapon-pip.empty  { background: transparent; }
+    .weapon-level {
+      font-family: var(--silk); font-size: 0.58rem;
+      color: var(--gold); margin-left: 0.4rem;
+    }
+    .skills-divider {
+      height: 2px; background: var(--purple-500);
+      margin: 0.75rem 0;
+    }
+    .skills-passions { display: flex; flex-direction: column; gap: 0.55rem; }
+    .passion-item { display: flex; align-items: center; gap: 0.75rem; }
+    .passion-name {
+      font-family: var(--silk); font-size: 0.62rem;
+      color: var(--purple-300); width: 115px; flex-shrink: 0;
+    }
+    .passion-hearts { display: flex; gap: 3px; }
+    .passion-hearts svg { width: 18px; height: 18px; image-rendering: pixelated; }
+
+    /* ═══ PORTAL NODE (CONTACT in level map) ═══ */
+    .level-node.portal { margin-top: 0.5rem; }
+    .level-badge.portal-badge {
+      width: 52px; height: 52px;
+      background: rgba(244,200,66,0.15);
+      border-color: var(--gold);
+      color: var(--gold);
+      box-shadow: 0 0 20px rgba(244,200,66,0.5), 0 0 40px rgba(244,200,66,0.2);
+      font-size: 0.75rem;
+      animation: portal-pulse 2s ease-in-out infinite;
+    }
+    @keyframes portal-pulse {
+      0%,100% { box-shadow: 0 0 20px rgba(244,200,66,0.5), 0 0 40px rgba(244,200,66,0.2); }
+      50%      { box-shadow: 0 0 30px rgba(244,200,66,0.8), 0 0 60px rgba(244,200,66,0.4); }
+    }
+    .level-card.portal-card {
+      border-color: var(--gold) !important;
+      box-shadow: 0 0 0 2px var(--gold), 6px 6px 0 rgba(244,200,66,0.15) !important;
+      background: rgba(244,200,66,0.07) !important;
+    }
+    .level-card.portal-card .level-label { color: var(--gold); }
+    .level-card.portal-card .level-title { color: var(--gold); }
+    .portal-social-row {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.6rem;
+    }
+    .portal-social-chip {
+      font-family: var(--silk); font-size: 0.55rem; letter-spacing: .06em;
+      padding: 0.2rem 0.55rem; border: 1px solid var(--gold);
+      color: var(--gold); background: rgba(244,200,66,0.1);
+    }
+    .goto-project-btn.portal-btn {
+      border-color: var(--gold) !important;
+      color: var(--gold) !important;
+      background: rgba(244,200,66,0.1) !important;
+    }
+    .goto-project-btn.portal-btn:hover {
+      background: rgba(244,200,66,0.25) !important;
+    }
+
+    /* ═══ VICTORY BANNER ═══ */
+    /* ═══ PIXEL SIDE TOAST (Victory) ═══ */
+    #pixel-toast {
+      position: fixed;
+      right: -420px;
+      bottom: 2rem;
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--purple-800);
+      border: 3px solid var(--gold);
+      box-shadow: -6px 6px 0 rgba(244,200,66,0.25), 0 0 30px rgba(244,200,66,0.3);
+      padding: 1rem 1.4rem;
+      min-width: 280px;
+      max-width: 340px;
+      transition: right 0.55s cubic-bezier(0.22,1,0.36,1);
+    }
+    #pixel-toast.slide-in  { right: 1.5rem; }
+    #pixel-toast.slide-out { right: -420px; transition: right 0.4s ease-in; }
+    .toast-trophy {
+      font-size: 2.2rem;
+      animation: toast-bounce 0.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes toast-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+    .toast-body { flex: 1; }
+    .toast-title {
+      font-family: var(--pixel);
+      font-size: 0.7rem;
+      color: var(--gold);
+      line-height: 1.8;
+      letter-spacing: .06em;
+    }
+    .toast-sub {
+      font-family: var(--silk);
+      font-size: 0.58rem;
+      color: var(--purple-300);
+      letter-spacing: .08em;
+      margin-top: 0.15rem;
+    }
+    .toast-stars {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-top: 0.3rem;
+    }
+    /* scanline flicker on toast */
+    #pixel-toast::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg,rgba(0,0,0,0.07) 0px,rgba(0,0,0,0.07) 1px,transparent 1px,transparent 3px);
+      pointer-events: none;
+    }
+
+    /* PIXEL CANVAS */
+    #pixel-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.45; }
+    .topbar, .page-shell, .project-detail-overlay { position: relative; z-index: 1; }
+    .preview-banner { z-index: 300; }
+
+    /* ═══ INTRO SPLASH SCREEN ═══ */
+    #intro-splash {
+      position: fixed; inset: 0; z-index: 99999;
+      background: #0d0820;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.6s ease;
+    }
+    #intro-splash.fade-out { opacity: 0; pointer-events: none; }
+    .intro-crt {
+      position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 3px);
+      z-index: 1;
+    }
+    .intro-content { position: relative; z-index: 2; text-align: center; }
+    .intro-logo {
+      font-family: var(--pixel); font-size: clamp(1.4rem, 4vw, 2.4rem);
+      color: var(--white); line-height: 1.6;
+      text-shadow: 0 0 20px rgba(149,102,240,0.8), 0 0 40px rgba(149,102,240,0.4);
+      margin-bottom: 0.5rem;
+    }
+    .intro-logo span { color: var(--gold); }
+    .intro-sub {
+      font-family: var(--silk); font-size: 0.72rem;
+      color: var(--purple-300); letter-spacing: .15em;
+      margin-bottom: 2.5rem;
+    }
+    .intro-press {
+      font-family: var(--silk); font-size: 0.8rem;
+      color: var(--gold); letter-spacing: .2em;
+      animation: intro-blink 1s step-end infinite;
+      border: 2px solid var(--gold);
+      padding: 0.75rem 2.5rem;
+      background: rgba(244,200,66,0.08);
+    }
+    @keyframes intro-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .intro-copyright {
+      position: absolute; bottom: 1.5rem; left: 0; right: 0;
+      font-family: var(--silk); font-size: 0.55rem;
+      color: var(--muted); letter-spacing: .1em; text-align: center;
+    }
+    .intro-pixel-bar {
+      display: flex; gap: 4px; margin-bottom: 2rem;
+    }
+    .intro-pixel-bar span {
+      display: block; width: 12px; height: 12px;
+      animation: bar-dance 1.2s ease-in-out infinite;
+    }
+    .intro-pixel-bar span:nth-child(1){background:#9566f0;animation-delay:0s}
+    .intro-pixel-bar span:nth-child(2){background:#f4c842;animation-delay:.15s}
+    .intro-pixel-bar span:nth-child(3){background:#4ade80;animation-delay:.3s}
+    .intro-pixel-bar span:nth-child(4){background:#f4c842;animation-delay:.45s}
+    .intro-pixel-bar span:nth-child(5){background:#9566f0;animation-delay:.6s}
+    @keyframes bar-dance { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(2.2)} }
+
+    /* RESPONSIVE */
+    @media (max-width: 760px) {
+      .page-shell { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .level-node { grid-template-columns: 1fr; }
+      .level-node .level-icon, .level-node .level-empty { display: none; }
+      .level-path { display: none; }
+      .level-node.left .level-card,
+      .level-node.right .level-card { grid-column: 1; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="pixel-canvas"></canvas>
+
+
+<!-- INTRO SPLASH -->
+<div id="intro-splash" onclick="startGame()">
+  <div class="intro-crt"></div>
+  <div class="intro-content">
+    <div class="intro-pixel-bar">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="intro-logo">AHMED<br><span>SAEED</span><br>.EXE</div>
+    <div class="intro-sub">PORTFOLIO v2.0 — DESIGN STUDENT</div>
+    <div class="intro-press">▶ PRESS START</div>
+  </div>
+  <div class="intro-copyright">&copy; 2025 SAEED.EXE — INNOVATION UNIVERSITY — ALL RIGHTS RESERVED</div>
+</div>
+
+<!-- VICTORY BANNER -->
+<!-- PIXEL SIDE TOAST -->
+<div id="pixel-toast">
+  <div class="toast-trophy">🏆</div>
+  <div class="toast-body">
+    <div class="toast-title">ALL MISSIONS COMPLETE!</div>
+    <div class="toast-sub">PLAYER 01 / SAEED — PORTFOLIO CLEARED</div>
+    <div class="toast-stars">★ ★ ★</div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="hud-left">
+    <a class="brand" href="#">SAEED.EXE</a>
+    <span class="press-start">▶ PRESS START</span>
+  </div>
+  <nav class="topnav">
+    <a href="#about-sec">About</a>
+    <a href="#philosophy-sec">Philosophy</a>
+    <a href="#projects-sec">Missions</a>
+    <a href="#contact-sec">Connect</a>
+  </nav>
+  <div class="hud-score">SCORE: <span id="score-val">000000</span></div>
+</header>
+
+<!-- PAGE SHELL -->
+<div class="page-shell">
+
+  <!-- ★ STICKY SIDEBAR ★ -->
+  <aside class="sidebar">
+    <!-- Profile Card -->
+    <div class="profile-hud">
+      <div class="hud-header">
+        <span>PROFILE CARD</span>
+        <span style="color:var(--purple-300)">LVL 02</span>
+      </div>
+      <div class="avatar-photo-wrap">
+        <img src="./assets/photo.jpg" alt="Ahmed Saeed" />
+        <div class="avatar-photo-label">PLAYER 01 / SAEED</div>
+      </div>
+      <div class="hud-meta">
+        <div class="hud-meta-row"><span>Alias</span><span>Saeed</span></div>
+        <div class="hud-meta-row"><span>Base</span><span>Innovation U.</span></div>
+        <div class="hud-meta-row"><span>Role</span><span>Design Student</span></div>
+        <div class="hud-meta-row"><span>Stage</span><span>Year 02</span></div>
+        <div class="hud-meta-row"><span>∞ EXP</span><span style="color:var(--gold)">Unlimited</span></div>
+      </div>
+      <div class="stat-bars">
+        <div class="stat-row">
+          <div class="stat-label" style="color:var(--green)">HP</div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill hp"></div></div>
+          <div class="stat-val" style="color:var(--green)">88</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label" style="color:var(--gold)">XP</div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill xp"></div></div>
+          <div class="stat-val" style="color:var(--gold)">∞</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label" style="color:var(--purple-300)">MP</div>
+          <div class="stat-bar-bg"><div class="stat-bar-fill mp"></div></div>
+          <div class="stat-val" style="color:var(--purple-300)">72</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools Card -->
+    <div class="tools-hud">
+      <div class="hud-header" style="margin-bottom:0.65rem"><span>TOOLS</span><span style="color:var(--purple-300)">EQUIPPED</span></div>
+      <div class="tool-row">
+        <span class="tool-name">3DS Max</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:80%;background:var(--gold)"></div></div>
+        <span class="tool-lv" style="color:var(--gold)">LV4</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-name">AutoCAD</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:80%;background:var(--gold)"></div></div>
+        <span class="tool-lv" style="color:var(--gold)">LV4</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-name">Blender</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:40%;background:var(--purple-300)"></div></div>
+        <span class="tool-lv" style="color:var(--purple-300)">LV2</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-name">Revit</span>
+        <div class="tool-bar-bg"><div class="tool-bar-fill" style="width:20%;background:var(--muted)"></div></div>
+        <span class="tool-lv" style="color:var(--muted)">LV1</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- HERO -->
+    <section class="panel hero-panel" style="position:relative">
+      <div class="hero-system-bar">LANDING PAGE</div>
+      <h1 class="hero-title">Ahmed Saeed</h1>
+      <p class="hero-subtitle">Second-year student at <span>Innovation University</span></p>
+      <p class="hero-description">Building visual work that feels honest, useful, and intentional.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects-sec">View Missions</a>
+        <a class="btn btn-secondary" href="#contact-sec">Scan / Connect</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about-sec" class="panel">
+      <div class="retro-titlebar">
+        <div class="retro-btns"><span class="retro-btn c"></span><span class="retro-btn m"></span><span class="retro-btn x"></span></div>
+        <div class="retro-title">PLAYER 01 / ABOUT_SAEED.exe</div>
+        <div></div>
+      </div>
+      <div class="retro-body">
+        <div class="section-heading">
+          <p class="eyebrow">PLAYER 01 / ABOUT</p>
+          <h2>About Saeed</h2>
+        </div>
+        <div class="dialogue-box">
+          <div class="dialogue-portrait"></div>
+          <div class="dialogue-name">SAEED.EXE</div>
+          <p class="dialogue-text" id="about-text"></p>
+          <span class="dialogue-advance">▼ MORE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS LOADOUT -->
+    <section id="skills-sec" class="panel">
+      <div class="retro-titlebar">
+        <div class="retro-btns"><span class="retro-btn c"></span><span class="retro-btn m"></span><span class="retro-btn x"></span></div>
+        <div class="retro-title">SKILLS CARD / LOADOUT.exe</div>
+        <div></div>
+      </div>
+      <div class="skills-section-wrap">
+        <div class="section-heading">
+          <p class="eyebrow">PLAYER STATS / SKILLS &amp; PASSIONS</p>
+          <h2>Skills Loadout</h2>
+        </div>
+        <div class="skills-loadout">
+          <div class="skills-char">
+            <div class="skills-char-sprite"></div>
+            <span class="skills-char-label">PLAYER 01<br>SAEED</span>
+          </div>
+          <div class="skills-content">
+            <div class="skills-header">
+              <span class="skills-title">&#9876; SKILLS CARD</span>
+              <span class="xp-badge">XP: <span>&#8734;</span></span>
+            </div>
+            <!-- WEAPONS / TOOLS -->
+            <div class="skills-weapons">
+              <div class="weapon-item">
+                <span class="weapon-name">3DS Max</span>
+                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span></div>
+                <span class="weapon-level">LVL 4</span>
+              </div>
+              <div class="weapon-item">
+                <span class="weapon-name">AutoCAD</span>
+                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span></div>
+                <span class="weapon-level">LVL 4</span>
+              </div>
+              <div class="weapon-item">
+                <span class="weapon-name">Blender</span>
+                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span></div>
+                <span class="weapon-level">LVL 2</span>
+              </div>
+              <div class="weapon-item">
+                <span class="weapon-name">Revit</span>
+                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span></div>
+                <span class="weapon-level">LVL 1</span>
+              </div>
+            </div>
+            <div class="skills-divider"></div>
+            <!-- PASSIONS / HEARTS -->
+            <div class="skills-passions" id="preview-passions">
+              <!-- filled by JS below -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy-sec" class="panel">
+      <div class="retro-titlebar">
+        <div class="retro-btns"><span class="retro-btn c"></span><span class="retro-btn m"></span><span class="retro-btn x"></span></div>
+        <div class="retro-title">CORE CODE / PHILOSOPHY.ini</div>
+        <div></div>
+      </div>
+      <div class="retro-body">
+        <div class="section-heading">
+          <p class="eyebrow">CORE CODE / PHILOSOPHY</p>
+          <h2>Design Philosophy</h2>
+        </div>
+        <div class="quote-card">
+          <div class="quote-mark">"</div>
+          <p class="quote-text" id="philosophy-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS — LEVEL MAP -->
+    <section id="projects-sec" class="panel" style="padding:1.75rem">
+      <div class="section-heading">
+        <p class="eyebrow">MISSION LOG / SELECTED PROJECTS</p>
+        <h2>Selected Projects</h2>
+      </div>
+      <div class="level-map">
+        <div class="level-path"></div>
+
+        <div class="level-node left">
+          <div class="level-card" onclick="playPixelSound('select')">
+            <div class="level-label">LEVEL 01 — BRAND</div>
+            <div class="level-title">ZaraZ Menswear Rebrand</div>
+            <p class="level-summary">A retail identity project focused on sharpening perception, masculinity, and store presence.</p>
+            <div class="level-role">Brand direction / visual identity</div>
+            <div class="progress-list">
+              <div class="progress-row">
+                <span class="progress-label">Design Level:</span>
+                <div class="progress-bar-bg"><div class="progress-fill" style="width:85%"></div></div>
+                <span class="progress-pct">85%</span>
+              </div>
+              <div class="progress-row">
+                <span class="progress-label">Render Magic:</span>
+                <div class="progress-bar-bg"><div class="progress-fill" style="width:70%;background:var(--gold)"></div></div>
+                <span class="progress-pct">70%</span>
+              </div>
+            </div>
+            <a class="goto-project-btn" href="#project-zaraz">▶ VIEW FULL MISSION FILE ↓</a>
+          </div>
+          <div class="level-icon"><div class="level-badge">L1</div></div>
+          <div class="level-empty"></div>
+        </div>
+
+        <div class="level-node right">
+          <div class="level-empty"></div>
+          <div class="level-icon"><div class="level-badge">L2</div></div>
+          <div class="level-card" onclick="playPixelSound('select')">
+            <div class="level-label">LEVEL 02 — INTERIOR</div>
+            <div class="level-title">Wabi-Sabi Style Kitchen</div>
+            <p class="level-summary">An interior concept built around calm imperfection, material balance, and spatial mood.</p>
+            <div class="level-role">Concept design / spatial mood</div>
+            <div class="progress-list">
+              <div class="progress-row">
+                <span class="progress-label">Design Level:</span>
+                <div class="progress-bar-bg"><div class="progress-fill" style="width:90%"></div></div>
+                <span class="progress-pct">90%</span>
+              </div>
+              <div class="progress-row">
+                <span class="progress-label">Atmosphere:</span>
+                <div class="progress-bar-bg"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+                <span class="progress-pct">100%</span>
+              </div>
+            </div>
+            <a class="goto-project-btn" href="#project-wabisabi">▶ VIEW FULL MISSION FILE ↓</a>
+          </div>
+        </div>
+
+        <div class="level-node left">
+          <div class="level-card" onclick="playPixelSound('select')">
+            <div class="level-label">LEVEL 03 — EXPERIENCE</div>
+            <div class="level-title">El Abd Booth Concept</div>
+            <p class="level-summary">A personal concept for a branded booth developed through independent thinking and presentation strength.</p>
+            <div class="level-role">Personal concept / booth experience</div>
+            <div class="progress-list">
+              <div class="progress-row">
+                <span class="progress-label">Concept Score:</span>
+                <div class="progress-bar-bg"><div class="progress-fill" style="width:95%;background:var(--gold)"></div></div>
+                <span class="progress-pct">95%</span>
+              </div>
+              <div class="progress-row">
+                <span class="progress-label">Presentation:</span>
+                <div class="progress-bar-bg"><div class="progress-fill" style="width:80%"></div></div>
+                <span class="progress-pct">80%</span>
+              </div>
+            </div>
+            <a class="goto-project-btn" href="#project-elabd">▶ VIEW FULL MISSION FILE ↓</a>
+          </div>
+          <div class="level-icon"><div class="level-badge">L3</div></div>
+          <div class="level-empty"></div>
+        </div>
+
+        <!-- PORTAL NODE — CONTACT -->
+        <div class="level-node right portal">
+          <div class="level-empty"></div>
+          <div class="level-icon"><div class="level-badge portal-badge">⚡</div></div>
+          <div class="level-card portal-card">
+            <div class="level-label">PORTAL — CONNECT</div>
+            <div class="level-title">Scan / Open / Connect</div>
+            <p class="level-summary">Reach out, collaborate, and open a direct channel to Saeed.</p>
+            <div class="portal-social-row">
+              <span class="portal-social-chip">in LinkedIn</span>
+              <span class="portal-social-chip">Be Behance</span>
+              <span class="portal-social-chip">IG Instagram</span>
+            </div>
+            <a class="goto-project-btn portal-btn" href="#contact-sec" onclick="playPixelSound('select')">⚡ OPEN PORTAL ↓</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ FULL PROJECT PAGES ═══════════ -->
+
+    <!-- PROJECT 01: ZaraZ -->
+    <section id="project-zaraz" class="project-page">
+      <div class="project-page-titlebar">
+        <div class="retro-btns"><span class="retro-btn c"></span><span class="retro-btn m"></span><span class="retro-btn x"></span></div>
+        <div class="project-page-title-text">MISSION FILE 01 — ZARAZ MENSWEAR REBRAND</div>
+        <div style="font-family:var(--silk);font-size:0.62rem;color:#000">LVL 01</div>
+      </div>
+      <div class="project-page-body">
+        <div class="proj-level-tag">LEVEL 01 — BRAND IDENTITY</div>
+        <div class="proj-title">ZaraZ Menswear Rebrand</div>
+        <div class="proj-role">Brand direction / visual identity</div>
+        <div class="proj-status">⚠ STATUS: AWAITING FULL CASE STUDY</div>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// MISSION BRIEF</div>
+        <p class="proj-summary">A retail identity project focused on sharpening perception, masculinity, and store presence. The goal was to transform an existing clothing brand into a bold, memorable identity that communicates quality and character to a modern male audience.</p>
+        <div class="proj-section-label">// DESIGN INTENT</div>
+        <p class="proj-intent">Prepare a strong frame for strategy, identity assets, and before/after transformation once the full materials are added. The structure is built to receive the final brand documentation without disrupting the portfolio layout.</p>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// ASSET INVENTORY</div>
+        <div class="proj-assets">
+          <div class="proj-asset"><span class="proj-asset-icon">🎨</span><div class="proj-asset-name">LOGO PASSES</div></div>
+          <div class="proj-asset"><span class="proj-asset-icon">🏪</span><div class="proj-asset-name">STORE TOUCHPOINTS</div></div>
+          <div class="proj-asset"><span class="proj-asset-icon">🎨</span><div class="proj-asset-name">COLOR SYSTEM</div></div>
+        </div>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// COMPLETION STATS</div>
+        <div class="proj-stats">
+          <div class="proj-stat-row"><span class="proj-stat-label">Design Level:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:85%;background:var(--purple-400)"></div></div><span class="proj-stat-pct">85%</span></div>
+          <div class="proj-stat-row"><span class="proj-stat-label">Render Magic:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:70%;background:var(--gold)"></div></div><span class="proj-stat-pct">70%</span></div>
+          <div class="proj-stat-row"><span class="proj-stat-label">Brand Impact:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:90%;background:var(--green)"></div></div><span class="proj-stat-pct">90%</span></div>
+        </div>
+        <!-- NAV FOOTER P1 -->
+        <div class="proj-nav-footer">
+          <button class="proj-nav-btn return" onclick="returnToMap('zaraz')">⬆ RETURN TO MAP</button>
+          <button class="proj-nav-btn next" onclick="goToProject('wabisabi','zaraz')">NEXT MISSION ▶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 02: Wabi-Sabi -->
+    <section id="project-wabisabi" class="project-page">
+      <div class="project-page-titlebar">
+        <div class="retro-btns"><span class="retro-btn c"></span><span class="retro-btn m"></span><span class="retro-btn x"></span></div>
+        <div class="project-page-title-text">MISSION FILE 02 — WABI-SABI STYLE KITCHEN</div>
+        <div style="font-family:var(--silk);font-size:0.62rem;color:#000">LVL 02</div>
+      </div>
+      <div class="project-page-body">
+        <div class="proj-level-tag">LEVEL 02 — INTERIOR DESIGN</div>
+        <div class="proj-title">Wabi-Sabi Style Kitchen</div>
+        <div class="proj-role">Concept design / spatial mood</div>
+        <div class="proj-status">⚠ STATUS: AWAITING FULL CASE STUDY</div>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// MISSION BRIEF</div>
+        <p class="proj-summary">An interior concept built around the Japanese philosophy of Wabi-Sabi — finding beauty in imperfection and simplicity. The kitchen was designed to balance natural materials, calm textures, and a warm atmosphere that invites presence without noise.</p>
+        <div class="proj-section-label">// DESIGN INTENT</div>
+        <p class="proj-intent">Reserve space for layout sketches, mood framing, and material storytelling without changing the final portfolio structure. Every decision in this space was made to support the feeling, not the form.</p>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// ASSET INVENTORY</div>
+        <div class="proj-assets">
+          <div class="proj-asset"><span class="proj-asset-icon">🌿</span><div class="proj-asset-name">MOOD FRAME</div></div>
+          <div class="proj-asset"><span class="proj-asset-icon">🧱</span><div class="proj-asset-name">MATERIAL BOARD</div></div>
+          <div class="proj-asset"><span class="proj-asset-icon">🖼️</span><div class="proj-asset-name">SCENE COMPOSITION</div></div>
+        </div>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// COMPLETION STATS</div>
+        <div class="proj-stats">
+          <div class="proj-stat-row"><span class="proj-stat-label">Design Level:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:90%;background:var(--purple-400)"></div></div><span class="proj-stat-pct">90%</span></div>
+          <div class="proj-stat-row"><span class="proj-stat-label">Atmosphere:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:100%;background:var(--green)"></div></div><span class="proj-stat-pct">100%</span></div>
+          <div class="proj-stat-row"><span class="proj-stat-label">Material Study:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:80%;background:var(--gold)"></div></div><span class="proj-stat-pct">80%</span></div>
+        </div>
+        <!-- NAV FOOTER P2 -->
+        <div class="proj-nav-footer">
+          <button class="proj-nav-btn prev" onclick="goToProject('zaraz',null)">◀ PREV MISSION</button>
+          <button class="proj-nav-btn return" onclick="returnToMap('wabisabi')">⬆ RETURN TO MAP</button>
+          <button class="proj-nav-btn next" onclick="goToProject('elabd','wabisabi')">NEXT MISSION ▶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 03: El Abd Booth -->
+    <section id="project-elabd" class="project-page">
+      <div class="project-page-titlebar">
+        <div class="retro-btns"><span class="retro-btn c"></span><span class="retro-btn m"></span><span class="retro-btn x"></span></div>
+        <div class="project-page-title-text">MISSION FILE 03 — EL ABD BOOTH CONCEPT</div>
+        <div style="font-family:var(--silk);font-size:0.62rem;color:#000">LVL 03</div>
+      </div>
+      <div class="project-page-body">
+        <div class="proj-level-tag">LEVEL 03 — SPATIAL EXPERIENCE</div>
+        <div class="proj-title">El Abd Booth Concept</div>
+        <div class="proj-role">Personal concept / booth experience</div>
+        <div class="proj-status" style="background:rgba(74,222,128,0.15);border-color:var(--green);color:var(--green)">✓ STATUS: MERIT-GRADE</div>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// MISSION BRIEF</div>
+        <p class="proj-summary">A personal concept for a branded exhibition booth, developed through independent thinking and creative direction. The design focused on visitor flow, brand moments, and creating a memorable spatial experience that stands out on a crowded exhibition floor.</p>
+        <div class="proj-section-label">// DESIGN INTENT</div>
+        <p class="proj-intent">Highlight that this piece came from personal direction, with room for the final renders and explanation after the detailed material arrives. This is proof that vision precedes tools — the concept came first.</p>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// ASSET INVENTORY</div>
+        <div class="proj-assets">
+          <div class="proj-asset"><span class="proj-asset-icon">📐</span><div class="proj-asset-name">BOOTH ZONING</div></div>
+          <div class="proj-asset"><span class="proj-asset-icon">✨</span><div class="proj-asset-name">BRAND MOMENTS</div></div>
+          <div class="proj-asset"><span class="proj-asset-icon">🚶</span><div class="proj-asset-name">VISITOR FLOW</div></div>
+        </div>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// COMPLETION STATS</div>
+        <div class="proj-stats">
+          <div class="proj-stat-row"><span class="proj-stat-label">Concept Score:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:95%;background:var(--gold)"></div></div><span class="proj-stat-pct">95%</span></div>
+          <div class="proj-stat-row"><span class="proj-stat-label">Presentation:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:80%;background:var(--purple-400)"></div></div><span class="proj-stat-pct">80%</span></div>
+          <div class="proj-stat-row"><span class="proj-stat-label">Originality:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:100%;background:var(--green)"></div></div><span class="proj-stat-pct">100%</span></div>
+        </div>
+        <!-- NAV FOOTER P3 -->
+        <div class="proj-nav-footer">
+          <button class="proj-nav-btn prev" onclick="goToProject('wabisabi',null)">◀ PREV MISSION</button>
+          <button class="proj-nav-btn return" style="border-color:var(--gold);color:var(--gold)" onclick="finishGame()">🏆 FINAL MISSION COMPLETE</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact-sec" class="panel">
+      <div class="retro-titlebar">
+        <div class="retro-btns"><span class="retro-btn c"></span><span class="retro-btn m"></span><span class="retro-btn x"></span></div>
+        <div class="retro-title">PORTAL / CONTACT.exe</div>
+        <div></div>
+      </div>
+      <div class="retro-body contact-card">
+        <div class="section-heading">
+          <p class="eyebrow">PORTAL / CONTACT & SOCIALS</p>
+          <h2>Scan, Open, Connect</h2>
+        </div>
+        <p class="contact-text">This page is prepared for final project presentation and can be expanded later with full case studies and visuals.</p>
+        <div class="social-grid">
+          <a class="social-item" href="https://www.linkedin.com/in/ahmed-saeed-682673338" target="_blank">
+            <div class="social-icon-box">in</div>
+            <span class="social-name">LinkedIn</span>
+            <span class="social-copy">Professional profile</span>
+          </a>
+          <a class="social-item" href="https://www.behance.net/ahmedsaeed375" target="_blank">
+            <div class="social-icon-box">Be</div>
+            <span class="social-name">Behance</span>
+            <span class="social-copy">Creative work archive</span>
+          </a>
+          <a class="social-item" href="https://www.instagram.com/ahmed_saeed2_0" target="_blank">
+            <div class="social-icon-box">IG</div>
+            <span class="social-name">Instagram</span>
+            <span class="social-copy">Updates & visual snippets</span>
+          </a>
+          <a class="social-item" href="https://github.com/ahmedsaeedq11-arch/SaeeedZzzz" target="_blank">
+            <div class="social-icon-box">GH</div>
+            <span class="social-name">GitHub</span>
+            <span class="social-copy">Source repository</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* ════════════════════════════════
+   🔊 PIXEL SOUND ENGINE
+════════════════════════════════ */
+const AudioCtx = window.AudioContext || window.webkitAudioContext;
+let _actx = null;
+function getACtx() { if (!_actx) _actx = new AudioCtx(); return _actx; }
+
+/* ════════════════════════════════
+   🎮 INTRO / START GAME
+════════════════════════════════ */
+function startGame() {
+  playPixelSound('intro');
+  const splash = document.getElementById('intro-splash');
+  splash.classList.add('fade-out');
+  setTimeout(() => { splash.style.display = 'none'; }, 650);
+}
+
+/* ════════════════════════════════
+   🏆 FINISH GAME — FINAL LEVEL
+════════════════════════════════ */
+let gameFinished = false;
+function finishGame() {
+  // 1. Mark last mission complete
+  markMissionComplete('elabd');
+  // 2. Play victory fanfare
+  playPixelSound('victory');
+  // 3. Slide in the pixel side toast
+  showPixelToast();
+  // 4. Smooth scroll to contact after a short delay
+  setTimeout(() => {
+    const contact = document.getElementById('contact-sec');
+    if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 600);
+}
+
+function showPixelToast() {
+  if (gameFinished) return;
+  gameFinished = true;
+  const toast = document.getElementById('pixel-toast');
+  // slide in
+  toast.classList.remove('slide-out');
+  toast.classList.add('slide-in');
+  // auto-dismiss after 4s
+  setTimeout(() => {
+    toast.classList.remove('slide-in');
+    toast.classList.add('slide-out');
+  }, 4200);
+}
+
+function playPixelSound(type) {
+  try {
+    const ctx = getACtx();
+    const g = ctx.createGain();
+    g.connect(ctx.destination);
+
+    if (type === 'select') {
+      // Two ascending tones — classic menu confirm
+      [0, 0.09].forEach((t, i) => {
+        const o = ctx.createOscillator();
+        o.type = 'square';
+        o.frequency.setValueAtTime(i === 0 ? 440 : 660, ctx.currentTime + t);
+        g.gain.setValueAtTime(0.15, ctx.currentTime + t);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.13);
+        o.connect(g); o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + 0.14);
+      });
+    } else if (type === 'complete') {
+      // Ascending fanfare — mission cleared!
+      [262, 330, 392, 523, 784].forEach((freq, i) => {
+        const t = i * 0.11;
+        const o = ctx.createOscillator();
+        o.type = 'square';
+        o.frequency.setValueAtTime(freq, ctx.currentTime + t);
+        g.gain.setValueAtTime(0.13, ctx.currentTime + t);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.13);
+        o.connect(g); o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + 0.15);
+      });
+    } else if (type === 'nav') {
+      // Soft descending whoosh — navigating
+      const o = ctx.createOscillator();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(660, ctx.currentTime);
+      o.frequency.exponentialRampToValueAtTime(220, ctx.currentTime + 0.18);
+      g.gain.setValueAtTime(0.1, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+      o.connect(g); o.start(ctx.currentTime); o.stop(ctx.currentTime + 0.22);
+
+    } else if (type === 'intro') {
+      // 🍄 SUPER MARIO BROS — OVERWORLD THEME (Full opening)
+      // NES-accurate: Square wave melody + Triangle bass
+      const BPM = 200;
+      const B   = 60 / BPM;   // quarter note = 0.3s
+      const E   = B / 2;      // eighth note  = 0.15s
+      const S   = B / 4;      // sixteenth    = 0.075s
+      const D   = B * 1.5;    // dotted quarter
+
+      // ─── MELODY (square wave) ───────────────────────────
+      // [frequency, start_seconds, duration_seconds]
+      const melody = [
+        // ── INTRO MOTIF ──
+        [659.25,  0,        E * 0.8],   // E5
+        [659.25,  E * 2,    E * 0.8],   // E5
+        [659.25,  E * 4,    E * 0.8],   // E5
+        [523.25,  E * 5,    E * 0.8],   // C5
+        [659.25,  E * 6,    B * 0.8],   // E5
+        [783.99,  E * 8,    D * 0.9],   // G5  ← long
+        [392.00,  E * 11,   D * 0.9],   // G4  ← low
+
+        // ── MAIN LINE 1 ──
+        [523.25,  E * 14,   D * 0.85],  // C5
+        [392.00,  E * 17,   S * 0.8],   // G4  (16th)
+        [329.63,  E * 18.5, D * 0.85],  // E4
+        [440.00,  E * 21,   B * 0.85],  // A4
+        [493.88,  E * 23,   B * 0.85],  // B4
+        [466.16,  E * 25,   E * 0.85],  // Bb4
+        [440.00,  E * 26,   B * 0.85],  // A4
+
+        // ── TRIPLET ASCENT ──
+        [392.00,  E * 28,   E * 0.85],  // G4
+        [659.25,  E * 29,   E * 0.85],  // E5
+        [783.99,  E * 30,   E * 0.85],  // G5
+        [880.00,  E * 31,   B * 0.85],  // A5
+        [698.46,  E * 33,   E * 0.85],  // F5
+        [783.99,  E * 34,   E * 0.85],  // G5
+        [659.25,  E * 36,   B * 0.85],  // E5
+        [523.25,  E * 38,   E * 0.85],  // C5
+        [587.33,  E * 39,   E * 0.85],  // D5
+        [493.88,  E * 40,   D * 0.85],  // B4
+
+        // ── MAIN LINE 2 ──
+        [523.25,  E * 43,   D * 0.85],  // C5
+        [392.00,  E * 46,   S * 0.8],   // G4  (16th)
+        [329.63,  E * 47.5, D * 0.85],  // E4
+        [440.00,  E * 50,   B * 0.85],  // A4
+        [493.88,  E * 52,   B * 0.85],  // B4
+        [466.16,  E * 54,   E * 0.85],  // Bb4
+        [440.00,  E * 55,   B * 0.85],  // A4
+        [392.00,  E * 57,   E * 0.85],  // G4
+        [659.25,  E * 58,   E * 0.85],  // E5
+        [783.99,  E * 59,   E * 0.85],  // G5
+        [880.00,  E * 60,   B * 0.85],  // A5
+        [698.46,  E * 62,   E * 0.85],  // F5
+        [783.99,  E * 63,   E * 0.85],  // G5
+        [659.25,  E * 65,   B * 0.85],  // E5
+        [523.25,  E * 67,   E * 0.85],  // C5
+        [587.33,  E * 68,   E * 0.85],  // D5
+        [493.88,  E * 69,   D * 0.85],  // B4
+      ];
+
+      melody.forEach(([freq, t, dur]) => {
+        const osc  = ctx.createOscillator();
+        const ng   = ctx.createGain();
+        osc.type   = 'square';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + t);
+        ng.gain.setValueAtTime(0.2, ctx.currentTime + t);
+        ng.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + dur);
+        osc.connect(ng); ng.connect(ctx.destination);
+        osc.start(ctx.currentTime + t);
+        osc.stop(ctx.currentTime  + t + dur + 0.01);
+      });
+
+      // ─── BASS LINE (triangle wave — NES channel 2) ──────
+      const bass = [
+        [130.81, E * 14, D * 0.8],  // C3
+        [130.81, E * 18, D * 0.8],  // C3
+        [110.00, E * 21, B * 0.8],  // A2
+        [123.47, E * 23, B * 0.8],  // B2
+        [116.54, E * 25, E * 0.8],  // Bb2
+        [110.00, E * 26, B * 0.8],  // A2
+        [130.81, E * 28, E * 0.8],  // C3
+        [164.81, E * 29, E * 0.8],  // E3
+        [196.00, E * 30, E * 0.8],  // G3
+        [220.00, E * 31, B * 0.8],  // A3
+        [174.61, E * 33, E * 0.8],  // F3
+        [196.00, E * 34, E * 0.8],  // G3
+        [164.81, E * 36, B * 0.8],  // E3
+        [130.81, E * 38, E * 0.8],  // C3
+        [146.83, E * 39, E * 0.8],  // D3
+        [123.47, E * 40, D * 0.8],  // B2
+        [130.81, E * 43, D * 0.8],  // C3
+        [130.81, E * 47, D * 0.8],  // C3
+        [110.00, E * 50, B * 0.8],  // A2
+        [123.47, E * 52, B * 0.8],  // B2
+        [116.54, E * 54, E * 0.8],  // Bb2
+        [110.00, E * 55, B * 0.8],  // A2
+        [130.81, E * 57, E * 0.8],  // C3
+        [164.81, E * 58, E * 0.8],  // E3
+        [196.00, E * 59, E * 0.8],  // G3
+        [220.00, E * 60, B * 0.8],  // A3
+        [174.61, E * 62, E * 0.8],  // F3
+        [196.00, E * 63, E * 0.8],  // G3
+        [164.81, E * 65, B * 0.8],  // E3
+      ];
+
+      bass.forEach(([freq, t, dur]) => {
+        const osc  = ctx.createOscillator();
+        const ng   = ctx.createGain();
+        osc.type   = 'triangle';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + t);
+        ng.gain.setValueAtTime(0.1, ctx.currentTime + t);
+        ng.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + dur);
+        osc.connect(ng); ng.connect(ctx.destination);
+        osc.start(ctx.currentTime + t);
+        osc.stop(ctx.currentTime  + t + dur + 0.01);
+      });
+
+    } else if (type === 'victory') {
+      // 🏆 ALL MISSIONS COMPLETE — epic fanfare
+      // Lead melody: classic victory chord progression
+      const melody = [262,330,392,330,392,523,392,523,784,784];
+      melody.forEach((freq, i) => {
+        const t = i * 0.13;
+        const o = ctx.createOscillator();
+        o.type = 'square';
+        o.frequency.setValueAtTime(freq, ctx.currentTime + t);
+        g.gain.setValueAtTime(0.12, ctx.currentTime + t);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.14);
+        o.connect(g); o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + 0.16);
+      });
+      // Harmony layer
+      const harmony = [196,247,294,247,294,392,294,392,587];
+      harmony.forEach((freq, i) => {
+        const t = i * 0.13;
+        const o = ctx.createOscillator();
+        o.type = 'triangle';
+        o.frequency.setValueAtTime(freq, ctx.currentTime + t);
+        const hg = ctx.createGain();
+        hg.gain.setValueAtTime(0.07, ctx.currentTime + t);
+        hg.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.14);
+        o.connect(hg); hg.connect(ctx.destination);
+        o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + 0.16);
+      });
+    }
+  } catch(e) {}
+}
+
+/* ════════════════════════════════
+   ✅ MISSION COMPLETE SYSTEM
+════════════════════════════════ */
+const completedMissions = new Set();
+
+const allNodes = document.querySelectorAll('.level-node');
+const CARD_MAP = {
+  zaraz:    allNodes[0]?.querySelector('.level-card') || null,
+  wabisabi: allNodes[1]?.querySelector('.level-card') || null,
+  elabd:    allNodes[2]?.querySelector('.level-card') || null
+};
+
+function markMissionComplete(slug) {
+  if (!slug || completedMissions.has(slug)) return;
+  completedMissions.add(slug);
+  playPixelSound('complete');
+
+  const card = CARD_MAP[slug];
+  if (!card) return;
+
+  // Green border + glow
+  card.classList.add('mission-complete');
+
+  // Add badge if not already there
+  if (!card.querySelector('.mission-complete-badge')) {
+    const badge = document.createElement('div');
+    badge.className = 'mission-complete-badge';
+    badge.textContent = '✓ MISSION COMPLETE';
+    card.appendChild(badge);
+  }
+
+  // Update the level badge circle
+  const levelNode = card.closest('.level-node');
+  if (levelNode) {
+    const lb = levelNode.querySelector('.level-badge');
+    if (lb) {
+      lb.style.cssText += ';background:rgba(74,222,128,0.2);border-color:#4ade80;color:#4ade80;box-shadow:0 0 18px rgba(74,222,128,0.7);';
+    }
+  }
+}
+
+/* ════════════════════════════════
+   🗺️ SMOOTH NAVIGATION
+════════════════════════════════ */
+const PROJECT_IDS = { zaraz:'project-zaraz', wabisabi:'project-wabisabi', elabd:'project-elabd' };
+
+function goToProject(targetSlug, fromSlug) {
+  playPixelSound('nav');
+  if (fromSlug) markMissionComplete(fromSlug);
+  setTimeout(() => {
+    const el = document.getElementById(PROJECT_IDS[targetSlug]);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
+
+function returnToMap(slug) {
+  playPixelSound('nav');
+  markMissionComplete(slug);
+  setTimeout(() => {
+    const map = document.getElementById('projects-sec');
+    if (map) map.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
+
+// Sound on "VIEW FULL MISSION FILE" anchor buttons
+document.querySelectorAll('.goto-project-btn').forEach(btn => {
+  btn.addEventListener('click', () => playPixelSound('select'));
+});
+
+/* ════════════════════════════════
+   ❤️ PIXEL HEARTS — PASSIONS
+════════════════════════════════ */
+const HEART_FILLED = `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="4" height="4" fill="#e83a3a"/>
+  <rect x="10" y="2" width="4" height="4" fill="#e83a3a"/>
+  <rect x="0" y="4" width="16" height="6" fill="#e83a3a"/>
+  <rect x="2" y="10" width="12" height="2" fill="#e83a3a"/>
+  <rect x="4" y="12" width="8" height="2" fill="#e83a3a"/>
+  <rect x="6" y="14" width="4" height="2" fill="#e83a3a"/>
+  <rect x="4" y="4" width="3" height="3" fill="#ff7070"/>
+</svg>`;
+
+const HEART_EMPTY = `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="4" height="4" fill="rgba(255,255,255,0.12)"/>
+  <rect x="10" y="2" width="4" height="4" fill="rgba(255,255,255,0.12)"/>
+  <rect x="0" y="4" width="16" height="6" fill="rgba(255,255,255,0.12)"/>
+  <rect x="2" y="10" width="12" height="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="4" y="12" width="8" height="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="6" y="14" width="4" height="2" fill="rgba(255,255,255,0.12)"/>
+</svg>`;
+
+const HEART_HALF = `<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="4" height="4" fill="#e83a3a"/>
+  <rect x="0" y="4" width="8" height="6" fill="#e83a3a"/>
+  <rect x="2" y="10" width="6" height="2" fill="#e83a3a"/>
+  <rect x="4" y="12" width="4" height="2" fill="#e83a3a"/>
+  <rect x="6" y="14" width="2" height="2" fill="#e83a3a"/>
+  <rect x="4" y="4" width="2" height="2" fill="#ff7070"/>
+  <rect x="10" y="2" width="4" height="4" fill="rgba(255,255,255,0.12)"/>
+  <rect x="8" y="4" width="8" height="6" fill="rgba(255,255,255,0.12)"/>
+  <rect x="8" y="10" width="6" height="2" fill="rgba(255,255,255,0.12)"/>
+  <rect x="8" y="12" width="4" height="2" fill="rgba(255,255,255,0.12)"/>
+</svg>`;
+
+function renderHearts(hearts, max) {
+  let html = '';
+  const full = Math.floor(hearts);
+  const hasHalf = hearts % 1 >= 0.5;
+  const empty = max - full - (hasHalf ? 1 : 0);
+  for (let i = 0; i < full; i++) html += HEART_FILLED;
+  if (hasHalf) html += HEART_HALF;
+  for (let i = 0; i < empty; i++) html += HEART_EMPTY;
+  return `<div class="passion-hearts">${html}</div>`;
+}
+
+const PASSIONS = [
+  { name: 'Fast Learner', hearts: 5, max: 5 },
+  { name: 'Creative',     hearts: 4, max: 5 },
+  { name: 'Social',       hearts: 1.5, max: 5 },
+  { name: 'Spatial Vision',hearts: 5, max: 5 },
+  { name: 'Passionate',   hearts: 5, max: 5 },
+  { name: 'AI-Forward',   hearts: 5, max: 5 }
+];
+
+const passionsEl = document.getElementById('preview-passions');
+if (passionsEl) {
+  passionsEl.innerHTML = PASSIONS.map(p => `
+    <div class="passion-item">
+      <span class="passion-name">${p.name}</span>
+      ${renderHearts(p.hearts, p.max)}
+    </div>`).join('');
+}
+
+/* ════════════════════════════════
+   ✨ PIXEL CANVAS BACKGROUND
+════════════════════════════════ */
+(function () {
+  const canvas = document.getElementById('pixel-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, P = [];
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function spawn(n) {
+    P = [];
+    for (let i = 0; i < n; i++) P.push({
+      x: Math.random() * W, y: Math.random() * H,
+      s: Math.random() < .5 ? 2 : 4,
+      o: Math.random() * 0.4 + 0.1,
+      v: Math.random() * 0.3 + 0.1,
+      c: ['#9566f0','#6845b0','#f4c842','#b08af5'][Math.floor(Math.random()*4)]
+    });
+  }
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    P.forEach(p => {
+      ctx.globalAlpha = p.o; ctx.fillStyle = p.c;
+      ctx.fillRect(p.x, p.y, p.s, p.s);
+      p.y -= p.v; if (p.y < 0) { p.y = H; p.x = Math.random() * W; }
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', () => { resize(); spawn(100); });
+  resize(); spawn(100); draw();
+})();
+
+/* ════════════════════════════════
+   🎮 SCORE COUNTER
+════════════════════════════════ */
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  document.getElementById('score-val').textContent = String(Math.floor(pct * 999999)).padStart(6,'0');
+});
+
+/* ════════════════════════════════
+   💬 RPG TYPEWRITER
+════════════════════════════════ */
+function typewriter(elId, text, speed, sectionEl) {
+  const el = document.getElementById(elId);
+  let i = 0, started = false;
+  const cursor = document.createElement('span');
+  cursor.className = 'dialogue-cursor';
+  el.appendChild(cursor);
+  function type() { if (i < text.length) { el.insertBefore(document.createTextNode(text[i++]), cursor); setTimeout(type, speed); } }
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !started) { started = true; type(); obs.disconnect(); }
+  }, { threshold: 0.3 });
+  obs.observe(sectionEl);
+}
+
+typewriter('about-text',
+  "I am a design student focused on building work that communicates clearly and feels worth using. I care about direction, atmosphere, and whether an idea genuinely serves the person receiving it.",
+  26, document.getElementById('about-sec'));
+
+typewriter('philosophy-text',
+  "Anything I make has to be useful to the person receiving it, come from real conviction, and deliver its purpose without pretending.",
+  30, document.getElementById('philosophy-sec'));
+</script>
+</body>
+</html>
