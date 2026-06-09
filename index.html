@@ -220,11 +220,10 @@
       min-height: 110px;
     }
     .dialogue-portrait {
-      position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%);
-      width: 62px; height: 62px;
-      background: url('./assets/pixel-me.png') no-repeat center/contain;
+      position: absolute; left: 0.5rem; bottom: -2px;
+      width: 70px; height: 110px;
+      background: url('./assets/about-pixel.png') no-repeat bottom/contain;
       image-rendering: pixelated;
-      border: 2px solid var(--purple-500);
     }
     .dialogue-name {
       position: absolute; top: -1.1rem; left: 0.75rem;
@@ -1376,11 +1375,16 @@ function playPixelSound(type) {
         const ng   = ctx.createGain();
         osc.type   = 'square';
         osc.frequency.setValueAtTime(freq, ctx.currentTime + t);
-        ng.gain.setValueAtTime(0.2, ctx.currentTime + t);
-        ng.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + dur);
+        
+        // ADSR Envelope for smooth 8-bit sound
+        ng.gain.setValueAtTime(0, ctx.currentTime + t);
+        ng.gain.linearRampToValueAtTime(0.12, ctx.currentTime + t + 0.015);
+        ng.gain.setValueAtTime(0.12, ctx.currentTime + t + dur - 0.015);
+        ng.gain.linearRampToValueAtTime(0, ctx.currentTime + t + dur);
+
         osc.connect(ng); ng.connect(ctx.destination);
         osc.start(ctx.currentTime + t);
-        osc.stop(ctx.currentTime  + t + dur + 0.01);
+        osc.stop(ctx.currentTime + t + dur);
       });
 
       // ─── BASS LINE (triangle wave — NES channel 2) ──────
@@ -1421,11 +1425,15 @@ function playPixelSound(type) {
         const ng   = ctx.createGain();
         osc.type   = 'triangle';
         osc.frequency.setValueAtTime(freq, ctx.currentTime + t);
-        ng.gain.setValueAtTime(0.1, ctx.currentTime + t);
-        ng.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + dur);
+        
+        ng.gain.setValueAtTime(0, ctx.currentTime + t);
+        ng.gain.linearRampToValueAtTime(0.15, ctx.currentTime + t + 0.015);
+        ng.gain.setValueAtTime(0.15, ctx.currentTime + t + dur - 0.015);
+        ng.gain.linearRampToValueAtTime(0, ctx.currentTime + t + dur);
+
         osc.connect(ng); ng.connect(ctx.destination);
         osc.start(ctx.currentTime + t);
-        osc.stop(ctx.currentTime  + t + dur + 0.01);
+        osc.stop(ctx.currentTime + t + dur);
       });
 
     } else if (type === 'victory') {
