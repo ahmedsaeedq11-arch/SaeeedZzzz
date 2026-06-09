@@ -76,7 +76,7 @@ const portfolioContent = {
     }
   ],
   socials: [
-    { title: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/ahmed-saeed-682673338?utm_source=share_via&utm_content=profile&utm_medium=member_android", copy: "Professional profile" },
+    { title: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/ahmed-saeed-682673338", copy: "Professional profile" },
     { title: "Behance", icon: "behance", href: "https://www.behance.net/ahmedsaeed375", copy: "Creative work archive" },
     { title: "Instagram", icon: "instagram", href: "https://www.instagram.com/ahmed_saeed2_0?igsh=MTltcHU4bjF2aHZ5Yg==", copy: "Updates and visual snippets" },
     { title: "GitHub", icon: "github", href: "https://github.com/ahmedsaeedq11-arch/SaeeedZzzz.git", copy: "Source repository" }
