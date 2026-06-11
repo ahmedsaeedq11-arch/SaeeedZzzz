@@ -367,7 +367,7 @@
 
     /* BANNERS & 360 VIEWER */
     .proj-banner {
-      width: 100%; height: 250px;
+      width: 100%; height: auto; min-height: 250px;
       background: rgba(13,8,32,0.6);
       border: var(--pixel-border); border-color: var(--purple-500);
       display: grid; place-items: center;
@@ -375,6 +375,10 @@
       font-family: var(--silk); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em;
       position: relative; overflow: hidden;
     }
+    .proj-banner.banner-tall { aspect-ratio: 1 / 2; }
+    .proj-banner.banner-kitchen { aspect-ratio: 7 / 10; }
+    .proj-banner embed, .proj-banner iframe, .proj-banner object { width: 100%; height: 100%; position: absolute; inset: 0; border: none; }
+
     .proj-360-viewer {
       width: 100%; height: 350px;
       background: repeating-linear-gradient(45deg, rgba(13,8,32,0.8), rgba(13,8,32,0.8) 10px, rgba(30,18,58,0.8) 10px, rgba(30,18,58,0.8) 20px);
@@ -1165,6 +1169,9 @@
         <div class="proj-title">ZaraZ Menswear Rebrand</div>
         <div class="proj-role">Brand direction / visual identity</div>
         <div class="proj-status">⚠ STATUS: AWAITING FULL CASE STUDY</div>
+        <div class="proj-banner banner-tall">
+          <iframe src="./assets/xxxxx.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" style="border:none;"></iframe>
+        </div>
         <hr class="proj-divider">
         <div class="proj-section-label">// MISSION BRIEF</div>
         <p class="proj-summary">A retail identity project focused on sharpening perception, masculinity, and store presence. The goal was to transform an existing clothing brand into a bold, memorable identity that communicates quality and character to a modern male audience.</p>
@@ -1204,7 +1211,9 @@
         <div class="proj-title">Wabi-Sabi Style Kitchen</div>
         <div class="proj-role">Concept design / spatial mood</div>
         <div class="proj-status">⚠ STATUS: AWAITING FULL CASE STUDY</div>
-        <div class="proj-banner">[ PROJECT BANNER PLACEHOLDER ]</div>
+        <div class="proj-banner banner-kitchen">
+          <iframe src="./assets/chatgpt-image.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" style="border:none;"></iframe>
+        </div>
         <hr class="proj-divider">
         <div class="proj-section-label">// MISSION BRIEF</div>
         <p class="proj-summary">An interior concept built around the Japanese philosophy of Wabi-Sabi — finding beauty in imperfection and simplicity. The kitchen was designed to balance natural materials, calm textures, and a warm atmosphere that invites presence without noise.</p>
