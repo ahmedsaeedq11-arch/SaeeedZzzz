@@ -726,14 +726,85 @@
     @keyframes bar-dance { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(2.2)} }
 
     /* RESPONSIVE */
-    @media (max-width: 760px) {
-      .page-shell { grid-template-columns: 1fr; }
-      .sidebar { position: static; }
-      .level-node { grid-template-columns: 1fr; }
-      .level-node .level-icon, .level-node .level-empty { display: none; }
-      .level-path { display: none; }
-      .level-node.left .level-card,
-      .level-node.right .level-card { grid-column: 1; margin: 0; }
+    @media (max-width: 768px) {
+      /* General Layout */
+      .page-shell { grid-template-columns: 1fr; padding: 1rem 0.5rem 2rem; gap: 1rem; }
+      .sidebar { position: static; margin-bottom: 0.5rem; }
+      .panel { padding: 1rem; }
+      .retro-body { padding: 1.25rem 1rem; }
+      
+      /* Topbar */
+      .topbar { flex-direction: column; gap: 0.8rem; padding: 0.8rem 1rem; align-items: stretch; }
+      .hud-left { display: flex; justify-content: space-between; width: 100%; }
+      .topnav { flex-wrap: wrap; gap: 0.8rem; justify-content: flex-start; width: 100%; }
+      .hud-score { align-self: flex-start; }
+
+      /* Hero Section */
+      .hero-panel { padding: 3.5rem 1rem 1.5rem; }
+      .hero-title { font-size: 1.8rem; margin-bottom: 0.5rem; }
+      .hero-subtitle { font-size: 0.7rem; line-height: 1.4; }
+      .hero-description { font-size: 1rem; }
+      .hero-actions { flex-direction: column; gap: 0.6rem; width: 100%; }
+      .hero-actions .btn { width: 100%; text-align: center; }
+
+      /* Dialogue Box (About) */
+      .dialogue-box { padding: 2.25rem 1rem 1.25rem 1rem; margin-top: 3.5rem; min-height: auto; }
+      .dialogue-portrait { top: -70px; left: 50%; transform: translateX(-50%); width: 65px; height: 95px; bottom: auto; background-position: center bottom; }
+      .dialogue-name { top: -1rem; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+      .dialogue-text { line-height: 1.8; font-size: 0.65rem; }
+      .dialogue-advance { bottom: 0.25rem; right: 0.5rem; }
+
+      /* Skills Loadout */
+      .skills-section-wrap { padding: 1.25rem 1rem; }
+      .skills-loadout { flex-direction: column; align-items: center; gap: 1.5rem; }
+      .skills-content { width: 100%; }
+      .skills-header { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+      .weapon-item { flex-wrap: wrap; gap: 0.4rem; justify-content: space-between; }
+      .passion-item { flex-wrap: wrap; gap: 0.4rem; justify-content: space-between; }
+
+      /* Philosophy */
+      .quote-card { padding: 1.25rem 1rem; }
+      .quote-text { font-size: 0.65rem; line-height: 1.9; }
+
+      /* Level Map */
+      .level-node { grid-template-columns: 1fr; margin-bottom: 1.5rem; }
+      .level-node .level-icon, .level-node .level-empty, .level-path { display: none; }
+      .level-node.left .level-card, .level-node.right .level-card { grid-column: 1; margin: 0; padding: 1rem; }
+      .progress-label { width: auto; flex: 1; }
+      .portal-social-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+
+      /* Project Pages */
+      .project-page { margin-top: 1rem; }
+      .project-page-body { padding: 1.25rem 1rem; }
+      .proj-title { font-size: 1.25rem; }
+      .proj-assets { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+      .proj-nav-footer { flex-direction: column; gap: 0.75rem; align-items: stretch; }
+      .proj-nav-btn { width: 100%; justify-content: center; }
+      
+      /* Project Detail Overlay */
+      .project-detail-overlay { padding: 1rem 0.5rem; }
+      .detail-body { padding: 1.25rem 1rem; }
+      .detail-assets-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+
+      /* Contact / Socials */
+      .contact-card { padding: 1.25rem 1rem; }
+      .social-item { padding: 0.6rem 0.75rem; gap: 0.6rem; }
+      .social-name { font-size: 0.65rem; }
+      .social-copy { font-size: 0.5rem; }
+
+      /* Toast */
+      #pixel-toast { max-width: calc(100vw - 2rem); min-width: 0; padding: 0.75rem 1rem; gap: 0.5rem; right: -120%; }
+      #pixel-toast.slide-in { right: 1rem; }
+      #pixel-toast.slide-out { right: -120%; }
+      .toast-trophy { font-size: 1.6rem; }
+      .toast-title { font-size: 0.6rem; }
+      .toast-sub { font-size: 0.45rem; }
+      .toast-stars { letter-spacing: 2px; }
+
+      /* Intro Splash */
+      .intro-logo { font-size: 1.6rem; }
+      .intro-sub { font-size: 0.55rem; letter-spacing: 0.1em; }
+      .intro-press { padding: 0.6rem 2rem; font-size: 0.7rem; }
     }
   </style>
 </head>
