@@ -221,7 +221,7 @@
     }
     .dialogue-portrait {
       position: absolute; left: 0.5rem; bottom: -2px;
-      width: 70px; height: 110px;
+      width: 90px; height: 140px;
       background: url('./assets/about-pixel.png') no-repeat bottom/contain;
       image-rendering: pixelated;
     }
@@ -364,6 +364,26 @@
     .proj-stat-bar { flex: 1; height: 10px; background: var(--purple-700); border: 1px solid var(--purple-500); overflow: hidden; }
     .proj-stat-fill { height: 100%; }
     .proj-stat-pct { font-family: var(--silk); font-size: 0.62rem; color: var(--purple-300); min-width: 36px; text-align: right; }
+
+    /* BANNERS & 360 VIEWER */
+    .proj-banner {
+      width: 100%; height: 250px;
+      background: rgba(13,8,32,0.6);
+      border: var(--pixel-border); border-color: var(--purple-500);
+      display: grid; place-items: center;
+      margin-top: 1.5rem; margin-bottom: 1.5rem;
+      font-family: var(--silk); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em;
+      position: relative; overflow: hidden;
+    }
+    .proj-360-viewer {
+      width: 100%; height: 350px;
+      background: repeating-linear-gradient(45deg, rgba(13,8,32,0.8), rgba(13,8,32,0.8) 10px, rgba(30,18,58,0.8) 10px, rgba(30,18,58,0.8) 20px);
+      border: 3px solid var(--gold); box-shadow: 0 0 20px rgba(244,200,66,0.15);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem; margin-top: 1.5rem;
+      font-family: var(--silk); font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em;
+      text-align: center;
+    }
 
     /* ═══ PROJECT DETAIL PAGE / MODAL ═══ */
     .project-detail-overlay {
@@ -510,10 +530,10 @@
       flex-shrink: 0;
     }
     .skills-char-sprite {
-      width: 64px; height: 64px;
+      width: 96px; height: 96px;
       image-rendering: pixelated;
-      background: url('./assets/photo.jpg') no-repeat center/cover;
-      border: var(--pixel-border);
+      background: url('./assets/about-pixel.png') no-repeat top/cover;
+      border: none;
     }
     .skills-char-label {
       font-family: var(--silk); font-size: 0.52rem;
@@ -749,7 +769,7 @@
 
       /* Dialogue Box (About) */
       .dialogue-box { padding: 2.25rem 1rem 1.25rem 1rem; margin-top: 3.5rem; min-height: auto; }
-      .dialogue-portrait { top: -70px; left: 50%; transform: translateX(-50%); width: 65px; height: 95px; bottom: auto; background-position: center bottom; }
+      .dialogue-portrait { top: -90px; left: 50%; transform: translateX(-50%); width: 85px; height: 125px; bottom: auto; background-position: center bottom; }
       .dialogue-name { top: -1rem; left: 50%; transform: translateX(-50%); white-space: nowrap; }
       .dialogue-text { line-height: 1.8; font-size: 0.65rem; }
       .dialogue-advance { bottom: 0.25rem; right: 0.5rem; }
@@ -996,9 +1016,9 @@
                 <span class="weapon-level">LVL 2</span>
               </div>
               <div class="weapon-item">
-                <span class="weapon-name">Revit</span>
-                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span></div>
-                <span class="weapon-level">LVL 1</span>
+                <span class="weapon-name">AI Learning</span>
+                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span></div>
+                <span class="weapon-level">LVL 2</span>
               </div>
             </div>
             <div class="skills-divider"></div>
@@ -1184,6 +1204,7 @@
         <div class="proj-title">Wabi-Sabi Style Kitchen</div>
         <div class="proj-role">Concept design / spatial mood</div>
         <div class="proj-status">⚠ STATUS: AWAITING FULL CASE STUDY</div>
+        <div class="proj-banner">[ PROJECT BANNER PLACEHOLDER ]</div>
         <hr class="proj-divider">
         <div class="proj-section-label">// MISSION BRIEF</div>
         <p class="proj-summary">An interior concept built around the Japanese philosophy of Wabi-Sabi — finding beauty in imperfection and simplicity. The kitchen was designed to balance natural materials, calm textures, and a warm atmosphere that invites presence without noise.</p>
@@ -1224,11 +1245,18 @@
         <div class="proj-title">El Abd Booth Concept</div>
         <div class="proj-role">Personal concept / booth experience</div>
         <div class="proj-status" style="background:rgba(74,222,128,0.15);border-color:var(--green);color:var(--green)">✓ STATUS: MERIT-GRADE</div>
+        <div class="proj-banner">[ PROJECT BANNER PLACEHOLDER ]</div>
         <hr class="proj-divider">
         <div class="proj-section-label">// MISSION BRIEF</div>
         <p class="proj-summary">A personal concept for a branded exhibition booth, developed through independent thinking and creative direction. The design focused on visitor flow, brand moments, and creating a memorable spatial experience that stands out on a crowded exhibition floor.</p>
         <div class="proj-section-label">// DESIGN INTENT</div>
         <p class="proj-intent">Highlight that this piece came from personal direction, with room for the final renders and explanation after the detailed material arrives. This is proof that vision precedes tools — the concept came first.</p>
+        <hr class="proj-divider">
+        <div class="proj-section-label">// 360° BOOTH EXPERIENCE</div>
+        <div class="proj-360-viewer">
+          <span>[ 360° PANORAMA VIEWER ]</span>
+          <button class="btn btn-primary" style="margin-top:1rem; font-size:0.55rem;" onclick="playPixelSound('select')">LAUNCH 360° VIEW</button>
+        </div>
         <hr class="proj-divider">
         <div class="proj-section-label">// ASSET INVENTORY</div>
         <div class="proj-assets">
