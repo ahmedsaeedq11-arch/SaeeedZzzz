@@ -35,7 +35,7 @@
       --shadow: 0 0 0 2px #9566f0, 6px 6px 0 #1e123a;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: clamp(18px, 1.5vw + 12px, 24px); }
     body {
       background: var(--purple-900);
       color: var(--white);
@@ -1280,11 +1280,7 @@
             <span class="social-name">Instagram</span>
             <span class="social-copy">Updates & visual snippets</span>
           </a>
-          <a class="social-item" href="https://github.com/ahmedsaeedq11-arch/SaeeedZzzz" target="_blank">
-            <div class="social-icon-box">GH</div>
-            <span class="social-name">GitHub</span>
-            <span class="social-copy">Source repository</span>
-          </a>
+
         </div>
       </div>
     </section>
@@ -1380,128 +1376,25 @@ function playPixelSound(type) {
       o.connect(g); o.start(ctx.currentTime); o.stop(ctx.currentTime + 0.22);
 
     } else if (type === 'intro') {
-      // 🍄 SUPER MARIO BROS — OVERWORLD THEME (Full opening)
-      // NES-accurate: Square wave melody + Triangle bass
-      const BPM = 200;
-      const B   = 60 / BPM;   // quarter note = 0.3s
-      const E   = B / 2;      // eighth note  = 0.15s
-      const S   = B / 4;      // sixteenth    = 0.075s
-      const D   = B * 1.5;    // dotted quarter
-
-      // ─── MELODY (square wave) ───────────────────────────
-      // [frequency, start_seconds, duration_seconds]
+      // Short, smooth 8-bit start jingle (classic startup sound)
       const melody = [
-        // ── INTRO MOTIF ──
-        [659.25,  0,        E * 0.8],   // E5
-        [659.25,  E * 2,    E * 0.8],   // E5
-        [659.25,  E * 4,    E * 0.8],   // E5
-        [523.25,  E * 5,    E * 0.8],   // C5
-        [659.25,  E * 6,    B * 0.8],   // E5
-        [783.99,  E * 8,    D * 0.9],   // G5  ← long
-        [392.00,  E * 11,   D * 0.9],   // G4  ← low
-
-        // ── MAIN LINE 1 ──
-        [523.25,  E * 14,   D * 0.85],  // C5
-        [392.00,  E * 17,   S * 0.8],   // G4  (16th)
-        [329.63,  E * 18.5, D * 0.85],  // E4
-        [440.00,  E * 21,   B * 0.85],  // A4
-        [493.88,  E * 23,   B * 0.85],  // B4
-        [466.16,  E * 25,   E * 0.85],  // Bb4
-        [440.00,  E * 26,   B * 0.85],  // A4
-
-        // ── TRIPLET ASCENT ──
-        [392.00,  E * 28,   E * 0.85],  // G4
-        [659.25,  E * 29,   E * 0.85],  // E5
-        [783.99,  E * 30,   E * 0.85],  // G5
-        [880.00,  E * 31,   B * 0.85],  // A5
-        [698.46,  E * 33,   E * 0.85],  // F5
-        [783.99,  E * 34,   E * 0.85],  // G5
-        [659.25,  E * 36,   B * 0.85],  // E5
-        [523.25,  E * 38,   E * 0.85],  // C5
-        [587.33,  E * 39,   E * 0.85],  // D5
-        [493.88,  E * 40,   D * 0.85],  // B4
-
-        // ── MAIN LINE 2 ──
-        [523.25,  E * 43,   D * 0.85],  // C5
-        [392.00,  E * 46,   S * 0.8],   // G4  (16th)
-        [329.63,  E * 47.5, D * 0.85],  // E4
-        [440.00,  E * 50,   B * 0.85],  // A4
-        [493.88,  E * 52,   B * 0.85],  // B4
-        [466.16,  E * 54,   E * 0.85],  // Bb4
-        [440.00,  E * 55,   B * 0.85],  // A4
-        [392.00,  E * 57,   E * 0.85],  // G4
-        [659.25,  E * 58,   E * 0.85],  // E5
-        [783.99,  E * 59,   E * 0.85],  // G5
-        [880.00,  E * 60,   B * 0.85],  // A5
-        [698.46,  E * 62,   E * 0.85],  // F5
-        [783.99,  E * 63,   E * 0.85],  // G5
-        [659.25,  E * 65,   B * 0.85],  // E5
-        [523.25,  E * 67,   E * 0.85],  // C5
-        [587.33,  E * 68,   E * 0.85],  // D5
-        [493.88,  E * 69,   D * 0.85],  // B4
+        [440.00, 0, 0.08],     // A4
+        [554.37, 0.08, 0.08],  // C#5
+        [659.25, 0.16, 0.08],  // E5
+        [880.00, 0.24, 0.35]   // A5 (held longer)
       ];
-
+      
       melody.forEach(([freq, t, dur]) => {
-        const osc  = ctx.createOscillator();
-        const ng   = ctx.createGain();
-        osc.type   = 'square';
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + t);
-        
-        // ADSR Envelope for smooth 8-bit sound
-        ng.gain.setValueAtTime(0, ctx.currentTime + t);
-        ng.gain.linearRampToValueAtTime(0.12, ctx.currentTime + t + 0.015);
-        ng.gain.setValueAtTime(0.12, ctx.currentTime + t + dur - 0.015);
-        ng.gain.linearRampToValueAtTime(0, ctx.currentTime + t + dur);
-
-        osc.connect(ng); ng.connect(ctx.destination);
-        osc.start(ctx.currentTime + t);
-        osc.stop(ctx.currentTime + t + dur);
-      });
-
-      // ─── BASS LINE (triangle wave — NES channel 2) ──────
-      const bass = [
-        [130.81, E * 14, D * 0.8],  // C3
-        [130.81, E * 18, D * 0.8],  // C3
-        [110.00, E * 21, B * 0.8],  // A2
-        [123.47, E * 23, B * 0.8],  // B2
-        [116.54, E * 25, E * 0.8],  // Bb2
-        [110.00, E * 26, B * 0.8],  // A2
-        [130.81, E * 28, E * 0.8],  // C3
-        [164.81, E * 29, E * 0.8],  // E3
-        [196.00, E * 30, E * 0.8],  // G3
-        [220.00, E * 31, B * 0.8],  // A3
-        [174.61, E * 33, E * 0.8],  // F3
-        [196.00, E * 34, E * 0.8],  // G3
-        [164.81, E * 36, B * 0.8],  // E3
-        [130.81, E * 38, E * 0.8],  // C3
-        [146.83, E * 39, E * 0.8],  // D3
-        [123.47, E * 40, D * 0.8],  // B2
-        [130.81, E * 43, D * 0.8],  // C3
-        [130.81, E * 47, D * 0.8],  // C3
-        [110.00, E * 50, B * 0.8],  // A2
-        [123.47, E * 52, B * 0.8],  // B2
-        [116.54, E * 54, E * 0.8],  // Bb2
-        [110.00, E * 55, B * 0.8],  // A2
-        [130.81, E * 57, E * 0.8],  // C3
-        [164.81, E * 58, E * 0.8],  // E3
-        [196.00, E * 59, E * 0.8],  // G3
-        [220.00, E * 60, B * 0.8],  // A3
-        [174.61, E * 62, E * 0.8],  // F3
-        [196.00, E * 63, E * 0.8],  // G3
-        [164.81, E * 65, B * 0.8],  // E3
-      ];
-
-      bass.forEach(([freq, t, dur]) => {
-        const osc  = ctx.createOscillator();
-        const ng   = ctx.createGain();
-        osc.type   = 'triangle';
+        const osc = ctx.createOscillator();
+        const ng = ctx.createGain();
+        osc.type = 'square';
         osc.frequency.setValueAtTime(freq, ctx.currentTime + t);
         
         ng.gain.setValueAtTime(0, ctx.currentTime + t);
         ng.gain.linearRampToValueAtTime(0.15, ctx.currentTime + t + 0.015);
         ng.gain.setValueAtTime(0.15, ctx.currentTime + t + dur - 0.015);
         ng.gain.linearRampToValueAtTime(0, ctx.currentTime + t + dur);
-
+        
         osc.connect(ng); ng.connect(ctx.destination);
         osc.start(ctx.currentTime + t);
         osc.stop(ctx.currentTime + t + dur);
