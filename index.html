@@ -8,10 +8,13 @@
   <!-- Security headers -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'none';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'none';" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Pannellum 360° Viewer -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -380,14 +383,13 @@
     .proj-banner embed, .proj-banner iframe, .proj-banner object, .proj-banner img { width: 100%; height: 100%; position: absolute; inset: 0; border: none; object-fit: cover; }
 
     .proj-360-viewer {
-      width: 100%; height: 350px;
-      background: repeating-linear-gradient(45deg, rgba(13,8,32,0.8), rgba(13,8,32,0.8) 10px, rgba(30,18,58,0.8) 10px, rgba(30,18,58,0.8) 20px);
-      border: 3px solid var(--gold); box-shadow: 0 0 20px rgba(244,200,66,0.15);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      width: 100%; height: 420px;
+      border: 3px solid var(--gold); box-shadow: 0 0 20px rgba(244,200,66,0.25);
       margin-bottom: 1.5rem; margin-top: 1.5rem;
-      font-family: var(--silk); font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em;
-      text-align: center;
+      position: relative; overflow: hidden;
     }
+    .proj-360-viewer .pnlm-container { width: 100%; height: 100%; }
+    @media (max-width: 768px) { .proj-360-viewer { height: 280px; } }
 
     /* ═══ PROJECT DETAIL PAGE / MODAL ═══ */
     .project-detail-overlay {
@@ -1253,7 +1255,7 @@
         <div class="proj-level-tag">LEVEL 03 — SPATIAL EXPERIENCE</div>
         <div class="proj-title">El Abd Booth Concept</div>
         <div class="proj-role">Personal concept / booth experience</div>
-        <div class="proj-status" style="background:rgba(74,222,128,0.15);border-color:var(--green);color:var(--green)">✓ STATUS: MERIT-GRADE</div>
+        <div class="proj-status" style="background:rgba(74,222,128,0.15);border-color:var(--green);color:var(--green)">✓ STATUS: COMPLETED</div>
         <div class="proj-banner">[ PROJECT BANNER PLACEHOLDER ]</div>
         <hr class="proj-divider">
         <div class="proj-section-label">// MISSION BRIEF</div>
@@ -1262,10 +1264,7 @@
         <p class="proj-intent">Highlight that this piece came from personal direction, with room for the final renders and explanation after the detailed material arrives. This is proof that vision precedes tools — the concept came first.</p>
         <hr class="proj-divider">
         <div class="proj-section-label">// 360° BOOTH EXPERIENCE</div>
-        <div class="proj-360-viewer">
-          <span>[ 360° PANORAMA VIEWER ]</span>
-          <button class="btn btn-primary" style="margin-top:1rem; font-size:0.55rem;" onclick="playPixelSound('select')">LAUNCH 360° VIEW</button>
-        </div>
+        <div class="proj-360-viewer" id="booth-360-container"></div>
         <hr class="proj-divider">
         <div class="proj-section-label">// ASSET INVENTORY</div>
         <div class="proj-assets">
@@ -1697,6 +1696,27 @@ typewriter('about-text',
 typewriter('philosophy-text',
   "Anything I make has to be useful to the person receiving it, come from real conviction, and deliver its purpose without pretending.",
   30, document.getElementById('philosophy-sec'));
+
+/* ════════════════════════════════
+   🔍 360° BOOTH VIEWER (Pannellum)
+════════════════════════════════ */
+(function initBooth360() {
+  if (typeof pannellum === 'undefined') return;
+  pannellum.viewer('booth-360-container', {
+    type: 'equirectangular',
+    panorama: './assets/booth-360.jpg',
+    autoLoad: true,
+    autoRotate: -3,
+    compass: false,
+    showControls: true,
+    mouseZoom: true,
+    hfov: 100,
+    pitch: 0,
+    yaw: 0,
+    minHfov: 50,
+    maxHfov: 120
+  });
+})();
 </script>
 </body>
 </html>
