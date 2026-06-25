@@ -63,7 +63,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -2073,103 +2073,566 @@
                 }
 
                 /* ═══════════════════════════════════════════════════════════
-                   ✨ v5 POLISH — Scroll-reveal, section dividers, refinements
-                ═══════════════════════════════════════════════════════════ */
+                       ✨ v5 POLISH — Scroll-reveal, section dividers, refinements
+                    ═══════════════════════════════════════════════════════════ */
 
-                /* Scroll reveal: fade + lift up as user scrolls into view */
-                .reveal {
-                  opacity: 0;
-                  transform: translateY(28px);
-                  transition:
-                    opacity 0.7s var(--ease-pixel),
-                    transform 0.7s var(--ease-pixel);
-                }
-                .reveal.visible {
-                  opacity: 1;
-                  transform: translateY(0);
-                }
-                /* Stagger inside groups (level nodes, certs, social items) */
-                .reveal-stagger > * {
-                  opacity: 0;
-                  transform: translateY(20px);
-                  transition:
-                    opacity 0.5s var(--ease-pixel),
-                    transform 0.5s var(--ease-pixel);
-                }
-                .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
-                .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; opacity: 1; transform: translateY(0); }
-                .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.19s; opacity: 1; transform: translateY(0); }
-                .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.26s; opacity: 1; transform: translateY(0); }
-                .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.33s; opacity: 1; transform: translateY(0); }
-                .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: translateY(0); }
+                    /* Scroll reveal: fade + lift up as user scrolls into view */
+                    .reveal {
+                      opacity: 0;
+                      transform: translateY(28px);
+                      transition:
+                        opacity 0.7s var(--ease-pixel),
+                        transform 0.7s var(--ease-pixel);
+                    }
+                    .reveal.visible {
+                      opacity: 1;
+                      transform: translateY(0);
+                    }
+                    /* Stagger inside groups (level nodes, certs, social items) */
+                    .reveal-stagger > * {
+                      opacity: 0;
+                      transform: translateY(20px);
+                      transition:
+                        opacity 0.5s var(--ease-pixel),
+                        transform 0.5s var(--ease-pixel);
+                    }
+                    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+                    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; opacity: 1; transform: translateY(0); }
+                    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.19s; opacity: 1; transform: translateY(0); }
+                    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.26s; opacity: 1; transform: translateY(0); }
+                    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.33s; opacity: 1; transform: translateY(0); }
+                    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: translateY(0); }
 
-                /* Subtle parallax hint: target elements that opt-in via [data-parallax] */
-                [data-parallax] {
-                  will-change: transform;
-                  transition: transform 0.15s linear;
-                }
+                    /* Subtle parallax hint: target elements that opt-in via [data-parallax] */
+                    [data-parallax] {
+                      will-change: transform;
+                      transition: transform 0.15s linear;
+                    }
 
-                /* Section accent — small gold pixel line above each panel header */
-                .panel > .retro-titlebar + .retro-body::before,
-                .panel.hero-panel::before {
-                  content: none;
-                }
+                    /* Section accent — small gold pixel line above each panel header */
+                    .panel > .retro-titlebar + .retro-body::before,
+                    .panel.hero-panel::before {
+                      content: none;
+                    }
 
-                /* Section accent rule (between sections) */
-                .section-rule {
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  gap: var(--space-3);
-                  margin: var(--space-4) 0;
-                  color: var(--muted);
-                }
-                .section-rule::before,
-                .section-rule::after {
-                  content: "";
-                  flex: 1;
-                  height: 1px;
-                  background: linear-gradient(90deg, transparent, var(--purple-500), transparent);
-                }
-                .section-rule-label {
-                  font-family: var(--silk);
-                  font-size: var(--fs-xs);
-                  letter-spacing: var(--ls-widest);
-                  color: var(--purple-300);
-                }
+                    /* Section accent rule (between sections) */
+                    .section-rule {
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      gap: var(--space-3);
+                      margin: var(--space-4) 0;
+                      color: var(--muted);
+                    }
+                    .section-rule::before,
+                    .section-rule::after {
+                      content: "";
+                      flex: 1;
+                      height: 1px;
+                      background: linear-gradient(90deg, transparent, var(--purple-500), transparent);
+                    }
+                    .section-rule-label {
+                      font-family: var(--silk);
+                      font-size: var(--fs-xs);
+                      letter-spacing: var(--ls-widest);
+                      color: var(--purple-300);
+                    }
 
-                /* Pixel-perfect dotted dividers (subtle CRT scanline feel between blocks) */
-                .dotted-divider {
-                  border: none;
-                  border-top: 2px dotted var(--purple-500);
-                  margin: var(--space-5) 0;
-                  opacity: 0.5;
-                }
+                    /* Pixel-perfect dotted dividers (subtle CRT scanline feel between blocks) */
+                    .dotted-divider {
+                      border: none;
+                      border-top: 2px dotted var(--purple-500);
+                      margin: var(--space-5) 0;
+                      opacity: 0.5;
+                    }
 
-                /* Glow pulse for "live" elements (e.g. score) */
-                @keyframes glow-pulse {
-                  0%,100% { text-shadow: 0 0 8px rgba(244, 200, 66, 0.3); }
-                  50%     { text-shadow: 0 0 16px rgba(244, 200, 66, 0.6); }
-                }
-                .live-glow { animation: glow-pulse 3s var(--ease-pixel) infinite; }
+                    /* Glow pulse for "live" elements (e.g. score) */
+                    @keyframes glow-pulse {
+                      0%,100% { text-shadow: 0 0 8px rgba(244, 200, 66, 0.3); }
+                      50%     { text-shadow: 0 0 16px rgba(244, 200, 66, 0.6); }
+                    }
+                    .live-glow { animation: glow-pulse 3s var(--ease-pixel) infinite; }
 
-                /* Selection color (pixel-y feel) */
-                ::selection {
-                  background: var(--gold);
-                  color: var(--purple-900);
-                  text-shadow: none;
-                }
+                    /* Selection color (pixel-y feel) */
+                    ::selection {
+                      background: var(--gold);
+                      color: var(--purple-900);
+                      text-shadow: none;
+                    }
 
-                /* Improve image rendering for the pixel avatar specifically */
-                .skills-char-sprite,
-                .dialogue-portrait {
-                  image-rendering: pixelated;
-                  image-rendering: crisp-edges;
-                }
+                    /* Improve image rendering for the pixel avatar specifically */
+                    .skills-char-sprite,
+                    .dialogue-portrait {
+                      image-rendering: pixelated;
+                      image-rendering: crisp-edges;
+                    }
 
-              </style>
+                    /* ═══════════════════════════════════════════════════════════
+                       👔 FORMAL MODE — Professional portfolio view
+                       Activated by adding .formal-mode to <body>
+                    ═══════════════════════════════════════════════════════════ */
+
+                    /* === Transition overlay (Venom-style tendrils) === */
+                    #mode-transition {
+                      position: fixed;
+                      inset: 0;
+                      z-index: 999999;
+                      pointer-events: none;
+                      opacity: 0;
+                      mix-blend-mode: screen;
+                    }
+                    #mode-transition.active { pointer-events: auto; }
+                    #mode-transition canvas {
+                      width: 100%;
+                      height: 100%;
+                      display: block;
+                    }
+
+                    /* === Formal mode: tokens override === */
+                    body.formal-mode {
+                      --purple-900: #fafaf7;
+                      --purple-800: #ffffff;
+                      --purple-700: #f0eee8;
+                      --purple-500: #d4cce8;
+                      --purple-400: #a594c4;
+                      --purple-300: #6b5b8e;
+                      --purple-200: #4a3f6b;
+                      --gold: #c9a42a;
+                      --gold-dim: #a88820;
+                      --gold-soft: rgba(201, 164, 42, 0.08);
+                      --green: #4a8a3a;
+                      --green-dim: #3a6e2a;
+                      --red: #b8453a;
+                      --white: #1e123a;
+                      --white-dim: #2a1f4a;
+                      --muted: #6b6580;
+                      --muted-bright: #4a4565;
+                      --pixel-border: 1px solid var(--purple-500);
+                      --pixel-border-thin: 1px solid var(--purple-400);
+                      --pixel-border-gold: 1px solid var(--gold);
+                      --shadow-sm: 0 1px 2px rgba(30, 18, 58, 0.04), 0 1px 3px rgba(30, 18, 58, 0.06);
+                      --shadow: 0 2px 4px rgba(30, 18, 58, 0.05), 0 4px 12px rgba(30, 18, 58, 0.08);
+                      --shadow-lg: 0 4px 12px rgba(30, 18, 58, 0.08), 0 12px 32px rgba(30, 18, 58, 0.12);
+                      --shadow-gold: 0 2px 8px rgba(201, 164, 42, 0.15), 0 8px 24px rgba(201, 164, 42, 0.12);
+                      --pixel: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+                      --silk:  "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+                      --body:  "Inter", -apple-system, BlinkMacFont, sans-serif;
+                      --mono:  "JetBrains Mono", monospace;
+                      --ls-wide: 0;
+                      --ls-wider: 0.01em;
+                      --ls-widest: 0.02em;
+                      background: var(--purple-900);
+                      color: var(--white);
+                      --ease-pixel: cubic-bezier(0.22, 1, 0.36, 1);
+                    }
+
+                    /* === Formal mode: gentle cross-fade on major pieces === */
+                    body.formal-mode .topbar,
+                    body.formal-mode .panel,
+                    body.formal-mode .profile-hud,
+                    body.formal-mode .tools-hud,
+                    body.formal-mode .level-card,
+                    body.formal-mode .cert-card,
+                    body.formal-mode .social-item,
+                    body.formal-mode .hero-panel,
+                    body.formal-mode .project-page,
+                    body.formal-mode .dialogue-box,
+                    body.formal-mode .quote-card,
+                    body.formal-mode .skills-char-sprite,
+                    body.formal-mode .skills-section-wrap,
+                    body.formal-mode .contact-card {
+                      border-radius: 12px !important;
+                      transition: all 0.5s var(--ease-pixel) !important;
+                    }
+
+                    /* CRT overlay: fade out in formal mode */
+                    body.formal-mode::after { opacity: 0 !important; }
+
+                    /* Pixel canvas particles: fade out in formal */
+                    body.formal-mode #pixel-canvas { opacity: 0 !important; transition: opacity 0.4s; }
+
+                    /* === Formal mode typography overrides === */
+                    body.formal-mode {
+                      font-family: var(--body);
+                      letter-spacing: var(--ls-tight);
+                    }
+                    body.formal-mode h1,
+                    body.formal-mode h2,
+                    body.formal-mode h3,
+                    body.formal-mode h4 {
+                      font-family: var(--body);
+                      font-weight: 700;
+                      letter-spacing: -0.02em;
+                      line-height: 1.15;
+                    }
+                    body.formal-mode .brand {
+                      font-family: var(--body);
+                      font-weight: 700;
+                      letter-spacing: -0.01em;
+                      color: var(--gold);
+                    }
+                    body.formal-mode .topnav a {
+                      font-family: var(--body);
+                      font-weight: 500;
+                    }
+                    body.formal-mode .hud-score,
+                    body.formal-mode .hud-header,
+                    body.formal-mode .stat-label,
+                    body.formal-mode .stat-val,
+                    body.formal-mode .tool-name,
+                    body.formal-mode .tool-lv,
+                    body.formal-mode .progress-label,
+                    body.formal-mode .progress-pct,
+                    body.formal-mode .weapon-name,
+                    body.formal-mode .weapon-level,
+                    body.formal-mode .passion-name,
+                    body.formal-mode .retro-title,
+                    body.formal-mode .eyebrow,
+                    body.formal-mode .dialogue-name,
+                    body.formal-mode .dialogue-text,
+                    body.formal-mode .dialogue-advance,
+                    body.formal-mode .quote-text,
+                    body.formal-mode .level-label,
+                    body.formal-mode .level-summary,
+                    body.formal-mode .level-role,
+                    body.formal-mode .progress-list,
+                    body.formal-mode .proj-section-label,
+                    body.formal-mode .proj-summary,
+                    body.formal-mode .proj-stat-label,
+                    body.formal-mode .proj-stat-pct,
+                    body.formal-mode .proj-role,
+                    body.formal-mode .cert-name,
+                    body.formal-mode .cert-detail,
+                    body.formal-mode .social-name,
+                    body.formal-mode .social-copy,
+                    body.formal-mode .section-rule-label,
+                    body.formal-mode .goto-project-btn,
+                    body.formal-mode .proj-nav-btn,
+                    body.formal-mode .btn,
+                    body.formal-mode .press-start,
+                    body.formal-mode .hud-meta-row,
+                    body.formal-mode .skill-title,
+                    body.formal-mode .xp-badge,
+                    body.formal-mode .avatar-photo-label {
+                      font-family: var(--body) !important;
+                      letter-spacing: 0;
+                      text-shadow: none !important;
+                      animation: none !important;
+                    }
+
+                    body.formal-mode .hero-title,
+                    body.formal-mode .level-title,
+                    body.formal-mode .proj-title,
+                    body.formal-mode .section-heading h2 {
+                      font-family: var(--body) !important;
+                      font-weight: 700;
+                      letter-spacing: -0.025em;
+                    }
+
+                    body.formal-mode .hero-title {
+                      font-size: clamp(2rem, 4vw, 3rem);
+                      color: var(--white);
+                      text-shadow: none;
+                    }
+
+                    /* Hero panel: clean, centered */
+                    body.formal-mode .hero-panel {
+                      background: linear-gradient(135deg, #ffffff 0%, #f5f3ed 100%);
+                      border: 1px solid rgba(30, 18, 58, 0.08);
+                      box-shadow: var(--shadow);
+                    }
+                    body.formal-mode .hero-panel::before { display: none; }
+                    body.formal-mode .hero-system-bar {
+                      color: var(--gold);
+                      font-weight: 600;
+                      letter-spacing: 0.05em;
+                    }
+                    body.formal-mode .hero-subtitle { color: var(--muted); }
+                    body.formal-mode .hero-description {
+                      color: var(--muted-bright);
+                      font-size: 1.05rem;
+                      line-height: 1.7;
+                    }
+
+                    /* Topbar: clean white */
+                    body.formal-mode .topbar {
+                      background: rgba(255, 255, 255, 0.95);
+                      border-bottom: 1px solid rgba(30, 18, 58, 0.08);
+                      box-shadow: 0 1px 3px rgba(30, 18, 58, 0.04);
+                    }
+                    body.formal-mode .topnav a { color: var(--muted-bright); }
+                    body.formal-mode .topnav a:hover { color: var(--gold); }
+                    body.formal-mode .topnav a::after { background: var(--gold); }
+                    body.formal-mode .hud-score { color: var(--muted); }
+                    body.formal-mode .hud-score span { color: var(--gold); text-shadow: none; }
+
+                    /* Tool buttons: cleaner */
+                    body.formal-mode .tool-btn {
+                      background: transparent;
+                      border: 1px solid rgba(30, 18, 58, 0.12);
+                      color: var(--muted-bright);
+                      border-radius: 6px;
+                      font-weight: 500;
+                    }
+                    body.formal-mode .tool-btn:hover {
+                      border-color: var(--gold);
+                      color: var(--gold);
+                      background: rgba(201, 164, 42, 0.04);
+                    }
+                    body.formal-mode .tool-btn[aria-pressed="true"] {
+                      background: var(--gold);
+                      color: #ffffff;
+                      border-color: var(--gold);
+                    }
+
+                    /* Panels: subtle elevation */
+                    body.formal-mode .panel {
+                      background: #ffffff;
+                      border: 1px solid rgba(30, 18, 58, 0.06);
+                      box-shadow: var(--shadow-sm);
+                    }
+                    body.formal-mode .panel:hover {
+                      box-shadow: var(--shadow);
+                      border-color: rgba(30, 18, 58, 0.1);
+                    }
+
+                    /* Sidebar HUDs */
+                    body.formal-mode .profile-hud,
+                    body.formal-mode .tools-hud,
+                    body.formal-mode .progress-hud {
+                      background: #ffffff;
+                      border: 1px solid rgba(30, 18, 58, 0.08);
+                      box-shadow: var(--shadow-sm);
+                    }
+                    body.formal-mode .hud-header {
+                      color: var(--white);
+                      border-bottom: 1px solid rgba(30, 18, 58, 0.08);
+                      font-weight: 600;
+                    }
+                    body.formal-mode .hud-meta-row { color: var(--muted); border-bottom: 1px solid rgba(30, 18, 58, 0.04); }
+                    body.formal-mode .hud-meta-row span:last-child { color: var(--white); }
+                    body.formal-mode .avatar-photo-wrap { border: 1px solid rgba(30, 18, 58, 0.08); box-shadow: none; }
+                    body.formal-mode .avatar-photo-label {
+                      background: linear-gradient(0deg, rgba(255, 255, 255, 0.95), transparent);
+                      color: var(--white);
+                    }
+                    body.formal-mode .stat-bar-bg {
+                      background: var(--purple-700);
+                      border: none;
+                      border-radius: 3px;
+                    }
+                    body.formal-mode .stat-bar-fill {
+                      background: var(--gold) !important;
+                      box-shadow: none;
+                    }
+                    body.formal-mode .tool-bar-bg {
+                      background: var(--purple-700);
+                      border: none;
+                      border-radius: 3px;
+                    }
+                    body.formal-mode .tool-row { padding: 6px 0; }
+                    body.formal-mode .tool-row:hover { background: rgba(201, 164, 42, 0.04); }
+                    body.formal-mode .tool-bar-fill { background: var(--gold) !important; }
+
+                    /* Section headings: clean */
+                    body.formal-mode .section-heading {
+                      border-bottom: 1px solid rgba(30, 18, 58, 0.06);
+                    }
+                    body.formal-mode .eyebrow {
+                      background: transparent;
+                      border: none;
+                      padding: 0;
+                      color: var(--gold);
+                      font-weight: 600;
+                      letter-spacing: 0.04em;
+                    }
+                    body.formal-mode .section-heading h2 {
+                      color: var(--white);
+                      font-weight: 700;
+                    }
+
+                    /* Retro titlebars: minimal */
+                    body.formal-mode .retro-titlebar {
+                      background: var(--purple-700);
+                      border-bottom: 1px solid rgba(30, 18, 58, 0.06);
+                      min-height: 0;
+                    }
+                    body.formal-mode .retro-title { color: var(--white); font-weight: 600; letter-spacing: 0.02em; }
+                    body.formal-mode .retro-btns { display: none; }
+
+                    /* Dialogue box: clean */
+                    body.formal-mode .dialogue-box {
+                      background: var(--purple-700);
+                      border: 1px solid rgba(30, 18, 58, 0.06);
+                      box-shadow: var(--shadow-sm);
+                      padding: 2rem;
+                      min-height: auto;
+                    }
+                    body.formal-mode .dialogue-portrait { display: none; }
+                    body.formal-mode .dialogue-name {
+                      background: transparent;
+                      color: var(--gold);
+                      padding: 0;
+                      box-shadow: none;
+                      font-weight: 600;
+                      position: static;
+                      display: block;
+                      margin-bottom: 0.5rem;
+                    }
+                    body.formal-mode .dialogue-text { font-size: 1.05rem; line-height: 1.75; color: var(--white); }
+                    body.formal-mode .dialogue-cursor { display: none; }
+                    body.formal-mode .dialogue-advance { display: none; }
+
+                    /* Quote */
+                    body.formal-mode .quote-card {
+                      background: var(--purple-700);
+                      border: 1px solid rgba(30, 18, 58, 0.06);
+                    }
+                    body.formal-mode .quote-card::before { background: var(--gold); width: 3px; }
+                    body.formal-mode .quote-mark { color: var(--purple-500); font-family: Georgia, serif; opacity: 0.5; }
+
+                    /* Skills */
+                    body.formal-mode .skills-char-sprite {
+                      border-radius: 50%;
+                      border: 2px solid var(--gold);
+                      filter: grayscale(0.1);
+                    }
+                    body.formal-mode .skills-divider {
+                      background: linear-gradient(90deg, transparent, rgba(30, 18, 58, 0.1), transparent);
+                      height: 1px;
+                    }
+                    body.formal-mode .weapon-pip {
+                      border-radius: 2px;
+                      background: var(--purple-700);
+                      border: none;
+                    }
+                    body.formal-mode .weapon-pip.filled {
+                      background: var(--gold);
+                    }
+                    body.formal-mode .weapon-pip.empty { background: rgba(30, 18, 58, 0.08); }
+
+                    /* Level cards */
+                    body.formal-mode .level-card,
+                    body.formal-mode .cert-card {
+                      background: #ffffff;
+                      border: 1px solid rgba(30, 18, 58, 0.08);
+                    }
+                    body.formal-mode .level-card:hover,
+                    body.formal-mode .cert-card:hover {
+                      border-color: var(--gold);
+                      box-shadow: var(--shadow);
+                    }
+                    body.formal-mode .level-label,
+                    body.formal-mode .eyebrow {
+                      background: rgba(201, 164, 42, 0.08);
+                      color: var(--gold-dim);
+                      border: none;
+                      font-weight: 600;
+                      padding: 4px 10px;
+                    }
+                    body.formal-mode .progress-bar-bg,
+                    body.formal-mode .proj-stat-bar {
+                      background: var(--purple-700);
+                      border: none;
+                      border-radius: 3px;
+                    }
+                    body.formal-mode .progress-fill,
+                    body.formal-mode .proj-stat-fill {
+                      background: var(--gold);
+                    }
+
+                    /* Project pages: clean */
+                    body.formal-mode .project-page {
+                      background: #ffffff;
+                      border: 1px solid rgba(30, 18, 58, 0.08);
+                      box-shadow: var(--shadow);
+                    }
+                    body.formal-mode .project-page-titlebar {
+                      background: var(--purple-700);
+                      border-bottom: 1px solid rgba(30, 18, 58, 0.06);
+                    }
+                    body.formal-mode .project-page-title-text { color: var(--white); font-weight: 600; }
+                    body.formal-mode .proj-level-tag {
+                      background: var(--gold);
+                      color: #ffffff;
+                      font-weight: 600;
+                      box-shadow: none;
+                    }
+                    body.formal-mode .proj-divider {
+                      border-top: 1px solid rgba(30, 18, 58, 0.06);
+                    }
+                    body.formal-mode .proj-banner {
+                      background: var(--purple-700);
+                      border: 1px solid rgba(30, 18, 58, 0.08);
+                    }
+
+                    /* Contact */
+                    body.formal-mode .social-item {
+                      background: #ffffff;
+                      border: 1px solid rgba(30, 18, 58, 0.08);
+                    }
+                    body.formal-mode .social-item:hover {
+                      border-color: var(--gold);
+                      background: var(--purple-700);
+                    }
+                    body.formal-mode .social-icon-box {
+                      background: var(--purple-700);
+                      border: 1px solid rgba(30, 18, 58, 0.08);
+                    }
+                    body.formal-mode .social-item:hover .social-icon-box { background: var(--gold); }
+
+                    /* Buttons */
+                    body.formal-mode .btn-primary {
+                      background: var(--gold);
+                      color: #ffffff;
+                      border: 1px solid var(--gold-dim);
+                      box-shadow: 0 2px 4px rgba(201, 164, 42, 0.2);
+                    }
+                    body.formal-mode .btn-secondary {
+                      background: transparent;
+                      color: var(--white);
+                      border: 1px solid var(--purple-500);
+                    }
+                    body.formal-mode .btn-secondary:hover {
+                      background: var(--purple-700);
+                      border-color: var(--gold);
+                      color: var(--gold);
+                    }
+
+                    /* Intro splash & CRT/flicker elements: hide in formal */
+                    body.formal-mode #intro-splash,
+                    body.formal-mode #pixel-toast,
+                    body.formal-mode #konami-toast {
+                      display: none !important;
+                    }
+
+                    /* Section rule: formal version */
+                    body.formal-mode .section-rule::before,
+                    body.formal-mode .section-rule::after {
+                      background: linear-gradient(90deg, transparent, rgba(30, 18, 58, 0.1), transparent);
+                    }
+                    body.formal-mode .section-rule-label {
+                      color: var(--muted);
+                      font-weight: 500;
+                    }
+
+                    /* Progress HUD: formal */
+                    body.formal-mode .progress-hud-bar-fill {
+                      background: var(--gold);
+                      box-shadow: none;
+                    }
+                    body.formal-mode .progress-hud-pct { color: var(--gold); }
+                    body.formal-mode .progress-hud-complete { color: var(--gold-dim); }
+
+                    /* Score glow: removed */
+                    body.formal-mode #score-val { text-shadow: none; }
+
+                  </style>
 </head>
 <body>
+
+<!-- Mode transition overlay (Venom-style tendrils) -->
+<div id="mode-transition" aria-hidden="true"><canvas id="transition-canvas"></canvas></div>
 
 <!-- Skip-link for accessibility (keyboard users) -->
 <a href="#main-content" class="skip-link">▶ SKIP TO CONTENT</a>
@@ -2230,10 +2693,11 @@
     <a href="#contact-sec">Connect</a>
   </nav>
   <div class="topbar-tools">
-    <button class="tool-btn" id="audio-toggle" type="button" aria-pressed="true" aria-label="Toggle sound effects" title="Toggle sound effects">🔊 SFX</button>
-    <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle amber CRT theme" title="Toggle amber CRT theme">🟣 THEME</button>
-    <div class="hud-score" aria-label="Scroll score">SCORE: <span id="score-val">000000</span></div>
-  </div>
+      <button class="tool-btn" id="mode-toggle" type="button" aria-pressed="false" aria-label="Switch to formal professional mode" title="Switch portfolio mode">⚡ MODE</button>
+      <button class="tool-btn" id="audio-toggle" type="button" aria-pressed="true" aria-label="Toggle sound effects" title="Toggle sound effects">🔊 SFX</button>
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle amber CRT theme" title="Toggle amber CRT theme">🟣 THEME</button>
+      <div class="hud-score" aria-label="Scroll score">SCORE: <span id="score-val">000000</span></div>
+    </div>
 </header>
 
 <!-- PAGE SHELL -->
@@ -3346,6 +3810,281 @@ if (lightboxOverlay) {
   }
   tick();
 })();
+
+/* ════════════════════════════════
+   👔 MODE SWITCHER — Pixel RPG ↔ Formal Pro
+   Venom-style tendril transformation
+════════════════════════════════ */
+const modeBtn = document.getElementById('mode-toggle');
+let _isFormal = (() => {
+  try { return localStorage.getItem('saeed_mode') === 'formal'; } catch (e) { return false; }
+})();
+
+// Apply persisted mode on load
+if (_isFormal) {
+  document.body.classList.add('formal-mode');
+  if (modeBtn) {
+    modeBtn.setAttribute('aria-pressed', 'true');
+    modeBtn.textContent = '🎮 MODE';
+  }
+  // Hide intro splash immediately when starting in formal mode
+  const splash = document.getElementById('intro-splash');
+  if (splash) splash.style.display = 'none';
+}
+
+/* — Venom-style tendril animation — */
+const transitionCanvas = document.getElementById('transition-canvas');
+const transitionLayer = document.getElementById('mode-transition');
+const tctx = transitionCanvas ? transitionCanvas.getContext('2d') : null;
+
+function resizeTransitionCanvas() {
+  if (!transitionCanvas || !tctx) return;
+  const dpr = window.devicePixelRatio || 1;
+  transitionCanvas.width = window.innerWidth * dpr;
+  transitionCanvas.height = window.innerHeight * dpr;
+  transitionCanvas.style.width = window.innerWidth + 'px';
+  transitionCanvas.style.height = window.innerHeight + 'px';
+  tctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+if (transitionCanvas) {
+  resizeTransitionCanvas();
+  window.addEventListener('resize', resizeTransitionCanvas);
+}
+
+/* Play a Venom-like synth whoosh using Web Audio */
+function playVenomTransform(toFormal) {
+  if (!_audioEnabled) return;
+  try {
+    const ctx = getACtx();
+    const now = ctx.currentTime;
+
+    // Layer 1: alien growl — low sawtooth with downward filter sweep
+    const osc1 = ctx.createOscillator();
+    const filt1 = ctx.createBiquadFilter();
+    const gain1 = ctx.createGain();
+    osc1.type = 'sawtooth';
+    osc1.frequency.setValueAtTime(toFormal ? 90 : 60, now);
+    osc1.frequency.exponentialRampToValueAtTime(toFormal ? 220 : 140, now + 0.6);
+    filt1.type = 'lowpass';
+    filt1.frequency.setValueAtTime(300, now);
+    filt1.frequency.exponentialRampToValueAtTime(2400, now + 0.5);
+    filt1.Q.value = 12;
+    gain1.gain.setValueAtTime(0, now);
+    gain1.gain.linearRampToValueAtTime(0.18, now + 0.05);
+    gain1.gain.linearRampToValueAtTime(0.001, now + 0.9);
+    osc1.connect(filt1); filt1.connect(gain1); gain1.connect(ctx.destination);
+    osc1.start(now); osc1.stop(now + 0.95);
+
+    // Layer 2: high shimmer
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.type = 'triangle';
+    osc2.frequency.setValueAtTime(toFormal ? 880 : 660, now);
+    osc2.frequency.exponentialRampToValueAtTime(toFormal ? 1760 : 1320, now + 0.4);
+    gain2.gain.setValueAtTime(0, now);
+    gain2.gain.linearRampToValueAtTime(0.08, now + 0.1);
+    gain2.gain.linearRampToValueAtTime(0.001, now + 0.8);
+    osc2.connect(gain2); gain2.connect(ctx.destination);
+    osc2.start(now); osc2.stop(now + 0.85);
+
+    // Layer 3: tentacle wub — pitch-modulated square
+    const osc3 = ctx.createOscillator();
+    const gain3 = ctx.createGain();
+    osc3.type = 'square';
+    osc3.frequency.setValueAtTime(toFormal ? 120 : 80, now);
+    osc3.frequency.exponentialRampToValueAtTime(toFormal ? 60 : 40, now + 0.5);
+    gain3.gain.setValueAtTime(0, now);
+    gain3.gain.linearRampToValueAtTime(0.05, now + 0.08);
+    gain3.gain.linearRampToValueAtTime(0.001, now + 0.9);
+    osc3.connect(gain3); gain3.connect(ctx.destination);
+    osc3.start(now); osc3.stop(now + 0.95);
+  } catch (e) { /* silent fail */ }
+}
+
+/* — Tendril particles — */
+class Tendril {
+  constructor(originX, originY, targetX, targetY, color, delay) {
+    this.x = originX; this.y = originY;
+    this.tx = targetX; this.ty = targetY;
+    this.color = color;
+    this.delay = delay;
+    this.t = 0;
+    this.life = 1;
+    this.thickness = 8 + Math.random() * 12;
+    this.wobble = 30 + Math.random() * 50;
+    this.angle = Math.atan2(targetY - originY, targetX - originX);
+    this.angleOffset = (Math.random() - 0.5) * 1.2;
+    this.path = [];
+    this.dead = false;
+  }
+  update(dt) {
+    if (this.delay > 0) { this.delay -= dt; return; }
+    this.t += dt * 1.4;
+    if (this.t > 1) {
+      this.t = 1;
+      this.life -= dt * 1.6;
+      if (this.life <= 0) this.dead = true;
+    }
+    // Bezier curve with perpendicular offset
+    const bezierT = this.t;
+    const perpX = -Math.sin(this.angle + this.angleOffset) * this.wobble * Math.sin(bezierT * Math.PI);
+    const perpY = Math.cos(this.angle + this.angleOffset) * this.wobble * Math.sin(bezierT * Math.PI);
+    const cx = (this.x + this.tx) / 2 + perpX;
+    const cy = (this.y + this.ty) / 2 + perpY;
+    const u = 1 - bezierT;
+    this.x = u * u * this.x + 2 * u * bezierT * cx + bezierT * bezierT * this.tx;
+    this.y = u * u * this.y + 2 * u * bezierT * cy + bezierT * bezierT * this.ty;
+    this.path.push({ x: this.x, y: this.y });
+    if (this.path.length > 12) this.path.shift();
+  }
+  draw(ctx) {
+    if (this.delay > 0) return;
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    // Glow outer
+    ctx.strokeStyle = this.color;
+    ctx.globalAlpha = this.life * 0.4;
+    ctx.lineWidth = this.thickness * 3;
+    ctx.beginPath();
+    if (this.path.length > 0) {
+      ctx.moveTo(this.path[0].x, this.path[0].y);
+      for (let i = 1; i < this.path.length; i++) ctx.lineTo(this.path[i].x, this.path[i].y);
+      ctx.stroke();
+    }
+    // Inner bright
+    ctx.globalAlpha = this.life;
+    ctx.lineWidth = this.thickness;
+    ctx.beginPath();
+    if (this.path.length > 0) {
+      ctx.moveTo(this.path[0].x, this.path[0].y);
+      for (let i = 1; i < this.path.length; i++) ctx.lineTo(this.path[i].x, this.path[i].y);
+      ctx.stroke();
+    }
+    // Hot core
+    ctx.globalAlpha = this.life * 0.9;
+    ctx.lineWidth = this.thickness * 0.35;
+    ctx.strokeStyle = '#ffffff';
+    ctx.beginPath();
+    if (this.path.length > 0) {
+      ctx.moveTo(this.path[0].x, this.path[0].y);
+      for (let i = 1; i < this.path.length; i++) ctx.lineTo(this.path[i].x, this.path[i].y);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+}
+
+let tendrils = [];
+let animFrame = null;
+let phase = 'idle'; // 'idle' | 'expanding' | 'switching' | 'retracting'
+
+function drawTendrils() {
+  if (!tctx) return;
+  // Trail: don't fully clear — slight fade
+  tctx.fillStyle = 'rgba(0,0,0,0.25)';
+  tctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+  tendrils = tendrils.filter(t => !t.dead);
+  for (const t of tendrils) {
+    t.update(0.016);
+    t.draw(tctx);
+  }
+  if (phase !== 'idle' || tendrils.length > 0) {
+    animFrame = requestAnimationFrame(drawTendrils);
+  } else if (animFrame) {
+    cancelAnimationFrame(animFrame);
+    animFrame = null;
+  }
+}
+
+function spawnTendrils(originX, originY, goingFormal) {
+  if (!tctx) return;
+  const W = window.innerWidth;
+  const H = window.innerHeight;
+  const colors = goingFormal
+    ? ['#6845b0', '#9566f0', '#f4c842', '#d4cce8', '#ffffff']
+    : ['#f4c842', '#9566f0', '#6845b0', '#4ade80', '#ffffff'];
+
+  // Pick 8 random points along the screen perimeter
+  const points = [];
+  for (let i = 0; i < 10; i++) {
+    let px, py;
+    const side = Math.floor(Math.random() * 4);
+    if (side === 0) { px = Math.random() * W; py = -20; }
+    else if (side === 1) { px = W + 20; py = Math.random() * H; }
+    else if (side === 2) { px = Math.random() * W; py = H + 20; }
+    else { px = -20; py = Math.random() * H; }
+    points.push({ x: px, y: py });
+  }
+
+  tendrils = points.map((p, i) => new Tendril(
+    originX, originY,
+    p.x, p.y,
+    colors[Math.floor(Math.random() * colors.length)],
+    i * 0.02
+  ));
+}
+
+function runModeTransition(goingFormal) {
+  // Read button rect to know where the click happened
+  let originX = window.innerWidth / 2;
+  let originY = 60;
+  if (modeBtn) {
+    const r = modeBtn.getBoundingClientRect();
+    originX = r.left + r.width / 2;
+    originY = r.top + r.height / 2;
+  }
+
+  phase = 'expanding';
+  spawnTendrils(originX, originY, goingFormal);
+  playVenomTransform(goingFormal);
+
+  if (transitionLayer) transitionLayer.classList.add('active');
+
+  // Start animation loop
+  if (!animFrame) animFrame = requestAnimationFrame(drawTendrils);
+
+  // Phase 1: tendrils expand for 500ms
+  setTimeout(() => {
+    phase = 'switching';
+    document.body.classList.toggle('formal-mode', goingFormal);
+    try { localStorage.setItem('saeed_mode', goingFormal ? 'formal' : 'pixel'); } catch (e) {}
+    // Skip intro splash if going to formal
+    const splash = document.getElementById('intro-splash');
+    if (goingFormal && splash) splash.style.display = 'none';
+  }, 500);
+
+  // Phase 2: tendrils retract back to button origin
+  setTimeout(() => {
+    phase = 'retracting';
+    // Spawn reverse tendrils from outer points back to button
+    tendrils = tendrils.map(t => {
+      const reverse = new Tendril(t.tx, t.ty, originX, originY, t.color, t.delay * 0.3);
+      reverse.thickness = t.thickness * 0.7;
+      return reverse;
+    });
+  }, 700);
+
+  // Cleanup
+  setTimeout(() => {
+    phase = 'idle';
+    if (transitionLayer) transitionLayer.classList.remove('active');
+    if (tctx) tctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  }, 1400);
+}
+
+if (modeBtn) {
+  modeBtn.addEventListener('click', () => {
+    if (animFrame) return; // prevent double-click during transition
+    const goingFormal = !_isFormal;
+    _isFormal = goingFormal;
+    modeBtn.setAttribute('aria-pressed', String(goingFormal));
+    modeBtn.textContent = goingFormal ? '🎮 MODE' : '⚡ MODE';
+    runModeTransition(goingFormal);
+  });
+}
 
 </script>
 </body>
