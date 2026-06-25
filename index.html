@@ -3,12 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0820" />
   <title>Ahmed Saeed | Pixel Portfolio</title>
-  <meta name="description" content="Ahmed Saeed — Design student at Innovation University. Pixel-style portfolio." />
+  <meta name="description" content="Ahmed Saeed — Second-year Design student at Innovation University. Pixel-style portfolio with branding, interior, and spatial design projects." />
+  <meta name="author" content="Ahmed Saeed" />
+
+  <!-- Favicons (pixel S) -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/" />
+  <meta property="og:title" content="Ahmed Saeed | Pixel Portfolio" />
+  <meta property="og:description" content="Design student at Innovation University — brand, interior, and spatial design projects in a retro pixel RPG shell." />
+  <meta property="og:image" content="./assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/" />
+  <meta name="twitter:title" content="Ahmed Saeed | Pixel Portfolio" />
+  <meta name="twitter:description" content="Design student at Innovation University — brand, interior, and spatial design projects in a retro pixel RPG shell." />
+  <meta name="twitter:image" content="./assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Ahmed Saeed pixel portfolio — purple CRT-themed preview" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/" />
+
   <!-- Security headers -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; frame-src 'self' https://momento360.com; connect-src 'none';" />
+
+  <!-- Structured data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahmed Saeed",
+    "jobTitle": "Design Student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Innovation University"
+    },
+    "url": "https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/",
+    "image": "./assets/photo.png",
+    "sameAs": [
+      "https://www.instagram.com/ahmed_saeed2_0",
+      "https://www.behance.net/ahmedsaeed375",
+      "https://www.linkedin.com/in/ahmed-saeed-682673338"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -692,13 +744,13 @@
     @keyframes bar-dance { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(2.2)} }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
+        @media (max-width: 768px) {
       /* General Layout */
       .page-shell { grid-template-columns: 1fr; padding: 1rem 0.5rem 2rem; gap: 1rem; }
       .sidebar { position: static; margin-bottom: 0.5rem; }
       .panel { padding: 1rem; }
       .retro-body { padding: 1.25rem 1rem; }
-      
+
       /* Topbar */
       .topbar { flex-direction: column; gap: 0.8rem; padding: 0.8rem 1rem; align-items: stretch; }
       .hud-left { display: flex; justify-content: space-between; width: 100%; }
@@ -768,26 +820,231 @@
       .intro-logo { font-size: 1.6rem; }
       .intro-sub { font-size: 0.55rem; letter-spacing: 0.1em; }
       .intro-press { padding: 0.6rem 2rem; font-size: 0.7rem; }
-    }
-  </style>
+
+      /* Topbar tools (mute/theme) */
+      .topbar-tools { gap: 0.4rem; }
+      .tool-btn { font-size: 0.65rem; padding: 0.3rem 0.55rem; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+       🎨 v4 ADDITIONS — Theme toggle, Audio toggle, Lightbox,
+       Mission progress, Skip-link, prefers-reduced-motion
+        ═══════════════════════════════════════════════════════════ */
+
+        /* Skip-link for keyboard users */
+        .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      z-index: 999999;
+      background: var(--gold);
+      color: #000;
+      font-family: var(--pixel);
+      font-size: 0.7rem;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      border: 3px solid var(--purple-500);
+        }
+        .skip-link:focus { top: 1rem; }
+
+        /* Topbar tools (mute + theme) */
+        .topbar-tools {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+        }
+        .tool-btn {
+      font-family: var(--silk);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      background: rgba(148, 102, 240, 0.15);
+      border: 2px solid var(--purple-500);
+      color: var(--purple-300);
+      padding: 0.35rem 0.65rem;
+      cursor: pointer;
+      transition: all 0.15s;
+        }
+        .tool-btn:hover { background: rgba(244, 200, 66, 0.2); border-color: var(--gold); color: var(--gold); }
+        .tool-btn[aria-pressed="true"] { background: var(--gold); color: #000; border-color: var(--gold-dim); }
+        .tool-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+        /* Mission progress in sidebar */
+        .progress-hud { padding: 0.9rem 1rem; }
+        .progress-hud-row {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--silk); font-size: 0.6rem; color: var(--muted);
+      margin-bottom: 0.4rem;
+        }
+        .progress-hud-bar-bg { flex: 1; height: 8px; background: var(--purple-700); border: 1px solid var(--purple-500); overflow: hidden; }
+        .progress-hud-bar-fill { height: 100%; background: var(--green); transition: width 0.4s ease; }
+        .progress-hud-pct { font-family: var(--silk); font-size: 0.6rem; color: var(--green); min-width: 30px; text-align: right; }
+        .progress-hud-complete { color: var(--gold); animation: pulse-bar 2s ease-in-out infinite; }
+
+        /* Konami hint (hidden by default, shown when activated) */
+        .konami-toast {
+      position: fixed;
+      top: 5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(-30px);
+      z-index: 99998;
+      background: var(--purple-800);
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 30px rgba(244, 200, 66, 0.5);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s ease;
+        }
+        .konami-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+        }
+        .konami-toast-title {
+      font-family: var(--pixel);
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+        }
+        .konami-toast-sub {
+      font-family: var(--silk);
+      font-size: 0.65rem;
+      color: var(--purple-300);
+      letter-spacing: 0.08em;
+        }
+
+        /* ═══ LIGHTBOX MODAL ═══ */
+        #lightbox-overlay {
+      position: fixed; inset: 0;
+      background: rgba(13, 8, 32, 0.92);
+      z-index: 100000;
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 2rem;
+      cursor: zoom-out;
+      backdrop-filter: blur(8px);
+        }
+        #lightbox-overlay.active { display: flex; }
+        #lightbox-content {
+      max-width: 95vw;
+      max-height: 95vh;
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 40px rgba(244, 200, 66, 0.4), 8px 8px 0 var(--purple-500);
+      background: var(--purple-900);
+      padding: 1rem;
+      cursor: default;
+      position: relative;
+        }
+        #lightbox-content img,
+        #lightbox-content picture img {
+      max-width: 90vw;
+      max-height: 85vh;
+      display: block;
+      object-fit: contain;
+        }
+        .lightbox-close {
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      width: 38px; height: 38px;
+      background: var(--red);
+      border: 3px solid var(--gold);
+      color: #fff;
+      font-family: var(--pixel);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: grid; place-items: center;
+      box-shadow: 0 0 12px rgba(248, 113, 113, 0.6);
+        }
+        .lightbox-close:hover { background: #fff; color: var(--red); }
+        .lightbox-caption {
+      font-family: var(--silk);
+      font-size: 0.7rem;
+      color: var(--gold);
+      text-align: center;
+      padding-top: 0.75rem;
+      letter-spacing: 0.08em;
+        }
+        /* Make cert cards clickable */
+        .cert-card { cursor: zoom-in; }
+        .cert-card:hover { border-color: var(--gold); }
+
+        /* ═══ AMBER CRT THEME (alternate) ═══ */
+        body.theme-amber {
+      --purple-900: #1a0a02;
+      --purple-800: #2d1408;
+      --purple-700: #4a2310;
+      --purple-500: #b8731f;
+      --purple-400: #f4a040;
+      --purple-300: #ffc870;
+      --gold: #ffcc33;
+      --gold-dim: #c9a42a;
+      --green: #88ff66;
+      --red: #ff8866;
+      --white: #ffe4b8;
+      --muted: #b89770;
+        }
+        body.theme-amber .topbar,
+        body.theme-amber #pixel-toast { border-color: var(--gold); }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      body::after { animation: none; }
+      .intro-pixel-bar span { animation: none; }
+      #pixel-toast { transition: none; }
+        }
+
+        /* Focus styles for keyboard nav */
+        a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+        }
+
+      </style>
 </head>
 <body>
 
-<canvas id="pixel-canvas"></canvas>
+<!-- Skip-link for accessibility (keyboard users) -->
+<a href="#main-content" class="skip-link">▶ SKIP TO CONTENT</a>
+
+<canvas id="pixel-canvas" aria-hidden="true"></canvas>
 
 
 <!-- INTRO SPLASH -->
-<div id="intro-splash" onclick="startGame()">
-  <div class="intro-crt"></div>
+<div id="intro-splash" onclick="startGame()" role="button" tabindex="0" aria-label="Click to start the portfolio game" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();startGame();}">
+  <div class="intro-crt" aria-hidden="true"></div>
   <div class="intro-content">
-    <div class="intro-pixel-bar">
+    <div class="intro-pixel-bar" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
     </div>
     <div class="intro-logo">AHMED<br><span>SAEED</span><br>.EXE</div>
-    <div class="intro-sub">PORTFOLIO v2.0 — DESIGN STUDENT</div>
+    <div class="intro-sub">PORTFOLIO v4.0 — DESIGN STUDENT</div>
     <div class="intro-press">▶ PRESS START</div>
   </div>
   <div class="intro-copyright">&copy; 2026 SAEED.EXE — INNOVATION UNIVERSITY — ALL RIGHTS RESERVED</div>
+</div>
+
+<!-- KONAMI EASTER EGG TOAST -->
+<div class="konami-toast" id="konami-toast" role="status" aria-live="polite">
+  <div class="konami-toast-title">⚡ CHEAT MODE ACTIVATED ⚡</div>
+  <div class="konami-toast-sub">MP → ∞ — INFINITE VICTORY FANFARE ENABLED</div>
+</div>
+
+<!-- CERTIFICATE LIGHTBOX -->
+<div id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Certificate viewer" tabindex="-1">
+  <div id="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" aria-label="Close certificate viewer" onclick="closeLightbox()">×</button>
+    <div id="lightbox-media"></div>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
 </div>
 
 <!-- VICTORY BANNER -->
@@ -802,25 +1059,29 @@
 </div>
 
 <!-- TOPBAR -->
-<header class="topbar">
+<header class="topbar" role="banner">
   <div class="hud-left">
     <a class="brand" href="#">SAEED.EXE</a>
-    <span class="press-start">▶ PRESS START</span>
+    <span class="press-start" aria-hidden="true">▶ PRESS START</span>
   </div>
-  <nav class="topnav">
+  <nav class="topnav" role="navigation" aria-label="Main navigation">
     <a href="#about-sec">About</a>
     <a href="#philosophy-sec">Philosophy</a>
     <a href="#projects-sec">Missions</a>
     <a href="#contact-sec">Connect</a>
   </nav>
-  <div class="hud-score">SCORE: <span id="score-val">000000</span></div>
+  <div class="topbar-tools">
+    <button class="tool-btn" id="audio-toggle" type="button" aria-pressed="true" aria-label="Toggle sound effects" title="Toggle sound effects">🔊 SFX</button>
+    <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle amber CRT theme" title="Toggle amber CRT theme">🟣 THEME</button>
+    <div class="hud-score" aria-label="Scroll score">SCORE: <span id="score-val">000000</span></div>
+  </div>
 </header>
 
 <!-- PAGE SHELL -->
 <div class="page-shell">
 
   <!-- ★ STICKY SIDEBAR ★ -->
-  <aside class="sidebar">
+  <aside class="sidebar" role="complementary" aria-label="Player profile">
     <!-- Profile Card -->
     <div class="profile-hud">
       <div class="hud-header">
@@ -840,19 +1101,19 @@
       </div>
       <div class="stat-bars">
         <div class="stat-row">
-          <div class="stat-label" style="color:var(--green)">HP</div>
-          <div class="stat-bar-bg"><div class="stat-bar-fill hp"></div></div>
-          <div class="stat-val" style="color:var(--green)">88</div>
+      <div class="stat-label" style="color:var(--green)">HP</div>
+      <div class="stat-bar-bg"><div class="stat-bar-fill hp"></div></div>
+      <div class="stat-val" style="color:var(--green)">88</div>
         </div>
         <div class="stat-row">
-          <div class="stat-label" style="color:var(--gold)">XP</div>
-          <div class="stat-bar-bg"><div class="stat-bar-fill xp"></div></div>
-          <div class="stat-val" style="color:var(--gold)">∞</div>
+      <div class="stat-label" style="color:var(--gold)">XP</div>
+      <div class="stat-bar-bg"><div class="stat-bar-fill xp"></div></div>
+      <div class="stat-val" style="color:var(--gold)">∞</div>
         </div>
         <div class="stat-row">
-          <div class="stat-label" style="color:var(--purple-300)">MP</div>
-          <div class="stat-bar-bg"><div class="stat-bar-fill mp"></div></div>
-          <div class="stat-val" style="color:var(--purple-300)">72</div>
+      <div class="stat-label" style="color:var(--purple-300)">MP</div>
+      <div class="stat-bar-bg"><div class="stat-bar-fill mp"></div></div>
+      <div class="stat-val" style="color:var(--purple-300)">72</div>
         </div>
       </div>
     </div>
@@ -881,10 +1142,23 @@
         <span class="tool-lv" style="color:var(--muted)">LV1</span>
       </div>
     </div>
+
+    <!-- Mission Progress Card -->
+    <div class="tools-hud progress-hud" aria-live="polite" aria-atomic="true">
+      <div class="hud-header" style="margin-bottom:0.65rem">
+        <span>MISSIONS</span>
+        <span id="mission-progress-label" style="color:var(--gold)">0 / 3</span>
+      </div>
+      <div class="progress-hud-row">
+        <span id="progress-label">CLEARED</span>
+        <div class="progress-hud-bar-bg"><div class="progress-hud-bar-fill" id="mission-progress-fill" style="width:0%"></div></div>
+        <span class="progress-hud-pct" id="mission-progress-pct">0%</span>
+      </div>
+    </div>
   </aside>
 
   <!-- MAIN CONTENT -->
-  <main class="main-content">
+  <main class="main-content" id="main-content" role="main" tabindex="-1">
 
     <!-- HERO -->
     <section class="panel hero-panel" style="position:relative">
@@ -907,14 +1181,14 @@
       </div>
       <div class="retro-body">
         <div class="section-heading">
-          <p class="eyebrow">PLAYER 01 / ABOUT</p>
-          <h2>About Saeed</h2>
+      <p class="eyebrow">PLAYER 01 / ABOUT</p>
+      <h2>About Saeed</h2>
         </div>
         <div class="dialogue-box">
-          <div class="dialogue-portrait"></div>
-          <div class="dialogue-name">SAEED.EXE</div>
-          <p class="dialogue-text" id="about-text"></p>
-          <span class="dialogue-advance">▼ MORE</span>
+      <div class="dialogue-portrait"></div>
+      <div class="dialogue-name">SAEED.EXE</div>
+      <p class="dialogue-text" id="about-text"></p>
+      <span class="dialogue-advance">▼ MORE</span>
         </div>
       </div>
     </section>
@@ -928,48 +1202,48 @@
       </div>
       <div class="skills-section-wrap">
         <div class="section-heading">
-          <p class="eyebrow">PLAYER STATS / SKILLS &amp; PASSIONS</p>
-          <h2>Skills Loadout</h2>
+      <p class="eyebrow">PLAYER STATS / SKILLS &amp; PASSIONS</p>
+      <h2>Skills Loadout</h2>
         </div>
         <div class="skills-loadout">
-          <div class="skills-char">
-            <div class="skills-char-sprite"></div>
-            <span class="skills-char-label">PLAYER 01<br>SAEED</span>
+      <div class="skills-char">
+        <div class="skills-char-sprite"></div>
+        <span class="skills-char-label">PLAYER 01<br>SAEED</span>
+      </div>
+      <div class="skills-content">
+        <div class="skills-header">
+          <span class="skills-title">&#9876; SKILLS CARD</span>
+          <span class="xp-badge">XP: <span>&#8734;</span></span>
+        </div>
+        <!-- WEAPONS / TOOLS -->
+        <div class="skills-weapons">
+          <div class="weapon-item">
+            <span class="weapon-name">3DS Max</span>
+            <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span></div>
+            <span class="weapon-level">LVL 4</span>
           </div>
-          <div class="skills-content">
-            <div class="skills-header">
-              <span class="skills-title">&#9876; SKILLS CARD</span>
-              <span class="xp-badge">XP: <span>&#8734;</span></span>
-            </div>
-            <!-- WEAPONS / TOOLS -->
-            <div class="skills-weapons">
-              <div class="weapon-item">
-                <span class="weapon-name">3DS Max</span>
-                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span></div>
-                <span class="weapon-level">LVL 4</span>
-              </div>
-              <div class="weapon-item">
-                <span class="weapon-name">AutoCAD</span>
-                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span></div>
-                <span class="weapon-level">LVL 4</span>
-              </div>
-              <div class="weapon-item">
-                <span class="weapon-name">Blender</span>
-                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span></div>
-                <span class="weapon-level">LVL 2</span>
-              </div>
-              <div class="weapon-item">
-                <span class="weapon-name">AI Learning</span>
-                <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span></div>
-                <span class="weapon-level">LVL 2</span>
-              </div>
-            </div>
-            <div class="skills-divider"></div>
-            <!-- PASSIONS / HEARTS -->
-            <div class="skills-passions" id="preview-passions">
-              <!-- filled by JS below -->
-            </div>
+          <div class="weapon-item">
+            <span class="weapon-name">AutoCAD</span>
+            <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span></div>
+            <span class="weapon-level">LVL 4</span>
           </div>
+          <div class="weapon-item">
+            <span class="weapon-name">Blender</span>
+            <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span></div>
+            <span class="weapon-level">LVL 2</span>
+          </div>
+          <div class="weapon-item">
+            <span class="weapon-name">AI Learning</span>
+            <div class="weapon-pips"><span class="weapon-pip filled"></span><span class="weapon-pip filled"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span><span class="weapon-pip empty"></span></div>
+            <span class="weapon-level">LVL 2</span>
+          </div>
+        </div>
+        <div class="skills-divider"></div>
+        <!-- PASSIONS / HEARTS -->
+        <div class="skills-passions" id="preview-passions">
+          <!-- filled by JS below -->
+        </div>
+      </div>
         </div>
       </div>
     </section>
@@ -983,12 +1257,12 @@
       </div>
       <div class="retro-body">
         <div class="section-heading">
-          <p class="eyebrow">CORE CODE / PHILOSOPHY</p>
-          <h2>Design Philosophy</h2>
+      <p class="eyebrow">CORE CODE / PHILOSOPHY</p>
+      <h2>Design Philosophy</h2>
         </div>
         <div class="quote-card">
-          <div class="quote-mark">"</div>
-          <p class="quote-text" id="philosophy-text"></p>
+      <div class="quote-mark">"</div>
+      <p class="quote-text" id="philosophy-text"></p>
         </div>
       </div>
     </section>
@@ -1003,92 +1277,92 @@
         <div class="level-path"></div>
 
         <div class="level-node left">
-          <div class="level-card" onclick="playPixelSound('select')">
-            <div class="level-label">LEVEL 01 — BRAND</div>
-            <div class="level-title">ZaraZ Menswear Rebrand</div>
-            <p class="level-summary">A retail identity project focused on sharpening perception, masculinity, and store presence.</p>
-            <div class="level-role">Brand direction / visual identity</div>
-            <div class="progress-list">
-              <div class="progress-row">
-                <span class="progress-label">Design Level:</span>
-                <div class="progress-bar-bg"><div class="progress-fill" style="width:85%"></div></div>
-                <span class="progress-pct">85%</span>
-              </div>
-              <div class="progress-row">
-                <span class="progress-label">Render Magic:</span>
-                <div class="progress-bar-bg"><div class="progress-fill" style="width:70%;background:var(--gold)"></div></div>
-                <span class="progress-pct">70%</span>
-              </div>
-            </div>
-            <a class="goto-project-btn" href="#project-zaraz">▶ VIEW FULL MISSION FILE ↓</a>
+      <div class="level-card" onclick="playPixelSound('select')">
+        <div class="level-label">LEVEL 01 — BRAND</div>
+        <div class="level-title">ZaraZ Menswear Rebrand</div>
+        <p class="level-summary">A retail identity project focused on sharpening perception, masculinity, and store presence.</p>
+        <div class="level-role">Brand direction / visual identity</div>
+        <div class="progress-list">
+          <div class="progress-row">
+            <span class="progress-label">Design Level:</span>
+            <div class="progress-bar-bg"><div class="progress-fill" style="width:85%"></div></div>
+            <span class="progress-pct">85%</span>
           </div>
-          <div class="level-icon"><div class="level-badge">L1</div></div>
-          <div class="level-empty"></div>
+          <div class="progress-row">
+            <span class="progress-label">Render Magic:</span>
+            <div class="progress-bar-bg"><div class="progress-fill" style="width:70%;background:var(--gold)"></div></div>
+            <span class="progress-pct">70%</span>
+          </div>
+        </div>
+        <a class="goto-project-btn" href="#project-zaraz">▶ VIEW FULL MISSION FILE ↓</a>
+      </div>
+      <div class="level-icon"><div class="level-badge">L1</div></div>
+      <div class="level-empty"></div>
         </div>
 
         <div class="level-node right">
-          <div class="level-empty"></div>
-          <div class="level-icon"><div class="level-badge">L2</div></div>
-          <div class="level-card" onclick="playPixelSound('select')">
-            <div class="level-label">LEVEL 02 — INTERIOR</div>
-            <div class="level-title">Wabi-Sabi Style Kitchen</div>
-            <p class="level-summary">An interior concept built around calm imperfection, material balance, and spatial mood.</p>
-            <div class="level-role">Concept design / spatial mood</div>
-            <div class="progress-list">
-              <div class="progress-row">
-                <span class="progress-label">Design Level:</span>
-                <div class="progress-bar-bg"><div class="progress-fill" style="width:90%"></div></div>
-                <span class="progress-pct">90%</span>
-              </div>
-              <div class="progress-row">
-                <span class="progress-label">Atmosphere:</span>
-                <div class="progress-bar-bg"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
-                <span class="progress-pct">100%</span>
-              </div>
-            </div>
-            <a class="goto-project-btn" href="#project-wabisabi">▶ VIEW FULL MISSION FILE ↓</a>
+      <div class="level-empty"></div>
+      <div class="level-icon"><div class="level-badge">L2</div></div>
+      <div class="level-card" onclick="playPixelSound('select')">
+        <div class="level-label">LEVEL 02 — INTERIOR</div>
+        <div class="level-title">Wabi-Sabi Style Kitchen</div>
+        <p class="level-summary">An interior concept built around calm imperfection, material balance, and spatial mood.</p>
+        <div class="level-role">Concept design / spatial mood</div>
+        <div class="progress-list">
+          <div class="progress-row">
+            <span class="progress-label">Design Level:</span>
+            <div class="progress-bar-bg"><div class="progress-fill" style="width:90%"></div></div>
+            <span class="progress-pct">90%</span>
           </div>
+          <div class="progress-row">
+            <span class="progress-label">Atmosphere:</span>
+            <div class="progress-bar-bg"><div class="progress-fill" style="width:100%;background:var(--green)"></div></div>
+            <span class="progress-pct">100%</span>
+          </div>
+        </div>
+        <a class="goto-project-btn" href="#project-wabisabi">▶ VIEW FULL MISSION FILE ↓</a>
+      </div>
         </div>
 
         <div class="level-node left">
-          <div class="level-card" onclick="playPixelSound('select')">
-            <div class="level-label">LEVEL 03 — EXPERIENCE</div>
-            <div class="level-title">El Abd Booth Concept</div>
-            <p class="level-summary">A personal concept for a branded booth developed through independent thinking and presentation strength.</p>
-            <div class="level-role">Personal concept / booth experience</div>
-            <div class="progress-list">
-              <div class="progress-row">
-                <span class="progress-label">Concept Score:</span>
-                <div class="progress-bar-bg"><div class="progress-fill" style="width:95%;background:var(--gold)"></div></div>
-                <span class="progress-pct">95%</span>
-              </div>
-              <div class="progress-row">
-                <span class="progress-label">Presentation:</span>
-                <div class="progress-bar-bg"><div class="progress-fill" style="width:80%"></div></div>
-                <span class="progress-pct">80%</span>
-              </div>
-            </div>
-            <a class="goto-project-btn" href="#project-elabd">▶ VIEW FULL MISSION FILE ↓</a>
+      <div class="level-card" onclick="playPixelSound('select')">
+        <div class="level-label">LEVEL 03 — EXPERIENCE</div>
+        <div class="level-title">El Abd Booth Concept</div>
+        <p class="level-summary">A personal concept for a branded booth developed through independent thinking and presentation strength.</p>
+        <div class="level-role">Personal concept / booth experience</div>
+        <div class="progress-list">
+          <div class="progress-row">
+            <span class="progress-label">Concept Score:</span>
+            <div class="progress-bar-bg"><div class="progress-fill" style="width:95%;background:var(--gold)"></div></div>
+            <span class="progress-pct">95%</span>
           </div>
-          <div class="level-icon"><div class="level-badge">L3</div></div>
-          <div class="level-empty"></div>
+          <div class="progress-row">
+            <span class="progress-label">Presentation:</span>
+            <div class="progress-bar-bg"><div class="progress-fill" style="width:80%"></div></div>
+            <span class="progress-pct">80%</span>
+          </div>
+        </div>
+        <a class="goto-project-btn" href="#project-elabd">▶ VIEW FULL MISSION FILE ↓</a>
+      </div>
+      <div class="level-icon"><div class="level-badge">L3</div></div>
+      <div class="level-empty"></div>
         </div>
 
         <!-- PORTAL NODE — CONTACT -->
         <div class="level-node right portal">
-          <div class="level-empty"></div>
-          <div class="level-icon"><div class="level-badge portal-badge">⚡</div></div>
-          <div class="level-card portal-card">
-            <div class="level-label">PORTAL — CONNECT</div>
-            <div class="level-title">Scan / Open / Connect</div>
-            <p class="level-summary">Reach out, collaborate, and open a direct channel to Saeed.</p>
-            <div class="portal-social-row">
-              <span class="portal-social-chip">IG Instagram</span>
-              <span class="portal-social-chip">Be Behance</span>
-              <span class="portal-social-chip">in LinkedIn</span>
-            </div>
-            <a class="goto-project-btn portal-btn" href="#contact-sec" onclick="playPixelSound('select')">⚡ OPEN PORTAL ↓</a>
-          </div>
+      <div class="level-empty"></div>
+      <div class="level-icon"><div class="level-badge portal-badge">⚡</div></div>
+      <div class="level-card portal-card">
+        <div class="level-label">PORTAL — CONNECT</div>
+        <div class="level-title">Scan / Open / Connect</div>
+        <p class="level-summary">Reach out, collaborate, and open a direct channel to Saeed.</p>
+        <div class="portal-social-row">
+          <span class="portal-social-chip">IG Instagram</span>
+          <span class="portal-social-chip">Be Behance</span>
+          <span class="portal-social-chip">in LinkedIn</span>
+        </div>
+        <a class="goto-project-btn portal-btn" href="#contact-sec" onclick="playPixelSound('select')">⚡ OPEN PORTAL ↓</a>
+      </div>
         </div>
 
       </div>
@@ -1109,7 +1383,7 @@
         <div class="proj-role">Brand direction / visual identity</div>
 
         <div class="proj-banner banner-tall">
-          <img src="./assets/zara-banner.png" alt="ZaraZ Banner" loading="lazy" decoding="async" width="1250" height="2499" />
+      <img src="./assets/zara-banner.png" alt="ZaraZ Banner" loading="lazy" decoding="async" width="1250" height="2499" />
         </div>
         <hr class="proj-divider">
         <div class="proj-section-label">// MISSION BRIEF</div>
@@ -1117,14 +1391,14 @@
 
         <div class="proj-section-label">// COMPLETION STATS</div>
         <div class="proj-stats">
-          <div class="proj-stat-row"><span class="proj-stat-label">Design Level:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:85%;background:var(--purple-400)"></div></div><span class="proj-stat-pct">85%</span></div>
-          <div class="proj-stat-row"><span class="proj-stat-label">Render Magic:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:70%;background:var(--gold)"></div></div><span class="proj-stat-pct">70%</span></div>
-          <div class="proj-stat-row"><span class="proj-stat-label">Brand Impact:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:90%;background:var(--green)"></div></div><span class="proj-stat-pct">90%</span></div>
+      <div class="proj-stat-row"><span class="proj-stat-label">Design Level:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:85%;background:var(--purple-400)"></div></div><span class="proj-stat-pct">85%</span></div>
+      <div class="proj-stat-row"><span class="proj-stat-label">Render Magic:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:70%;background:var(--gold)"></div></div><span class="proj-stat-pct">70%</span></div>
+      <div class="proj-stat-row"><span class="proj-stat-label">Brand Impact:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:90%;background:var(--green)"></div></div><span class="proj-stat-pct">90%</span></div>
         </div>
         <!-- NAV FOOTER P1 -->
         <div class="proj-nav-footer">
-          <button class="proj-nav-btn return" onclick="returnToMap('zaraz')">⬆ RETURN TO MAP</button>
-          <button class="proj-nav-btn next" onclick="goToProject('wabisabi','zaraz')">NEXT MISSION ▶</button>
+      <button class="proj-nav-btn return" onclick="returnToMap('zaraz')">⬆ RETURN TO MAP</button>
+      <button class="proj-nav-btn next" onclick="goToProject('wabisabi','zaraz')">NEXT MISSION ▶</button>
         </div>
       </div>
     </section>
@@ -1142,7 +1416,7 @@
         <div class="proj-role">Concept design / spatial mood</div>
 
         <div class="proj-banner banner-kitchen">
-          <img src="./assets/kitchen-banner.png" alt="WabiSabi Kitchen Banner" loading="lazy" decoding="async" width="1750" height="2500" />
+      <img src="./assets/kitchen-banner.png" alt="WabiSabi Kitchen Banner" loading="lazy" decoding="async" width="1750" height="2500" />
         </div>
         <hr class="proj-divider">
         <div class="proj-section-label">// MISSION BRIEF</div>
@@ -1150,15 +1424,15 @@
 
         <div class="proj-section-label">// COMPLETION STATS</div>
         <div class="proj-stats">
-          <div class="proj-stat-row"><span class="proj-stat-label">Design Level:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:90%;background:var(--purple-400)"></div></div><span class="proj-stat-pct">90%</span></div>
-          <div class="proj-stat-row"><span class="proj-stat-label">Atmosphere:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:100%;background:var(--green)"></div></div><span class="proj-stat-pct">100%</span></div>
-          <div class="proj-stat-row"><span class="proj-stat-label">Material Study:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:80%;background:var(--gold)"></div></div><span class="proj-stat-pct">80%</span></div>
+      <div class="proj-stat-row"><span class="proj-stat-label">Design Level:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:90%;background:var(--purple-400)"></div></div><span class="proj-stat-pct">90%</span></div>
+      <div class="proj-stat-row"><span class="proj-stat-label">Atmosphere:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:100%;background:var(--green)"></div></div><span class="proj-stat-pct">100%</span></div>
+      <div class="proj-stat-row"><span class="proj-stat-label">Material Study:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:80%;background:var(--gold)"></div></div><span class="proj-stat-pct">80%</span></div>
         </div>
         <!-- NAV FOOTER P2 -->
         <div class="proj-nav-footer">
-          <button class="proj-nav-btn prev" onclick="goToProject('zaraz',null)">◀ PREV MISSION</button>
-          <button class="proj-nav-btn return" onclick="returnToMap('wabisabi')">⬆ RETURN TO MAP</button>
-          <button class="proj-nav-btn next" onclick="goToProject('elabd','wabisabi')">NEXT MISSION ▶</button>
+      <button class="proj-nav-btn prev" onclick="goToProject('zaraz',null)">◀ PREV MISSION</button>
+      <button class="proj-nav-btn return" onclick="returnToMap('wabisabi')">⬆ RETURN TO MAP</button>
+      <button class="proj-nav-btn next" onclick="goToProject('elabd','wabisabi')">NEXT MISSION ▶</button>
         </div>
       </div>
     </section>
@@ -1176,7 +1450,7 @@
         <div class="proj-role">Personal concept / booth experience</div>
 
         <div class="proj-banner banner-booth">
-          <img src="./assets/booth-banner.jpg" alt="El Abd Booth Banner" loading="lazy" decoding="async" width="2000" height="4000" />
+      <img src="./assets/booth-banner.jpg" alt="El Abd Booth Banner" loading="lazy" decoding="async" width="2000" height="4000" />
         </div>
         <hr class="proj-divider">
         <div class="proj-section-label">// MISSION BRIEF</div>
@@ -1184,19 +1458,19 @@
 
         <div class="proj-section-label">// 360° BOOTH EXPERIENCE</div>
         <div class="proj-360-viewer">
-          <iframe src="https://momento360.com/e/u/990be923242b43f592c34ebd269a2125?utm_campaign=embed&utm_source=other&utm_medium=embed&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true" width="100%" height="100%" allowfullscreen="allowfullscreen" style="position:absolute; inset:0; border:none;"></iframe>
-        </div>
+          <iframe src="https://momento360.com/e/u/990be923242b43f592c34ebd269a2125?utm_campaign=embed&utm_source=other&utm_medium=embed&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true" title="El Abd Booth — 360° Virtual Tour" width="100%" height="100%" allowfullscreen="allowfullscreen" loading="lazy" style="position:absolute; inset:0; border:none;"></iframe>
+            </div>
 
         <div class="proj-section-label">// COMPLETION STATS</div>
         <div class="proj-stats">
-          <div class="proj-stat-row"><span class="proj-stat-label">Concept Score:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:95%;background:var(--gold)"></div></div><span class="proj-stat-pct">95%</span></div>
-          <div class="proj-stat-row"><span class="proj-stat-label">Presentation:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:80%;background:var(--purple-400)"></div></div><span class="proj-stat-pct">80%</span></div>
-          <div class="proj-stat-row"><span class="proj-stat-label">Originality:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:100%;background:var(--green)"></div></div><span class="proj-stat-pct">100%</span></div>
+      <div class="proj-stat-row"><span class="proj-stat-label">Concept Score:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:95%;background:var(--gold)"></div></div><span class="proj-stat-pct">95%</span></div>
+      <div class="proj-stat-row"><span class="proj-stat-label">Presentation:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:80%;background:var(--purple-400)"></div></div><span class="proj-stat-pct">80%</span></div>
+      <div class="proj-stat-row"><span class="proj-stat-label">Originality:</span><div class="proj-stat-bar"><div class="proj-stat-fill" style="width:100%;background:var(--green)"></div></div><span class="proj-stat-pct">100%</span></div>
         </div>
         <!-- NAV FOOTER P3 -->
         <div class="proj-nav-footer">
-          <button class="proj-nav-btn prev" onclick="goToProject('wabisabi',null)">◀ PREV MISSION</button>
-          <button class="proj-nav-btn return" style="border-color:var(--gold);color:var(--gold)" onclick="finishGame()">🏆 FINAL MISSION COMPLETE</button>
+      <button class="proj-nav-btn prev" onclick="goToProject('wabisabi',null)">◀ PREV MISSION</button>
+      <button class="proj-nav-btn return" style="border-color:var(--gold);color:var(--gold)" onclick="finishGame()">🏆 FINAL MISSION COMPLETE</button>
         </div>
       </div>
     </section>
@@ -1210,15 +1484,15 @@
       </div>
       <div class="retro-body">
         <div class="section-heading">
-          <p class="eyebrow">PLAYER ACHIEVEMENTS / CERTIFICATES</p>
-          <h2>Certificates &amp; Training</h2>
+      <p class="eyebrow">PLAYER ACHIEVEMENTS / CERTIFICATES</p>
+      <h2>Certificates &amp; Training</h2>
         </div>
         <div class="certs-grid">
-          <div class="cert-card">
+          <div class="cert-card" tabindex="0" role="button" data-cert="cucina" aria-label="View Cucina Factory Training certificate">
             <div class="cert-img-wrap">
               <picture>
                 <source srcset="./assets/cert-cucina.webp" type="image/webp" />
-                <img src="./assets/cert-cucina.jpg" alt="Cucina Training Certificate" loading="lazy" decoding="async" width="4686" height="3220" />
+                <img src="./assets/cert-cucina.jpg" alt="Cucina Factory Training Certificate" loading="lazy" decoding="async" width="4686" height="3220" />
               </picture>
             </div>
             <div class="cert-info">
@@ -1226,7 +1500,7 @@
               <div class="cert-detail">Furniture & Kitchen Manufacturing — May 2026</div>
             </div>
           </div>
-          <div class="cert-card">
+          <div class="cert-card" tabindex="0" role="button" data-cert="knauf" aria-label="View Knauf Training Center certificate">
             <div class="cert-img-wrap">
               <picture>
                 <source srcset="./assets/cert-knauf.webp" type="image/webp" />
@@ -1238,7 +1512,7 @@
               <div class="cert-detail">Ceilings, Partitions & Wall Systems — Sep 2025</div>
             </div>
           </div>
-          <div class="cert-card">
+          <div class="cert-card" tabindex="0" role="button" data-cert="iti1" aria-label="View ITI 3D Modeling certificate">
             <div class="cert-img-wrap">
               <picture>
                 <source srcset="./assets/cert-iti-1.webp" type="image/webp" />
@@ -1250,7 +1524,7 @@
               <div class="cert-detail">60 Hours Intensive Course — Aug 2025</div>
             </div>
           </div>
-          <div class="cert-card">
+          <div class="cert-card" tabindex="0" role="button" data-cert="iti2" aria-label="View ITI Advanced Training certificate">
             <div class="cert-img-wrap">
               <picture>
                 <source srcset="./assets/cert-iti-2.webp" type="image/webp" />
@@ -1262,7 +1536,7 @@
               <div class="cert-detail">Information Technology Institute</div>
             </div>
           </div>
-        </div>
+            </div>
       </div>
     </section>
 
@@ -1275,62 +1549,62 @@
       </div>
       <div class="retro-body contact-card">
         <div class="section-heading">
-          <p class="eyebrow">PORTAL / CONTACT & SOCIALS</p>
-          <h2>Scan, Open, Connect</h2>
+      <p class="eyebrow">PORTAL / CONTACT & SOCIALS</p>
+      <h2>Scan, Open, Connect</h2>
         </div>
         <p class="contact-text">This page is prepared for final project presentation and can be expanded later with full case studies and visuals.</p>
         <div class="social-grid">
-          <a class="social-item" href="https://www.instagram.com/ahmed_saeed2_0" target="_blank">
-            <div class="social-icon-box">
-              <svg viewBox="0 0 16 16" fill="var(--gold)" style="width:18px;height:18px;" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="12" height="2"/>
-                <rect x="2" y="12" width="12" height="2"/>
-                <rect x="2" y="4" width="2" height="8"/>
-                <rect x="12" y="4" width="2" height="8"/>
-                <rect x="6" y="5" width="4" height="2"/>
-                <rect x="6" y="9" width="4" height="2"/>
-                <rect x="5" y="6" width="2" height="3"/>
-                <rect x="9" y="6" width="2" height="3"/>
-                <rect x="10" y="4" width="2" height="2"/>
-              </svg>
-            </div>
-            <span class="social-name">Instagram</span>
-            <span class="social-copy">Updates & visual snippets</span>
-          </a>
-          <a class="social-item" href="https://www.behance.net/ahmedsaeed375" target="_blank">
-            <div class="social-icon-box">
-              <svg viewBox="0 0 16 16" fill="var(--gold)" style="width:18px;height:18px;" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1" y="3" width="3" height="11"/>
-                <rect x="4" y="3" width="4" height="2"/>
-                <rect x="7" y="5" width="2" height="2"/>
-                <rect x="4" y="7" width="4" height="2"/>
-                <rect x="7" y="9" width="2" height="3"/>
-                <rect x="4" y="12" width="4" height="2"/>
-                <rect x="11" y="6" width="4" height="2"/>
-                <rect x="10" y="8" width="2" height="4"/>
-                <rect x="11" y="12" width="4" height="2"/>
-                <rect x="14" y="10" width="2" height="2"/>
-                <rect x="14" y="8" width="2" height="2"/>
-                <rect x="11" y="9" width="3" height="2"/>
-              </svg>
-            </div>
-            <span class="social-name">Behance</span>
-            <span class="social-copy">Creative work archive</span>
-          </a>
-          <a class="social-item" href="https://www.linkedin.com/in/ahmed-saeed-682673338" target="_blank">
-            <div class="social-icon-box">
-              <svg viewBox="0 0 16 16" fill="var(--gold)" style="width:18px;height:18px;" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="3" height="3"/>
-                <rect x="2" y="6" width="3" height="8"/>
-                <rect x="6" y="6" width="3" height="8"/>
-                <rect x="9" y="6" width="3" height="2"/>
-                <rect x="12" y="7" width="2" height="2"/>
-                <rect x="12" y="9" width="3" height="5"/>
-              </svg>
-            </div>
-            <span class="social-name">LinkedIn</span>
-            <span class="social-copy">Professional profile</span>
-          </a>
+      <a class="social-item" href="https://www.instagram.com/ahmed_saeed2_0" target="_blank">
+        <div class="social-icon-box">
+          <svg viewBox="0 0 16 16" fill="var(--gold)" style="width:18px;height:18px;" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="12" height="2"/>
+            <rect x="2" y="12" width="12" height="2"/>
+            <rect x="2" y="4" width="2" height="8"/>
+            <rect x="12" y="4" width="2" height="8"/>
+            <rect x="6" y="5" width="4" height="2"/>
+            <rect x="6" y="9" width="4" height="2"/>
+            <rect x="5" y="6" width="2" height="3"/>
+            <rect x="9" y="6" width="2" height="3"/>
+            <rect x="10" y="4" width="2" height="2"/>
+          </svg>
+        </div>
+        <span class="social-name">Instagram</span>
+        <span class="social-copy">Updates & visual snippets</span>
+      </a>
+      <a class="social-item" href="https://www.behance.net/ahmedsaeed375" target="_blank">
+        <div class="social-icon-box">
+          <svg viewBox="0 0 16 16" fill="var(--gold)" style="width:18px;height:18px;" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="3" width="3" height="11"/>
+            <rect x="4" y="3" width="4" height="2"/>
+            <rect x="7" y="5" width="2" height="2"/>
+            <rect x="4" y="7" width="4" height="2"/>
+            <rect x="7" y="9" width="2" height="3"/>
+            <rect x="4" y="12" width="4" height="2"/>
+            <rect x="11" y="6" width="4" height="2"/>
+            <rect x="10" y="8" width="2" height="4"/>
+            <rect x="11" y="12" width="4" height="2"/>
+            <rect x="14" y="10" width="2" height="2"/>
+            <rect x="14" y="8" width="2" height="2"/>
+            <rect x="11" y="9" width="3" height="2"/>
+          </svg>
+        </div>
+        <span class="social-name">Behance</span>
+        <span class="social-copy">Creative work archive</span>
+      </a>
+      <a class="social-item" href="https://www.linkedin.com/in/ahmed-saeed-682673338" target="_blank">
+        <div class="social-icon-box">
+          <svg viewBox="0 0 16 16" fill="var(--gold)" style="width:18px;height:18px;" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="3" height="3"/>
+            <rect x="2" y="6" width="3" height="8"/>
+            <rect x="6" y="6" width="3" height="8"/>
+            <rect x="9" y="6" width="3" height="2"/>
+            <rect x="12" y="7" width="2" height="2"/>
+            <rect x="12" y="9" width="3" height="5"/>
+          </svg>
+        </div>
+        <span class="social-name">LinkedIn</span>
+        <span class="social-copy">Professional profile</span>
+      </a>
         </div>
       </div>
     </section>
@@ -1344,6 +1618,9 @@
 ════════════════════════════════ */
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let _actx = null;
+let _audioEnabled = (() => {
+  try { return localStorage.getItem('saeed_audio') !== 'off'; } catch (e) { return true; }
+})();
 function getACtx() { if (!_actx) _actx = new AudioCtx(); return _actx; }
 
 /* ════════════════════════════════
@@ -1389,6 +1666,7 @@ function showPixelToast() {
 }
 
 function playPixelSound(type) {
+  if (!_audioEnabled) return;
   try {
     const ctx = getACtx();
 
@@ -1521,6 +1799,24 @@ function markMissionComplete(slug) {
       lb.style.cssText += ';background:rgba(74,222,128,0.2);border-color:#4ade80;color:#4ade80;box-shadow:0 0 18px rgba(74,222,128,0.7);';
     }
   }
+
+  // Update sidebar mission progress HUD
+  updateMissionProgress();
+}
+
+function updateMissionProgress() {
+  const total = 3;
+  const cleared = completedMissions.size;
+  const pct = Math.round((cleared / total) * 100);
+  const fill = document.getElementById('mission-progress-fill');
+  const pctEl = document.getElementById('mission-progress-pct');
+  const label = document.getElementById('mission-progress-label');
+  if (fill) fill.style.width = pct + '%';
+  if (pctEl) {
+    pctEl.textContent = pct + '%';
+    if (cleared === total) pctEl.classList.add('progress-hud-complete');
+  }
+  if (label) label.textContent = cleared + ' / ' + total;
 }
 
 /* ════════════════════════════════
@@ -1683,6 +1979,137 @@ typewriter('about-text',
 typewriter('philosophy-text',
   "Anything I make has to be useful to the person receiving it, come from real conviction, and deliver its purpose without pretending.",
   30, document.getElementById('philosophy-sec'));
+
+
+/* ════════════════════════════════
+   🎛️ AUDIO TOGGLE
+════════════════════════════════ */
+const audioBtn = document.getElementById('audio-toggle');
+function setAudio(enabled) {
+  _audioEnabled = enabled;
+  try { localStorage.setItem('saeed_audio', enabled ? 'on' : 'off'); } catch (e) {}
+  if (audioBtn) {
+    audioBtn.setAttribute('aria-pressed', String(enabled));
+    audioBtn.textContent = enabled ? '🔊 SFX' : '🔇 MUTE';
+  }
+  if (enabled) playPixelSound('select');
+}
+if (audioBtn) {
+  setAudio(_audioEnabled); // sync UI with persisted state
+  audioBtn.addEventListener('click', () => setAudio(!_audioEnabled));
+}
+
+/* ════════════════════════════════
+   🟣 THEME TOGGLE (purple ↔ amber CRT)
+════════════════════════════════ */
+const themeBtn = document.getElementById('theme-toggle');
+function setTheme(amber) {
+  document.body.classList.toggle('theme-amber', amber);
+  try { localStorage.setItem('saeed_theme', amber ? 'amber' : 'purple'); } catch (e) {}
+  if (themeBtn) {
+    themeBtn.setAttribute('aria-pressed', String(amber));
+    themeBtn.textContent = amber ? '🟠 THEME' : '🟣 THEME';
+  }
+}
+(function initTheme() {
+  let saved = 'purple';
+  try { saved = localStorage.getItem('saeed_theme') || 'purple'; } catch (e) {}
+  setTheme(saved === 'amber');
+})();
+if (themeBtn) {
+  themeBtn.addEventListener('click', () => setTheme(!document.body.classList.contains('theme-amber')));
+}
+
+/* ════════════════════════════════
+   🎮 KONAMI CODE EASTER EGG
+   ↑↑↓↓←→←→BA → CHEAT MODE
+════════════════════════════════ */
+const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+let konamiIdx = 0;
+let cheatMode = false;
+
+function showKonamiToast() {
+  const t = document.getElementById('konami-toast');
+  if (!t) return;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+function activateCheatMode() {
+  cheatMode = true;
+  // Visual: pulse all mission complete immediately
+  Object.keys(CARD_MAP).forEach(slug => markMissionComplete(slug));
+  // Visual: change MP to ∞
+  const mpVal = document.querySelector('.stat-row:nth-child(3) .stat-val');
+  if (mpVal) mpVal.textContent = '∞';
+  showKonamiToast();
+  playPixelSound('victory');
+}
+
+window.addEventListener('keydown', (e) => {
+  const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+  if (key === KONAMI[konamiIdx]) {
+    konamiIdx++;
+    if (konamiIdx === KONAMI.length) {
+      konamiIdx = 0;
+      if (!cheatMode) activateCheatMode();
+    }
+  } else {
+    konamiIdx = (key === KONAMI[0]) ? 1 : 0;
+  }
+});
+
+/* ════════════════════════════════
+   🔍 CERTIFICATE LIGHTBOX
+════════════════════════════════ */
+const CERT_DATA = {
+  cucina: { webp: './assets/cert-cucina.webp', jpg: './assets/cert-cucina.jpg', name: 'Cucina Factory Training', detail: 'Furniture & Kitchen Manufacturing — May 2026' },
+  knauf:  { webp: './assets/cert-knauf.webp',  jpg: './assets/cert-knauf.jpg',  name: 'Knauf Training Center',  detail: 'Ceilings, Partitions & Wall Systems — Sep 2025' },
+  iti1:   { webp: './assets/cert-iti-1.webp',  jpg: './assets/cert-iti-1.jpg',  name: 'ITI — 3D Modeling for Interior Design', detail: '60 Hours Intensive Course — Aug 2025' },
+  iti2:   { webp: './assets/cert-iti-2.webp',  jpg: './assets/cert-iti-2.jpg',  name: 'ITI — Advanced Training', detail: 'Information Technology Institute' }
+};
+
+function openLightbox(slug) {
+  const data = CERT_DATA[slug];
+  if (!data) return;
+  const overlay = document.getElementById('lightbox-overlay');
+  const media = document.getElementById('lightbox-media');
+  const cap = document.getElementById('lightbox-caption');
+  if (!overlay || !media || !cap) return;
+  media.innerHTML = `<picture><source srcset="${data.webp}" type="image/webp"><img src="${data.jpg}" alt="${data.name}" /></picture>`;
+  cap.textContent = data.name + ' — ' + data.detail;
+  overlay.classList.add('active');
+  overlay.focus();
+  document.body.style.overflow = 'hidden';
+  playPixelSound('select');
+}
+
+function closeLightbox() {
+  const overlay = document.getElementById('lightbox-overlay');
+  if (!overlay) return;
+  overlay.classList.remove('active');
+  document.getElementById('lightbox-media').innerHTML = '';
+  document.body.style.overflow = '';
+  playPixelSound('nav');
+}
+
+// Wire up cert cards
+document.querySelectorAll('.cert-card[data-cert]').forEach(card => {
+  const slug = card.dataset.cert;
+  card.addEventListener('click', () => openLightbox(slug));
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(slug); }
+  });
+});
+
+// Close lightbox on overlay click or Escape
+const lightboxOverlay = document.getElementById('lightbox-overlay');
+if (lightboxOverlay) {
+  lightboxOverlay.addEventListener('click', closeLightbox);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxOverlay.classList.contains('active')) closeLightbox();
+  });
+}
 
 </script>
 </body>

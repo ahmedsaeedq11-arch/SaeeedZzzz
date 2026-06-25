@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+Sitemap: https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/sitemap.xml
