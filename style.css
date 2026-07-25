@@ -3647,34 +3647,35 @@ body[data-mode="play"] #formal-content {
 }
 
 body[data-mode="formal"] {
-  --formal-bg: #8b0811;
-  --formal-bg-2: #6e050c;
-  --formal-surface: rgba(252, 251, 247, 0.96);
+  --formal-bg: #f4efe4;
+  --formal-bg-2: #ebe4d5;
+  --formal-surface: #fcfbfa;
   --formal-surface-strong: #ffffff;
-  --formal-ink: #0e0d12;
-  --formal-ink-soft: #242230;
-  --formal-muted: #524b5d;
-  --formal-muted-soft: #766e84;
-  --formal-line: rgba(14, 13, 18, 0.12);
-  --formal-line-strong: rgba(14, 13, 18, 0.22);
-  --formal-red: #8b0811;
-  --formal-red-soft: rgba(139, 8, 17, 0.12);
-  --formal-gold: #8b0811;
-  --formal-gold-soft: rgba(139, 8, 17, 0.15);
-  --formal-plum: #6e050c;
-  --formal-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  --formal-ink: #0f0d14;
+  --formal-ink-soft: #252030;
+  --formal-muted: #3d3748;
+  --formal-muted-soft: #635b72;
+  --formal-line: rgba(15, 13, 20, 0.14);
+  --formal-line-strong: rgba(15, 13, 20, 0.28);
+  --formal-red: #c81e1e;
+  --formal-red-bright: #dc2626;
+  --formal-red-soft: rgba(200, 30, 30, 0.1);
+  --formal-gold: #c81e1e;
+  --formal-gold-soft: rgba(200, 30, 30, 0.12);
+  --formal-plum: #991b1b;
+  --formal-shadow: 0 20px 60px rgba(25, 20, 35, 0.08);
   background:
     radial-gradient(
       circle at top right,
-      rgba(255, 255, 255, 0.08),
-      transparent 40%
+      rgba(200, 30, 30, 0.06),
+      transparent 45%
     ),
     radial-gradient(
-      circle at 15% 12%,
-      rgba(110, 5, 12, 0.5),
+      circle at 12% 18%,
+      rgba(220, 210, 195, 0.5),
       transparent 35%
     ),
-    linear-gradient(180deg, #8b0811 0%, #7f070e 50%, #6e050c 100%);
+    linear-gradient(180deg, #f7f2e8 0%, #f4efe4 50%, #eae3d3 100%);
   color: var(--formal-ink);
   font-family: "Courier Prime", "Special Elite", monospace, serif;
   letter-spacing: -0.01em;
@@ -3724,11 +3725,11 @@ body[data-mode="formal"] [lang="ar"] h4 {
   position: sticky;
   top: 0;
   z-index: 110;
-  background: rgba(11, 10, 14, 0.88);
+  background: rgba(244, 239, 228, 0.92);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 2px solid rgba(220, 38, 38, 0.3);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  border-bottom: 2px solid rgba(200, 30, 30, 0.25);
+  box-shadow: 0 6px 20px rgba(25, 20, 35, 0.05);
 }
 .formal-topbar-inner,
 .formal-container {
@@ -3747,14 +3748,14 @@ body[data-mode="formal"] [lang="ar"] h4 {
   flex-direction: column;
   gap: 0.05rem;
   text-decoration: none;
-  color: #ffffff;
+  color: #0f0d14;
 }
 .formal-brand-name {
   font-family: "Special Elite", "Courier Prime", serif;
   font-size: 1.8rem;
   line-height: 0.9;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: #0f0d14;
 }
 .formal-brand-role {
   font-family: "Courier Prime", monospace;
@@ -3762,6 +3763,7 @@ body[data-mode="formal"] [lang="ar"] h4 {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--formal-red);
+  font-weight: 700;
 }
 .formal-topnav {
   display: flex;
@@ -4219,7 +4221,7 @@ body[data-mode="formal"] [lang="ar"] h4 {
   100% { opacity: 0; transform: translate(-50%, -45px) scale(0.9); }
 }
 
-/* 🎨 TRACK ARTWORK EDITORIAL CARDS (CREAM PAPER + CRIMSON CANVAS) */
+/* 🎨 VINTAGE OFF-WHITE PAPER CARDS + CRIMSON RED FOCUS HIGHLIGHTS */
 .formal-aside-card,
 .formal-panel,
 .formal-process-card,
@@ -4227,13 +4229,13 @@ body[data-mode="formal"] [lang="ar"] h4 {
 .formal-contact-card,
 .formal-training-shell,
 .formal-footer-shell {
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  background: #fcfbf7 !important;
-  color: #0e0d12 !important;
+  border: 1px solid rgba(15, 13, 20, 0.12) !important;
+  background: #fcfbfa !important;
+  color: #0f0d14 !important;
   border-radius: 1.6rem !important;
   box-shadow:
-    0 28px 75px rgba(0, 0, 0, 0.38),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    0 18px 50px rgba(25, 20, 35, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
@@ -4242,60 +4244,70 @@ body[data-mode="formal"] [lang="ar"] h4 {
 .formal-process-card:hover,
 .formal-project-card:hover,
 .formal-contact-card:hover {
-  transform: translateY(-5px) scale(1.004) !important;
+  transform: translateY(-4px) scale(1.003) !important;
   box-shadow:
-    0 36px 90px rgba(0, 0, 0, 0.48),
+    0 24px 65px rgba(25, 20, 35, 0.14),
     inset 0 1px 1px rgba(255, 255, 255, 1) !important;
 }
 
-/* Preserve original project image aspect ratio & original image colors without filter distortion */
-.formal-project-image img,
-.formal-banner-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: none !important;
+/* Crimson Red Focus Text Highlights for Key Information */
+body[data-mode="formal"] .formal-eyebrow,
+body[data-mode="formal"] .eyebrow,
+body[data-mode="formal"] .formal-project-tag,
+body[data-mode="formal"] dt,
+body[data-mode="formal"] .proj-stat-label,
+body[data-mode="formal"] .formal-hero-fact-value,
+body[data-mode="formal"] .formal-kicker-label {
+  color: var(--formal-red) !important;
+  font-weight: 700 !important;
 }
 
-/* El Abd Booth Full Showcase Layout (Uncropped Banner + Info + 360 Tour Below) */
-.formal-elabd-card {
-  display: flex !important;
-  flex-direction: column !important;
-  grid-template-columns: 1fr !important;
-  overflow: hidden;
+/* Grid Consistency for Project Cards: All 3 Cards Share Identical Grid Dimensions! */
+.formal-project-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) !important;
+  border-radius: 1.6rem !important;
+  overflow: hidden !important;
 }
-.formal-elabd-full-banner {
-  width: 100%;
-  height: auto;
+
+.formal-project-image {
+  min-height: 24rem !important;
+  height: 100% !important;
+  background: #111016 !important;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid var(--formal-line);
-  background: #111016;
 }
-.formal-elabd-full-banner img {
+
+.formal-project-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover !important;
   display: block;
-  object-fit: contain !important;
   filter: none !important;
   transition: transform 0.5s ease;
 }
-.formal-elabd-card:hover .formal-elabd-full-banner img {
-  transform: scale(1.015);
+
+.formal-project-card:hover .formal-project-image img {
+  transform: scale(1.02);
 }
-.formal-elabd-360-viewer {
+
+/* El Abd Booth 360 Row (Spans full width right underneath the 2-column grid row) */
+.formal-elabd-360-row {
+  grid-column: 1 / -1 !important;
   width: 100%;
-  height: 480px;
+  height: 420px;
   position: relative;
   background: #000;
   border-top: 1px solid var(--formal-line);
 }
-.formal-elabd-360-viewer iframe {
+
+.formal-elabd-360-row iframe {
   width: 100%;
   height: 100%;
   border: none;
   display: block;
 }
+
 .formal-360-badge {
   position: absolute;
   top: 12px;
@@ -4306,9 +4318,9 @@ body[data-mode="formal"] [lang="ar"] h4 {
   font-weight: 700;
   letter-spacing: 0.14em;
   padding: 5px 12px;
-  background: rgba(11, 10, 14, 0.88);
-  color: #f4c842;
-  border: 1px solid rgba(244, 200, 66, 0.5);
+  background: rgba(15, 13, 20, 0.92);
+  color: var(--formal-red);
+  border: 1.5px solid var(--formal-red);
   border-radius: 4px;
   backdrop-filter: blur(8px);
   pointer-events: none;
