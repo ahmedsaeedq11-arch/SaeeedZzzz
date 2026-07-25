@@ -373,7 +373,7 @@ if (passionsEl) {
 })();
 
 /* ════════════════════════════════
-   🎮 INFINITE ARCADE SCORE & COINS TICKER
+   🎮 DETERMINISTIC SCORE & COINS SYSTEM
 ════════════════════════════════ */
 let currentScore = 0;
 const scoreValEl = document.getElementById("score-val");
@@ -387,7 +387,7 @@ function addCoins(amount, sourceEl) {
   currentScore += amount;
   updateScoreDisplay();
 
-  // Floating "+250 COINS" indicator
+  // Floating "+500 COINS" indicator
   const popup = document.createElement("div");
   popup.className = "coin-popup";
   popup.textContent = `+${amount} COINS!`;
@@ -406,26 +406,8 @@ function addCoins(amount, sourceEl) {
   setTimeout(() => popup.remove(), 900);
 }
 
-// Ambient background arcade coin ticks (+5 to +15)
-setInterval(() => {
-  if (document.body.getAttribute("data-mode") === "formal") return;
-  const smallTicks = [5, 10, 15];
-  const add = smallTicks[Math.floor(Math.random() * smallTicks.length)];
-  currentScore += add;
-  updateScoreDisplay();
-}, 600);
-
-// Bonus score on fast scroll
-let lastScrollY = window.scrollY;
-window.addEventListener("scroll", () => {
-  if (document.body.getAttribute("data-mode") === "formal") return;
-  const delta = Math.abs(window.scrollY - lastScrollY);
-  if (delta > 20) {
-    currentScore += Math.floor(delta * 0.5);
-    updateScoreDisplay();
-  }
-  lastScrollY = window.scrollY;
-}, { passive: true });
+// Initial display setup
+updateScoreDisplay();
 
 
 /* ════════════════════════════════
@@ -1411,11 +1393,11 @@ document.addEventListener("click", (e) => {
   }
 
   const SECTION_COINS = {
-    "about-sec": 250,
-    "skills-sec": 400,
-    "projects-sec": 650,
-    "certs-sec": 300,
-    "contact-sec": 500,
+    "about-sec": 500,
+    "skills-sec": 750,
+    "projects-sec": 1000,
+    "certs-sec": 500,
+    "contact-sec": 750,
   };
 
   function collectHeart(sectionId) {

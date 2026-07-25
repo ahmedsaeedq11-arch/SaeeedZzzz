@@ -3647,34 +3647,36 @@ body[data-mode="play"] #formal-content {
 }
 
 body[data-mode="formal"] {
-  --formal-bg: #f7f3ea;
-  --formal-bg-2: #efe8db;
-  --formal-surface: rgba(255, 252, 246, 0.88);
-  --formal-surface-strong: #fffdf8;
-  --formal-ink: #1f1831;
-  --formal-ink-soft: #45375e;
-  --formal-muted: #746884;
-  --formal-muted-soft: #9488a4;
-  --formal-line: rgba(31, 24, 49, 0.1);
-  --formal-line-strong: rgba(31, 24, 49, 0.18);
-  --formal-gold: #b89337;
-  --formal-gold-soft: rgba(184, 147, 55, 0.15);
-  --formal-plum: #5d4a88;
-  --formal-shadow: 0 30px 80px rgba(31, 24, 49, 0.08);
+  --formal-bg: #0b0a0e;
+  --formal-bg-2: #121118;
+  --formal-surface: rgba(250, 248, 243, 0.95);
+  --formal-surface-strong: #ffffff;
+  --formal-ink: #0d0c10;
+  --formal-ink-soft: #242230;
+  --formal-muted: #565064;
+  --formal-muted-soft: #7a7288;
+  --formal-line: rgba(13, 12, 16, 0.12);
+  --formal-line-strong: rgba(13, 12, 16, 0.25);
+  --formal-red: #dc2626;
+  --formal-red-soft: rgba(220, 38, 38, 0.12);
+  --formal-gold: #dc2626;
+  --formal-gold-soft: rgba(220, 38, 38, 0.15);
+  --formal-plum: #b91c1c;
+  --formal-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
   background:
     radial-gradient(
       circle at top right,
-      rgba(184, 147, 55, 0.12),
-      transparent 34%
+      rgba(220, 38, 38, 0.14),
+      transparent 38%
     ),
     radial-gradient(
       circle at 15% 12%,
-      rgba(93, 74, 136, 0.12),
-      transparent 28%
+      rgba(15, 14, 20, 0.8),
+      transparent 32%
     ),
-    linear-gradient(180deg, #fbf7ef 0%, var(--formal-bg) 40%, #f2ecdf 100%);
+    linear-gradient(180deg, #0b0a0e 0%, var(--formal-bg) 40%, #121118 100%);
   color: var(--formal-ink);
-  font-family: "Manrope", sans-serif;
+  font-family: "Courier Prime", "Special Elite", monospace, serif;
   letter-spacing: -0.01em;
   line-height: 1.65;
   overflow-x: hidden;
@@ -3690,22 +3692,22 @@ body[data-mode="formal"] h1,
 body[data-mode="formal"] h2,
 body[data-mode="formal"] h3,
 body[data-mode="formal"] h4 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Special Elite", "Courier Prime", "Cormorant Garamond", serif;
   color: var(--formal-ink);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 0.98;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .formal-topbar {
   position: sticky;
   top: 0;
   z-index: 110;
-  background: rgba(247, 243, 234, 0.75);
-  backdrop-filter: blur(18px) saturate(165%);
-  -webkit-backdrop-filter: blur(18px) saturate(165%);
-  border-bottom: 1px solid var(--formal-line);
-  box-shadow: 0 8px 24px rgba(31, 24, 49, 0.04);
+  background: rgba(11, 10, 14, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 2px solid rgba(220, 38, 38, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 .formal-topbar-inner,
 .formal-container {
@@ -3724,19 +3726,21 @@ body[data-mode="formal"] h4 {
   flex-direction: column;
   gap: 0.05rem;
   text-decoration: none;
-  color: var(--formal-ink);
+  color: #ffffff;
 }
 .formal-brand-name {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Special Elite", "Courier Prime", serif;
   font-size: 1.8rem;
   line-height: 0.9;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
 .formal-brand-role {
+  font-family: "Courier Prime", monospace;
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--formal-muted);
+  color: var(--formal-red);
 }
 .formal-topnav {
   display: flex;
