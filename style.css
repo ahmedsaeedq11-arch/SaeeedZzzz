@@ -3647,34 +3647,34 @@ body[data-mode="play"] #formal-content {
 }
 
 body[data-mode="formal"] {
-  --formal-bg: #0b0a0e;
-  --formal-bg-2: #121118;
-  --formal-surface: rgba(250, 248, 243, 0.95);
+  --formal-bg: #8b0811;
+  --formal-bg-2: #6e050c;
+  --formal-surface: rgba(252, 251, 247, 0.96);
   --formal-surface-strong: #ffffff;
-  --formal-ink: #0d0c10;
+  --formal-ink: #0e0d12;
   --formal-ink-soft: #242230;
-  --formal-muted: #565064;
-  --formal-muted-soft: #7a7288;
-  --formal-line: rgba(13, 12, 16, 0.12);
-  --formal-line-strong: rgba(13, 12, 16, 0.25);
-  --formal-red: #dc2626;
-  --formal-red-soft: rgba(220, 38, 38, 0.12);
-  --formal-gold: #dc2626;
-  --formal-gold-soft: rgba(220, 38, 38, 0.15);
-  --formal-plum: #b91c1c;
-  --formal-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  --formal-muted: #524b5d;
+  --formal-muted-soft: #766e84;
+  --formal-line: rgba(14, 13, 18, 0.12);
+  --formal-line-strong: rgba(14, 13, 18, 0.22);
+  --formal-red: #8b0811;
+  --formal-red-soft: rgba(139, 8, 17, 0.12);
+  --formal-gold: #8b0811;
+  --formal-gold-soft: rgba(139, 8, 17, 0.15);
+  --formal-plum: #6e050c;
+  --formal-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
   background:
     radial-gradient(
       circle at top right,
-      rgba(220, 38, 38, 0.14),
-      transparent 38%
+      rgba(255, 255, 255, 0.08),
+      transparent 40%
     ),
     radial-gradient(
       circle at 15% 12%,
-      rgba(15, 14, 20, 0.8),
-      transparent 32%
+      rgba(110, 5, 12, 0.5),
+      transparent 35%
     ),
-    linear-gradient(180deg, #0b0a0e 0%, var(--formal-bg) 40%, #121118 100%);
+    linear-gradient(180deg, #8b0811 0%, #7f070e 50%, #6e050c 100%);
   color: var(--formal-ink);
   font-family: "Courier Prime", "Special Elite", monospace, serif;
   letter-spacing: -0.01em;
@@ -4198,7 +4198,7 @@ body[data-mode="formal"] h4 {
   100% { opacity: 0; transform: translate(-50%, -45px) scale(0.9); }
 }
 
-/* 🍏 iOS 26 LIQUID GLASSMORPHISM ENHANCEMENTS */
+/* 🎨 TRACK ARTWORK EDITORIAL CARDS (CREAM PAPER + CRIMSON CANVAS) */
 .formal-aside-card,
 .formal-panel,
 .formal-process-card,
@@ -4206,16 +4206,13 @@ body[data-mode="formal"] h4 {
 .formal-contact-card,
 .formal-training-shell,
 .formal-footer-shell {
-  border: 1.5px solid rgba(255, 255, 255, 0.72) !important;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 253, 248, 0.45) 100%) !important;
-  backdrop-filter: blur(28px) saturate(210%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(210%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  background: #fcfbf7 !important;
+  color: #0e0d12 !important;
   border-radius: 1.6rem !important;
   box-shadow:
-    0 20px 48px -12px rgba(0, 0, 0, 0.09),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.98),
-    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.04),
-    0 0 0 1px rgba(255, 255, 255, 0.3) !important;
+    0 28px 75px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
@@ -4224,11 +4221,19 @@ body[data-mode="formal"] h4 {
 .formal-process-card:hover,
 .formal-project-card:hover,
 .formal-contact-card:hover {
-  transform: translateY(-5px) scale(1.005) !important;
+  transform: translateY(-5px) scale(1.004) !important;
   box-shadow:
-    0 28px 60px -15px rgba(0, 0, 0, 0.16),
-    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
-    0 0 0 1.5px rgba(255, 255, 255, 0.85) !important;
+    0 36px 90px rgba(0, 0, 0, 0.48),
+    inset 0 1px 1px rgba(255, 255, 255, 1) !important;
+}
+
+/* Preserve original project image aspect ratio & original image colors without filter distortion */
+.formal-project-image img,
+.formal-banner-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none !important;
 }
 
 /* El Abd Booth Media Stack (Banner + 360) */
