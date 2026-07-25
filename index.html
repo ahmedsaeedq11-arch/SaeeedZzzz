@@ -1,0 +1,1804 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d0820" />
+    <title>Ahmed Saeed | Pixel Portfolio</title>
+    <meta
+      name="description"
+      content="Ahmed Saeed — Third-year Design student at Innovation University. Pixel-style portfolio with branding, interior, and spatial design projects."
+    />
+    <meta name="author" content="Ahmed Saeed" />
+
+    <!-- Favicons (pixel S) -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/apple-touch-icon.png"
+    />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/"
+    />
+    <meta property="og:title" content="Ahmed Saeed | Pixel Portfolio" />
+    <meta
+      property="og:description"
+      content="Design student at Innovation University — brand, interior, and spatial design projects in a retro pixel RPG shell."
+    />
+    <meta property="og:image" content="./assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/"
+    />
+    <meta name="twitter:title" content="Ahmed Saeed | Pixel Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Design student at Innovation University — brand, interior, and spatial design projects in a retro pixel RPG shell."
+    />
+    <meta name="twitter:image" content="./assets/og-image.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Ahmed Saeed pixel portfolio — purple CRT-themed preview"
+    />
+
+    <!-- Canonical -->
+    <link
+      rel="canonical"
+      href="https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/"
+    />
+
+    <!-- Security headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; frame-src 'self' https://momento360.com; connect-src 'none';"
+    />
+
+    <!-- Structured data: Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ahmed Saeed",
+        "jobTitle": "Design Student",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Innovation University"
+        },
+        "url": "https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/",
+        "image": "./assets/photo.png",
+        "sameAs": [
+          "https://www.instagram.com/ahmed_saeed2_0",
+          "https://www.behance.net/ahmedsaeed375",
+          "https://www.linkedin.com/in/ahmed-saeed-682673338"
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&family=Fraunces:opsz,wght@9..144,300..700&family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Mode transition overlay -->
+    <div id="mode-transition" aria-hidden="true">
+      <canvas id="transition-canvas"></canvas>
+    </div>
+
+    <!-- Skip-link for accessibility (keyboard users) -->
+    <a href="#main-content" class="skip-link">▶ SKIP TO CONTENT</a>
+
+    <canvas id="pixel-canvas" aria-hidden="true"></canvas>
+
+    <!-- INTRO SPLASH -->
+    <div
+      id="intro-splash"
+      onclick="startGame()"
+      role="button"
+      tabindex="0"
+      aria-label="Click to start the portfolio game"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();startGame();}"
+    >
+      <div class="intro-crt" aria-hidden="true"></div>
+      <div class="intro-content">
+        <div class="intro-pixel-bar" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="intro-logo">AHMED<br /><span>SAEED</span><br />.EXE</div>
+        <div class="intro-sub">PORTFOLIO v4.0 — DESIGN STUDENT</div>
+        <div class="intro-press">▶ START</div>
+      </div>
+      <div class="intro-copyright">
+        &copy; 2026 SAEED.EXE — INNOVATION UNIVERSITY — ALL RIGHTS RESERVED
+      </div>
+    </div>
+
+    <!-- KONAMI EASTER EGG TOAST -->
+    <div
+      class="konami-toast"
+      id="konami-toast"
+      role="status"
+      aria-live="polite"
+    >
+      <div class="konami-toast-title">⚡ CHEAT MODE ACTIVATED ⚡</div>
+      <div class="konami-toast-sub">
+        MP → ∞ — INFINITE VICTORY FANFARE ENABLED
+      </div>
+    </div>
+
+    <!-- CERTIFICATE LIGHTBOX -->
+    <div
+      id="lightbox-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Certificate viewer"
+      tabindex="-1"
+    >
+      <div id="lightbox-content" onclick="event.stopPropagation()">
+        <button
+          class="lightbox-close"
+          aria-label="Close certificate viewer"
+          onclick="closeLightbox()"
+        >
+          ×
+        </button>
+        <div id="lightbox-media"></div>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+    </div>
+
+    <!-- VICTORY BANNER -->
+    <!-- PIXEL SIDE TOAST -->
+    <div id="pixel-toast">
+      <div class="toast-trophy">🏆</div>
+      <div class="toast-body">
+        <div class="toast-title">ALL MISSIONS COMPLETE!</div>
+        <div class="toast-sub">PLAYER 01 / SAEED — PORTFOLIO CLEARED</div>
+        <div class="toast-stars">★ ★ ★</div>
+      </div>
+    </div>
+
+    <!-- TOPBAR — Formal -->
+    <header class="formal-topbar" id="formal-topbar" role="banner" hidden>
+      <div class="formal-topbar-inner">
+        <div class="formal-topbar-brand">
+          <a class="formal-brand" href="#formal-hero">
+            <span class="formal-brand-name" data-i18n="brand.name"
+              >Ahmed Saeed</span
+            >
+            <span class="formal-brand-role" data-i18n="brand.role"
+              >Formal portfolio for internships and creative work</span
+            >
+          </a>
+        </div>
+        <nav
+          class="formal-topnav"
+          role="navigation"
+          aria-label="Formal navigation"
+        >
+          <a href="#formal-profile" data-i18n="nav.profile">Profile</a>
+          <a href="#formal-projects" data-i18n="nav.projects">Projects</a>
+          <a href="#formal-strengths" data-i18n="nav.strengths">Strengths</a>
+          <a href="#formal-training" data-i18n="nav.training">Training</a>
+          <a href="#formal-contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div class="formal-topbar-actions">
+          <div class="formal-lang-switch" aria-label="Formal language switcher">
+            <button
+              class="formal-lang-btn"
+              id="formal-lang-en"
+              type="button"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+            <button
+              class="formal-lang-btn"
+              id="formal-lang-ar"
+              type="button"
+              aria-pressed="false"
+            >
+              AR
+            </button>
+          </div>
+          <button
+            class="tool-btn"
+            id="enter-play-mode"
+            type="button"
+            aria-label="Switch to creative play mode"
+            title="Switch to creative play mode"
+            data-i18n="actions.play"
+          >
+            Play Mode
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- TOPBAR — Play (pixel RPG) -->
+    <header class="topbar play-topbar" id="play-topbar" role="banner">
+      <div class="hud-left">
+        <a class="brand" href="#play">SAEED.EXE</a>
+        <span class="press-start" aria-hidden="true">▶ START</span>
+      </div>
+      <nav class="topnav" role="navigation" aria-label="Main navigation">
+        <a href="#about-sec">About</a>
+        <a href="#philosophy-sec">Philosophy</a>
+        <a href="#projects-sec">Missions</a>
+        <a href="#contact-sec">Connect</a>
+      </nav>
+      <div class="topbar-tools">
+        <button
+          class="tool-btn"
+          id="enter-formal-mode"
+          type="button"
+          aria-label="Switch to professional portfolio"
+          title="Switch to professional portfolio"
+        >
+          💼 FORMAL PORTFOLIO
+        </button>
+        <button
+          class="tool-btn"
+          id="audio-toggle"
+          type="button"
+          aria-pressed="true"
+          aria-label="Toggle sound effects"
+          title="Toggle sound effects"
+        >
+          🔊 SFX
+        </button>
+        <div class="hud-score" aria-label="Scroll score">
+          SCORE: <span id="score-val">000000</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Skip-link for accessibility (keyboard users) -->
+    <a href="#main-content" class="skip-link">▶ SKIP TO CONTENT</a>
+
+    <div class="page-shell play-shell">
+      <!-- ★ STICKY SIDEBAR ★ -->
+      <aside
+        class="sidebar reveal"
+        role="complementary"
+        aria-label="Player profile"
+      >
+        <!-- Profile Card -->
+        <div class="profile-hud">
+          <div class="hud-header">
+            <span>PROFILE CARD</span>
+            <span style="color: var(--purple-300)">LVL 03</span>
+          </div>
+          <div class="avatar-photo-wrap">
+            <img
+              src="./assets/photo.png"
+              alt="Ahmed Saeed"
+              width="1254"
+              height="1254"
+              decoding="async"
+            />
+            <div class="avatar-photo-label">PLAYER 01 / SAEED</div>
+          </div>
+          <div class="hud-meta">
+            <div class="hud-meta-row"><span>Alias</span><span>Saeed</span></div>
+            <div class="hud-meta-row">
+              <span>Base</span><span>Innovation U.</span>
+            </div>
+            <div class="hud-meta-row">
+              <span>Role</span><span>Design Student</span>
+            </div>
+            <div class="hud-meta-row">
+              <span>Stage</span><span>Year 03</span>
+            </div>
+            <div class="hud-meta-row">
+              <span class="exp-label"
+                ><svg class="pixel-inf-svg" viewBox="0 0 16 8" aria-hidden="true"><path d="M2,0 h4 v2 h-4 z M10,0 h4 v2 h-4 z M0,2 h2 v4 h-2 z M14,2 h2 v4 h-2 z M2,6 h4 v2 h-4 z M10,6 h4 v2 h-4 z M6,2 h4 v4 h-4 z" fill="var(--gold)" shape-rendering="crispEdges"/></svg><span>EXP</span></span
+              ><span style="color: var(--gold)">MAX</span>
+            </div>
+          </div>
+          <div class="stat-bars">
+            <div class="stat-row">
+              <div class="stat-label" style="color: var(--green)">HP</div>
+              <div class="stat-bar-bg">
+                <div class="stat-bar-fill hp"></div>
+              </div>
+              <div class="stat-val" style="color: var(--green)">88</div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-label" style="color: var(--gold)">XP</div>
+              <div class="stat-bar-bg">
+                <div class="stat-bar-fill xp"></div>
+              </div>
+              <div class="stat-val" style="color: var(--gold)"><svg class="pixel-inf-svg" viewBox="0 0 16 8" aria-hidden="true"><path d="M2,0 h4 v2 h-4 z M10,0 h4 v2 h-4 z M0,2 h2 v4 h-2 z M14,2 h2 v4 h-2 z M2,6 h4 v2 h-4 z M10,6 h4 v2 h-4 z M6,2 h4 v4 h-4 z" fill="var(--gold)" shape-rendering="crispEdges"/></svg></div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-label" style="color: var(--purple-300)">MP</div>
+              <div class="stat-bar-bg">
+                <div class="stat-bar-fill mp"></div>
+              </div>
+              <div class="stat-val" style="color: var(--purple-300)">72</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools Card -->
+        <div class="tools-hud">
+          <div class="hud-header" style="margin-bottom: 0.65rem">
+            <span>TOOLS</span
+            ><span style="color: var(--purple-300)">EQUIPPED</span>
+          </div>
+          <div class="tool-row">
+            <span class="tool-name">3DS Max</span>
+            <div class="tool-bar-bg">
+              <div
+                class="tool-bar-fill"
+                style="width: 80%; background: var(--gold)"
+              ></div>
+            </div>
+            <span class="tool-lv" style="color: var(--gold)">LV4</span>
+          </div>
+          <div class="tool-row">
+            <span class="tool-name">AutoCAD</span>
+            <div class="tool-bar-bg">
+              <div
+                class="tool-bar-fill"
+                style="width: 80%; background: var(--gold)"
+              ></div>
+            </div>
+            <span class="tool-lv" style="color: var(--gold)">LV4</span>
+          </div>
+          <div class="tool-row">
+            <span class="tool-name">AI Learning</span>
+            <div class="tool-bar-bg">
+              <div
+                class="tool-bar-fill"
+                style="width: 60%; background: var(--gold)"
+              ></div>
+            </div>
+            <span class="tool-lv" style="color: var(--gold)">LV3</span>
+          </div>
+          <div class="tool-row">
+            <span class="tool-name">Blender</span>
+            <div class="tool-bar-bg">
+              <div
+                class="tool-bar-fill"
+                style="width: 40%; background: var(--purple-300)"
+              ></div>
+            </div>
+            <span class="tool-lv" style="color: var(--purple-300)">LV2</span>
+          </div>
+          <div class="tool-row">
+            <span class="tool-name">Revit</span>
+            <div class="tool-bar-bg">
+              <div
+                class="tool-bar-fill"
+                style="width: 20%; background: var(--muted)"
+              ></div>
+            </div>
+            <span class="tool-lv" style="color: var(--muted)">LV1</span>
+          </div>
+        </div>
+
+        <!-- Mission Progress Card -->
+        <div
+          class="tools-hud progress-hud"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <div class="hud-header" style="margin-bottom: 0.65rem">
+            <span>MISSIONS</span>
+            <span id="mission-progress-label" style="color: var(--gold)"
+              >0 / 3</span
+            >
+          </div>
+          <div class="progress-hud-row">
+            <span id="progress-label">CLEARED</span>
+            <div class="progress-hud-bar-bg">
+              <div
+                class="progress-hud-bar-fill"
+                id="mission-progress-fill"
+                style="width: 0%"
+              ></div>
+            </div>
+            <span class="progress-hud-pct" id="mission-progress-pct">0%</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content" id="main-content" role="main" tabindex="-1">
+        <!-- HERO -->
+        <section class="panel hero-panel reveal" style="position: relative">
+          <div class="hero-system-bar">LANDING PAGE</div>
+          <h1 class="hero-title">Ahmed Saeed</h1>
+          <p class="hero-subtitle">
+            Third-year student at <span>Innovation University</span>
+          </p>
+          <p class="hero-description">
+            Building visual work that feels honest, useful, and intentional.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects-sec">View Missions</a>
+            <a class="btn btn-secondary" href="#contact-sec">Scan / Connect</a>
+          </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about-sec" class="panel reveal">
+          <div class="retro-titlebar">
+            <div class="retro-btns">
+              <span class="retro-btn c"></span><span class="retro-btn m"></span
+              ><span class="retro-btn x"></span>
+            </div>
+            <div class="retro-title">PLAYER 01 / ABOUT_SAEED.exe</div>
+            <div></div>
+          </div>
+          <div class="retro-body">
+            <div class="section-heading">
+              <p class="eyebrow">PLAYER 01 / ABOUT</p>
+              <h2>About Saeed</h2>
+            </div>
+            <div class="dialogue-box">
+              <div class="dialogue-portrait"></div>
+              <div class="dialogue-name">SAEED.EXE</div>
+              <p class="dialogue-text" id="about-text"></p>
+              <span class="dialogue-advance">▼ MORE</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS LOADOUT -->
+        <section id="skills-sec" class="panel reveal">
+          <div class="retro-titlebar">
+            <div class="retro-btns">
+              <span class="retro-btn c"></span><span class="retro-btn m"></span
+              ><span class="retro-btn x"></span>
+            </div>
+            <div class="retro-title">SKILLS CARD / LOADOUT.exe</div>
+            <div></div>
+          </div>
+          <div class="skills-section-wrap">
+            <div class="section-heading">
+              <p class="eyebrow">PLAYER STATS / SKILLS &amp; PASSIONS</p>
+              <h2>Skills Loadout</h2>
+            </div>
+            <div class="skills-loadout">
+              <div class="skills-char">
+                <div class="skills-char-sprite"></div>
+                <span class="skills-char-label">PLAYER 01<br />SAEED</span>
+              </div>
+              <div class="skills-content">
+                <div class="skills-header">
+                  <span class="skills-title">&#9876; SKILLS CARD</span>
+                  <span class="xp-badge">XP: <svg class="pixel-inf-svg" viewBox="0 0 16 8" aria-hidden="true"><path d="M2,0 h4 v2 h-4 z M10,0 h4 v2 h-4 z M0,2 h2 v4 h-2 z M14,2 h2 v4 h-2 z M2,6 h4 v2 h-4 z M10,6 h4 v2 h-4 z M6,2 h4 v4 h-4 z" fill="var(--gold)" shape-rendering="crispEdges"/></svg></span>
+                </div>
+                <!-- WEAPONS / TOOLS -->
+                <div class="skills-weapons reveal-stagger">
+                  <div class="weapon-item">
+                    <span class="weapon-name">3DS Max</span>
+                    <div class="weapon-pips">
+                      <span class="weapon-pip filled"></span
+                      ><span class="weapon-pip filled"></span
+                      ><span class="weapon-pip filled"></span
+                      ><span class="weapon-pip filled"></span
+                      ><span class="weapon-pip empty"></span>
+                    </div>
+                    <span class="weapon-level">LVL 4</span>
+                  </div>
+                  <div class="weapon-item">
+                    <span class="weapon-name">AutoCAD</span>
+                    <div class="weapon-pips">
+                      <span class="weapon-pip filled"></span
+                      ><span class="weapon-pip filled"></span
+                      ><span class="weapon-pip filled"></span
+                      ><span class="weapon-pip filled"></span
+                      ><span class="weapon-pip empty"></span>
+                    </div>
+                    <span class="weapon-level">LVL 4</span>
+                  </div>
+                  <div class="weapon-item">
+                    <span class="weapon-name">AI Learning</span>
+                    <div class="weapon-pips">
+                      <span class="weapon-pip filled"></span
+                      ><span class="weapon-pip filled"></span
+                      ><span class="weapon-pip filled"></span
+                      ><span class="weapon-pip empty"></span
+                      ><span class="weapon-pip empty"></span>
+                    </div>
+                    <span class="weapon-level">LVL 3</span>
+                  </div>
+                  <div class="weapon-item">
+                    <span class="weapon-name">Blender</span>
+                    <div class="weapon-pips">
+                      <span class="weapon-pip filled"></span
+                      ><span class="weapon-pip filled"></span
+                      ><span class="weapon-pip empty"></span
+                      ><span class="weapon-pip empty"></span
+                      ><span class="weapon-pip empty"></span>
+                    </div>
+                    <span class="weapon-level">LVL 2</span>
+                  </div>
+                </div>
+                <div class="skills-divider"></div>
+                <!-- PASSIONS / HEARTS -->
+                <div
+                  class="skills-passions reveal-stagger"
+                  id="preview-passions"
+                >
+                  <!-- filled by JS below -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PHILOSOPHY -->
+        <section id="philosophy-sec" class="panel reveal">
+          <div class="retro-titlebar">
+            <div class="retro-btns">
+              <span class="retro-btn c"></span><span class="retro-btn m"></span
+              ><span class="retro-btn x"></span>
+            </div>
+            <div class="retro-title">CORE CODE / PHILOSOPHY.ini</div>
+            <div></div>
+          </div>
+          <div class="retro-body">
+            <div class="section-heading">
+              <p class="eyebrow">CORE CODE / PHILOSOPHY</p>
+              <h2>Design Philosophy</h2>
+            </div>
+            <div class="quote-card">
+              <div class="quote-mark">"</div>
+              <p class="quote-text" id="philosophy-text"></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS — LEVEL MAP -->
+        <section
+          id="projects-sec"
+          class="panel"
+          reveal
+          style="padding: 1.75rem"
+        >
+          <div class="section-heading">
+            <p class="eyebrow">MISSION LOG / SELECTED PROJECTS</p>
+            <h2>Selected Projects</h2>
+          </div>
+          <div class="level-map reveal-stagger">
+            <div class="level-path"></div>
+
+            <div class="level-node left">
+              <div class="level-card" onclick="playPixelSound('select')">
+                <div class="level-label">01 / BRAND</div>
+                <div class="level-title">ZARA</div>
+                <p class="level-summary">Menswear identity system.</p>
+                <div class="level-role">IDENTITY</div>
+                <div class="progress-list">
+                  <div class="progress-row">
+                    <span class="progress-label">SCORE</span>
+                    <div class="progress-bar-bg">
+                      <div class="progress-fill" style="width: 87%"></div>
+                    </div>
+                    <span class="progress-pct">87</span>
+                  </div>
+                </div>
+                <a class="goto-project-btn" href="#project-zara"
+                  >▶ VIEW FULL MISSION FILE ↓</a
+                >
+              </div>
+              <div class="level-icon"><div class="level-badge">L1</div></div>
+              <div class="level-empty"></div>
+            </div>
+
+            <div class="level-node right">
+              <div class="level-empty"></div>
+              <div class="level-icon"><div class="level-badge">L2</div></div>
+              <div class="level-card" onclick="playPixelSound('select')">
+                <div class="level-label">02 / INTERIOR</div>
+                <div class="level-title">WABI-SABI KITCHEN</div>
+                <p class="level-summary">Organic warmth &amp; textures.</p>
+                <div class="level-role">INTERIOR</div>
+                <div class="progress-list">
+                  <div class="progress-row">
+                    <span class="progress-label">SCORE</span>
+                    <div class="progress-bar-bg">
+                      <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                    <span class="progress-pct">90</span>
+                  </div>
+                </div>
+                <a class="goto-project-btn" href="#project-wabisabi"
+                  >▶ VIEW FULL MISSION FILE ↓</a
+                >
+              </div>
+            </div>
+
+            <div class="level-node left">
+              <div class="level-card" onclick="playPixelSound('select')">
+                <div class="level-label">03 / SPATIAL</div>
+                <div class="level-title">EL ABD BOOTH</div>
+                <p class="level-summary">360° exhibition concept.</p>
+                <div class="level-role">EXHIBITION</div>
+                <div class="progress-list">
+                  <div class="progress-row">
+                    <span class="progress-label">SCORE</span>
+                    <div class="progress-bar-bg">
+                      <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                    <span class="progress-pct">95</span>
+                  </div>
+                </div>
+                <a class="goto-project-btn" href="#project-elabd"
+                  >▶ VIEW FULL MISSION FILE ↓</a
+                >
+              </div>
+              <div class="level-icon"><div class="level-badge">L3</div></div>
+              <div class="level-empty"></div>
+            </div>
+            <div class="boss-node">
+              <div class="boss-card" onclick="playPixelSound('select')">
+                <div class="boss-badge">FINAL CONTACT</div>
+                <div class="boss-title">SCAN / CONNECT PORTAL</div>
+                <p class="boss-desc">
+                  Open contact card &amp; connect on channels.
+                </p>
+                <a
+                  class="btn btn-primary"
+                  href="#contact-sec"
+                  onclick="playPixelSound('select')"
+                  >⚡ OPEN PORTAL ↓</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════ FULL PROJECT PAGES ═══════════ -->
+
+        <!-- PROJECT 01: Zara -->
+        <section id="project-zara" class="project-page" reveal>
+          <div class="project-page-titlebar">
+            <div class="retro-btns">
+              <span class="retro-btn c"></span><span class="retro-btn m"></span
+              ><span class="retro-btn x"></span>
+            </div>
+            <div class="project-page-title-text">
+              MISSION FILE 01 — ZARA MENSWEAR REBRAND
+            </div>
+            <div
+              style="font-family: var(--silk); font-size: 0.62rem; color: #000"
+            >
+              LVL 01
+            </div>
+          </div>
+          <div class="project-page-body">
+            <div class="proj-level-tag">LEVEL 01 — BRAND IDENTITY</div>
+            <div class="proj-title">Zara Menswear Rebrand</div>
+            <div class="proj-role">Brand direction / visual identity</div>
+
+            <div class="proj-banner banner-tall">
+              <img
+                src="./assets/zara-banner.png"
+                alt="Zara Banner"
+                loading="lazy"
+                decoding="async"
+                width="1250"
+                height="2499"
+              />
+            </div>
+            <hr class="proj-divider" />
+            <div class="proj-section-label">// MISSION BRIEF</div>
+            <p class="proj-summary">
+              A retail identity rebrand focused on bold visual presence, refined positioning, and modern menswear character.
+            </p>
+
+            <div class="proj-section-label">// COMPLETION STATS</div>
+            <div class="proj-stats">
+              <div class="proj-stat-row">
+                <span class="proj-stat-label">Design Level:</span>
+                <div class="proj-stat-bar">
+                  <div
+                    class="proj-stat-fill"
+                    style="width: 92%; background: var(--purple-400)"
+                  ></div>
+                </div>
+                <span class="proj-stat-pct">92%</span>
+              </div>
+              <div class="proj-stat-row">
+                <span class="proj-stat-label">Render Magic:</span>
+                <div class="proj-stat-bar">
+                  <div
+                    class="proj-stat-fill"
+                    style="width: 88%; background: var(--gold)"
+                  ></div>
+                </div>
+                <span class="proj-stat-pct">88%</span>
+              </div>
+              <div class="proj-stat-row">
+                <span class="proj-stat-label">Brand Impact:</span>
+                <div class="proj-stat-bar">
+                  <div
+                    class="proj-stat-fill"
+                    style="width: 95%; background: var(--green)"
+                  ></div>
+                </div>
+                <span class="proj-stat-pct">95%</span>
+              </div>
+            </div>
+            <!-- NAV FOOTER P1 -->
+            <div class="proj-nav-footer">
+              <button
+                class="proj-nav-btn return"
+                onclick="returnToMap('zara')"
+              >
+                ⬆ RETURN TO MAP
+              </button>
+              <button
+                class="proj-nav-btn next"
+                onclick="goToProject('wabisabi','zara')"
+              >
+                NEXT MISSION ▶
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECT 02: Wabi-Sabi -->
+        <section id="project-wabisabi" class="project-page" reveal>
+          <div class="project-page-titlebar">
+            <div class="retro-btns">
+              <span class="retro-btn c"></span><span class="retro-btn m"></span
+              ><span class="retro-btn x"></span>
+            </div>
+            <div class="project-page-title-text">
+              MISSION FILE 02 — WABI-SABI STYLE KITCHEN
+            </div>
+            <div
+              style="font-family: var(--silk); font-size: 0.62rem; color: #000"
+            >
+              LVL 02
+            </div>
+          </div>
+          <div class="project-page-body">
+            <div class="proj-level-tag">LEVEL 02 — INTERIOR DESIGN</div>
+            <div class="proj-title">Wabi-Sabi Style Kitchen</div>
+            <div class="proj-role">Concept design / spatial mood</div>
+
+            <div class="proj-banner banner-kitchen">
+              <img
+                src="./assets/kitchen-banner.png"
+                alt="WabiSabi Kitchen Banner"
+                loading="lazy"
+                decoding="async"
+                width="1750"
+                height="2500"
+              />
+            </div>
+            <hr class="proj-divider" />
+            <div class="proj-section-label">// MISSION BRIEF</div>
+            <p class="proj-summary">
+              An interior concept balancing natural materials, calm textures, and minimal spatial atmosphere.
+            </p>
+
+            <div class="proj-section-label">// COMPLETION STATS</div>
+            <div class="proj-stats">
+              <div class="proj-stat-row">
+                <span class="proj-stat-label">Design Level:</span>
+                <div class="proj-stat-bar">
+                  <div
+                    class="proj-stat-fill"
+                    style="width: 90%; background: var(--purple-400)"
+                  ></div>
+                </div>
+                <span class="proj-stat-pct">90%</span>
+              </div>
+              <div class="proj-stat-row">
+                <span class="proj-stat-label">Atmosphere:</span>
+                <div class="proj-stat-bar">
+                  <div
+                    class="proj-stat-fill"
+                    style="width: 96%; background: var(--green)"
+                  ></div>
+                </div>
+                <span class="proj-stat-pct">96%</span>
+              </div>
+              <div class="proj-stat-row">
+                <span class="proj-stat-label">Material Study:</span>
+                <div class="proj-stat-bar">
+                  <div
+                    class="proj-stat-fill"
+                    style="width: 88%; background: var(--gold)"
+                  ></div>
+                </div>
+                <span class="proj-stat-pct">88%</span>
+              </div>
+            </div>
+            <!-- NAV FOOTER P2 -->
+            <div class="proj-nav-footer">
+              <button
+                class="proj-nav-btn prev"
+                onclick="goToProject('zara',null)"
+              >
+                ◀ PREV MISSION
+              </button>
+              <button
+                class="proj-nav-btn return"
+                onclick="returnToMap('wabisabi')"
+              >
+                ⬆ RETURN TO MAP
+              </button>
+              <button
+                class="proj-nav-btn next"
+                onclick="goToProject('elabd','wabisabi')"
+              >
+                NEXT MISSION ▶
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECT 03: El Abd Booth -->
+        <section id="project-elabd" class="project-page" reveal>
+          <div class="project-page-titlebar">
+            <div class="retro-btns">
+              <span class="retro-btn c"></span><span class="retro-btn m"></span
+              ><span class="retro-btn x"></span>
+            </div>
+            <div class="project-page-title-text">
+              MISSION FILE 03 — EL ABD BOOTH CONCEPT
+            </div>
+            <div
+              style="font-family: var(--silk); font-size: 0.62rem; color: #000"
+            >
+              LVL 03
+            </div>
+          </div>
+          <div class="project-page-body">
+            <div class="proj-level-tag">LEVEL 03 — SPATIAL EXPERIENCE</div>
+            <div class="proj-title">El Abd Booth Concept</div>
+            <div class="proj-role">Personal concept / booth experience</div>
+
+            <div class="proj-banner banner-booth">
+              <img
+                src="./assets/booth-banner.jpg"
+                alt="El Abd Booth Banner"
+                loading="lazy"
+                decoding="async"
+                width="2000"
+                height="4000"
+              />
+            </div>
+            <hr class="proj-divider" />
+            <div class="proj-section-label">// MISSION BRIEF</div>
+            <p class="proj-summary">
+              A 360° exhibition booth concept designed for optimal visitor flow and branded spatial experience.
+            </p>
+
+            <div class="proj-section-label">// 360° BOOTH EXPERIENCE</div>
+            <div class="proj-360-viewer">
+              <iframe
+                src="https://momento360.com/e/u/990be923242b43f592c34ebd269a2125?utm_campaign=embed&utm_source=other&utm_medium=embed&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true"
+                title="El Abd Booth — 360° Virtual Tour"
+                width="100%"
+                height="100%"
+                allowfullscreen="allowfullscreen"
+                loading="lazy"
+                style="position: absolute; inset: 0; border: none"
+              ></iframe>
+            </div>
+
+            <div class="proj-section-label">// COMPLETION STATS</div>
+            <div class="proj-stats">
+              <div class="proj-stat-row">
+                <span class="proj-stat-label">Concept Score:</span>
+                <div class="proj-stat-bar">
+                  <div
+                    class="proj-stat-fill"
+                    style="width: 96%; background: var(--gold)"
+                  ></div>
+                </div>
+                <span class="proj-stat-pct">96%</span>
+              </div>
+              <div class="proj-stat-row">
+                <span class="proj-stat-label">Spatial Experience:</span>
+                <div class="proj-stat-bar">
+                  <div
+                    class="proj-stat-fill"
+                    style="width: 92%; background: var(--purple-400)"
+                  ></div>
+                </div>
+                <span class="proj-stat-pct">92%</span>
+              </div>
+              <div class="proj-stat-row">
+                <span class="proj-stat-label">Presentation:</span>
+                <div class="proj-stat-bar">
+                  <div
+                    class="proj-stat-fill"
+                    style="width: 90%; background: var(--green)"
+                  ></div>
+                </div>
+                <span class="proj-stat-pct">90%</span>
+              </div>
+            </div>
+            <!-- NAV FOOTER P3 -->
+            <div class="proj-nav-footer">
+              <button
+                class="proj-nav-btn prev"
+                onclick="goToProject('wabisabi',null)"
+              >
+                ◀ PREV MISSION
+              </button>
+              <button
+                class="proj-nav-btn return"
+                style="border-color: var(--gold); color: var(--gold)"
+                onclick="finishGame()"
+              >
+                🏆 FINAL MISSION COMPLETE
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- CERTIFICATES / ACHIEVEMENTS -->
+        <section id="certs-sec" class="panel reveal">
+          <div class="retro-titlebar">
+            <div class="retro-btns">
+              <span class="retro-btn c"></span><span class="retro-btn m"></span
+              ><span class="retro-btn x"></span>
+            </div>
+            <div class="retro-title">ACHIEVEMENTS / CERTIFICATES.exe</div>
+            <div></div>
+          </div>
+          <div class="retro-body">
+            <div class="section-heading">
+              <p class="eyebrow">PLAYER ACHIEVEMENTS / CERTIFICATES</p>
+              <h2>Certificates &amp; Training</h2>
+            </div>
+            <div class="certs-grid reveal-stagger">
+              <div
+                class="cert-card"
+                tabindex="0"
+                role="button"
+                data-cert="cucina"
+                aria-label="View Cucina Factory Training certificate"
+              >
+                <div class="cert-img-wrap">
+                  <picture>
+                    <source
+                      srcset="./assets/cert-cucina.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="./assets/cert-cucina.jpg"
+                      alt="Cucina Factory Training Certificate"
+                      loading="lazy"
+                      decoding="async"
+                      width="4686"
+                      height="3220"
+                    />
+                  </picture>
+                </div>
+                <div class="cert-info">
+                  <div class="cert-name">Cucina Factory Training</div>
+                  <div class="cert-detail">
+                    Furniture & Kitchen Manufacturing — May 2026
+                  </div>
+                </div>
+              </div>
+              <div
+                class="cert-card"
+                tabindex="0"
+                role="button"
+                data-cert="knauf"
+                aria-label="View Knauf Training Center certificate"
+              >
+                <div class="cert-img-wrap">
+                  <picture>
+                    <source
+                      srcset="./assets/cert-knauf.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="./assets/cert-knauf.jpg"
+                      alt="Knauf Training Certificate"
+                      loading="lazy"
+                      decoding="async"
+                      width="4176"
+                      height="5932"
+                    />
+                  </picture>
+                </div>
+                <div class="cert-info">
+                  <div class="cert-name">Knauf Training Center</div>
+                  <div class="cert-detail">
+                    Ceilings, Partitions & Wall Systems — Sep 2025
+                  </div>
+                </div>
+              </div>
+              <div
+                class="cert-card"
+                tabindex="0"
+                role="button"
+                data-cert="iti1"
+                aria-label="View ITI 3D Modeling certificate"
+              >
+                <div class="cert-img-wrap">
+                  <picture>
+                    <source
+                      srcset="./assets/cert-iti-1.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="./assets/cert-iti-1.jpg"
+                      alt="ITI 3D Modeling Certificate"
+                      loading="lazy"
+                      decoding="async"
+                      width="4052"
+                      height="5672"
+                    />
+                  </picture>
+                </div>
+                <div class="cert-info">
+                  <div class="cert-name">
+                    ITI — 3D Modeling for Interior Design
+                  </div>
+                  <div class="cert-detail">
+                    60 Hours Intensive Course — Aug 2025
+                  </div>
+                </div>
+              </div>
+              <div
+                class="cert-card"
+                tabindex="0"
+                role="button"
+                data-cert="iti2"
+                aria-label="View ITI Advanced Training certificate"
+              >
+                <div class="cert-img-wrap">
+                  <picture>
+                    <source
+                      srcset="./assets/cert-iti-2.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="./assets/cert-iti-2.jpg"
+                      alt="ITI Certificate"
+                      loading="lazy"
+                      decoding="async"
+                      width="4766"
+                      height="3244"
+                    />
+                  </picture>
+                </div>
+                <div class="cert-info">
+                  <div class="cert-name">ITI — Advanced Training</div>
+                  <div class="cert-detail">
+                    Information Technology Institute
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact-sec" class="panel reveal">
+          <div class="retro-titlebar">
+            <div class="retro-btns">
+              <span class="retro-btn c"></span><span class="retro-btn m"></span
+              ><span class="retro-btn x"></span>
+            </div>
+            <div class="retro-title">PORTAL / CONTACT.exe</div>
+            <div></div>
+          </div>
+          <div class="retro-body contact-card">
+            <div class="section-heading">
+              <p class="eyebrow">PORTAL / CONTACT & SOCIALS</p>
+              <h2>Scan, Open, Connect</h2>
+            </div>
+            <div class="social-grid reveal-stagger">
+              <a
+                class="social-item"
+                href="https://www.instagram.com/ahmed_saeed2_0"
+                target="_blank"
+              >
+                <div class="social-icon-box">
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="var(--gold)"
+                    style="width: 18px; height: 18px"
+                    shape-rendering="crispEdges"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect x="2" y="2" width="12" height="2" />
+                    <rect x="2" y="12" width="12" height="2" />
+                    <rect x="2" y="4" width="2" height="8" />
+                    <rect x="12" y="4" width="2" height="8" />
+                    <rect x="6" y="5" width="4" height="2" />
+                    <rect x="6" y="9" width="4" height="2" />
+                    <rect x="5" y="6" width="2" height="3" />
+                    <rect x="9" y="6" width="2" height="3" />
+                    <rect x="10" y="4" width="2" height="2" />
+                  </svg>
+                </div>
+                <span class="social-name">Instagram</span>
+              </a>
+              <a
+                class="social-item"
+                href="https://www.behance.net/ahmedsaeed375"
+                target="_blank"
+              >
+                <div class="social-icon-box">
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="var(--gold)"
+                    style="width: 18px; height: 18px"
+                    shape-rendering="crispEdges"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect x="1" y="3" width="3" height="11" />
+                    <rect x="4" y="3" width="4" height="2" />
+                    <rect x="7" y="5" width="2" height="2" />
+                    <rect x="4" y="7" width="4" height="2" />
+                    <rect x="7" y="9" width="2" height="3" />
+                    <rect x="4" y="12" width="4" height="2" />
+                    <rect x="11" y="6" width="4" height="2" />
+                    <rect x="10" y="8" width="2" height="4" />
+                    <rect x="11" y="12" width="4" height="2" />
+                    <rect x="14" y="10" width="2" height="2" />
+                    <rect x="14" y="8" width="2" height="2" />
+                    <rect x="11" y="9" width="3" height="2" />
+                  </svg>
+                </div>
+                <span class="social-name">Behance</span>
+              </a>
+              <a
+                class="social-item"
+                href="https://www.linkedin.com/in/ahmed-saeed-682673338"
+                target="_blank"
+              >
+                <div class="social-icon-box">
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="var(--gold)"
+                    style="width: 18px; height: 18px"
+                    shape-rendering="crispEdges"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect x="2" y="2" width="3" height="3" />
+                    <rect x="2" y="6" width="3" height="8" />
+                    <rect x="6" y="6" width="3" height="8" />
+                    <rect x="9" y="6" width="3" height="2" />
+                    <rect x="12" y="7" width="2" height="2" />
+                    <rect x="12" y="9" width="3" height="5" />
+                  </svg>
+                </div>
+                <span class="social-name">LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- END PLAY MODE — Formal mode begins here -->
+
+    <main id="formal-content" class="formal-content" role="main" tabindex="-1">
+      <section id="formal-hero" class="formal-hero formal-section">
+        <div class="formal-container">
+          <div class="formal-hero-grid">
+            <div>
+              <p class="formal-eyebrow" data-i18n="hero.eyebrow">
+                Formal portfolio / design student
+              </p>
+              <h1 class="formal-name" data-i18n="hero.name">Ahmed Saeed</h1>
+              <p class="formal-lead" data-i18n="hero.title">
+                A calm, professional portfolio built for real opportunities.
+              </p>
+              <p class="formal-sub" data-i18n="hero.copy">
+                Second-year design student at Innovation University, focused on
+                brand identity, interior spaces, and spatial experience projects
+                with a clear visual direction.
+              </p>
+              <div class="formal-cta-row">
+                <a
+                  class="formal-btn-primary"
+                  href="#formal-projects"
+                  data-i18n="hero.cta.primary"
+                  >View selected work</a
+                >
+                <a
+                  class="formal-btn-secondary"
+                  href="#formal-contact"
+                  data-i18n="hero.cta.secondary"
+                  >Get in touch</a
+                >
+              </div>
+              <div class="formal-kicker-grid">
+                <div class="formal-kicker-card">
+                  <span
+                    class="formal-kicker-label"
+                    data-i18n="hero.kicker.1.label"
+                    >Focus</span
+                  >
+                  <span
+                    class="formal-kicker-value"
+                    data-i18n="hero.kicker.1.value"
+                    >Brand, interior, and spatial design</span
+                  >
+                </div>
+                <div class="formal-kicker-card">
+                  <span
+                    class="formal-kicker-label"
+                    data-i18n="hero.kicker.2.label"
+                    >Status</span
+                  >
+                  <span
+                    class="formal-kicker-value"
+                    data-i18n="hero.kicker.2.value"
+                    >Open to internships and selective freelance briefs</span
+                  >
+                </div>
+                <div class="formal-kicker-card">
+                  <span
+                    class="formal-kicker-label"
+                    data-i18n="hero.kicker.3.label"
+                    >Base</span
+                  >
+                  <span
+                    class="formal-kicker-value"
+                    data-i18n="hero.kicker.3.value"
+                    >Egypt / Innovation University</span
+                  >
+                </div>
+              </div>
+            </div>
+            <aside class="formal-aside-card" aria-label="Profile overview">
+              <div class="formal-aside-inner">
+                <span class="formal-aside-badge" data-i18n="hero.badge"
+                  >Available now</span
+                >
+                <h2 class="formal-aside-title" data-i18n="hero.aside.title">
+                  Creative discipline with presentation clarity.
+                </h2>
+                <p class="formal-aside-copy" data-i18n="hero.aside.copy">
+                  This mode is designed for hiring managers, internship
+                  applications, and anyone who needs a clean view of the work
+                  without the pixel persona.
+                </p>
+                <div class="formal-fact-list">
+                  <div class="formal-fact-row">
+                    <span
+                      class="formal-fact-label"
+                      data-i18n="hero.fact.1.label"
+                      >University</span
+                    >
+                    <span
+                      class="formal-fact-value"
+                      data-i18n="hero.fact.1.value"
+                      >Innovation University</span
+                    >
+                  </div>
+                  <div class="formal-fact-row">
+                    <span
+                      class="formal-fact-label"
+                      data-i18n="hero.fact.2.label"
+                      >Current year</span
+                    >
+                    <span
+                      class="formal-fact-value"
+                      data-i18n="hero.fact.2.value"
+                      >Year 03 / 04</span
+                    >
+                  </div>
+                  <div class="formal-fact-row">
+                    <span
+                      class="formal-fact-label"
+                      data-i18n="hero.fact.3.label"
+                      >Languages</span
+                    >
+                    <span
+                      class="formal-fact-value"
+                      data-i18n="hero.fact.3.value"
+                      >Arabic / English</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="formal-profile" class="formal-section formal-section-alt">
+        <div class="formal-container">
+          <p class="formal-eyebrow" data-i18n="profile.eyebrow">
+            Profile / point of view
+          </p>
+          <h2 class="formal-section-title" data-i18n="profile.title">
+            A young designer building work that feels intentional, useful, and
+            well presented.
+          </h2>
+          <p class="formal-section-intro" data-i18n="profile.intro">
+            The goal of this portfolio is simple: show range, show discipline,
+            and make it easy to understand how I think across brand, interior,
+            and experiential work.
+          </p>
+          <div class="formal-profile-grid">
+            <article class="formal-panel formal-prose">
+              <h3 class="formal-panel-title" data-i18n="profile.panel.1.title">
+                How I work
+              </h3>
+              <p data-i18n="profile.panel.1.p1">
+                I like design that communicates fast but still leaves a strong
+                impression. I pay attention to hierarchy, atmosphere, and
+                whether the final result feels honest to the concept behind it.
+              </p>
+              <p data-i18n="profile.panel.1.p2">
+                My current practice moves between brand identity, interior
+                design, and spatial experiences. That mix helps me think both in
+                2D systems and in physical environments.
+              </p>
+              <p data-i18n="profile.panel.1.p3">
+                I am actively improving my presentation quality, technical
+                modeling workflow, and how AI can support design without
+                flattening craft.
+              </p>
+            </article>
+            <article class="formal-panel formal-quote">
+              <span class="formal-quote-mark">"</span>
+              <p class="formal-quote-copy" data-i18n="profile.quote.copy">
+                I want the work to feel composed, memorable, and clear enough
+                that the idea is understood before it needs explanation.
+              </p>
+              <span class="formal-quote-sign" data-i18n="profile.quote.sign"
+                >Ahmed Saeed / personal approach</span
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="formal-projects" class="formal-section">
+        <div class="formal-container">
+          <p class="formal-eyebrow" data-i18n="projects.eyebrow">
+            Selected work
+          </p>
+          <h2 class="formal-section-title" data-i18n="projects.title">
+            Three projects that show visual range, spatial thinking, and
+            presentation control.
+          </h2>
+          <p class="formal-section-intro" data-i18n="projects.intro">
+            Each project here is structured for quick scanning: what it is, what
+            role I played, and what kind of design thinking it demonstrates.
+          </p>
+
+          <div class="formal-projects-stack">
+            <article class="formal-project-card">
+              <div class="formal-project-image">
+                <img
+                  src="./assets/zara-banner.png"
+                  alt="Zara Menswear Rebrand"
+                  loading="lazy"
+                />
+              </div>
+              <div class="formal-project-body">
+                <div>
+                  <p class="formal-project-tag" data-i18n="project.1.tag">
+                    Brand identity / 2026
+                  </p>
+                  <h3 class="formal-project-title" data-i18n="project.1.title">
+                    Zara Menswear Rebrand
+                  </h3>
+                  <p
+                    class="formal-project-summary"
+                    data-i18n="project.1.summary"
+                  >
+                    A retail identity project built to sharpen perception,
+                    masculinity, and store presence. The direction focused on
+                    creating a stronger visual personality for a modern menswear
+                    audience.
+                  </p>
+                </div>
+                <dl class="formal-project-meta">
+                  <div>
+                    <dt data-i18n="project.meta.role">Role</dt>
+                    <dd data-i18n="project.1.role">
+                      Brand direction and visual identity
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="project.meta.focus">Focus</dt>
+                    <dd data-i18n="project.1.focus">
+                      Positioning, logo system, retail presence
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="formal-project-card is-reversed">
+              <div class="formal-project-image">
+                <img
+                  src="./assets/kitchen-banner.png"
+                  alt="Wabi-Sabi Style Kitchen"
+                  loading="lazy"
+                />
+              </div>
+              <div class="formal-project-body">
+                <div>
+                  <p class="formal-project-tag" data-i18n="project.2.tag">
+                    Interior design / 2026
+                  </p>
+                  <h3 class="formal-project-title" data-i18n="project.2.title">
+                    Wabi-Sabi Style Kitchen
+                  </h3>
+                  <p
+                    class="formal-project-summary"
+                    data-i18n="project.2.summary"
+                  >
+                    An interior concept based on the Wabi-Sabi mindset of calm
+                    imperfection. The proposal balances material warmth,
+                    proportion, and atmosphere without unnecessary noise.
+                  </p>
+                </div>
+                <dl class="formal-project-meta">
+                  <div>
+                    <dt data-i18n="project.meta.role">Role</dt>
+                    <dd data-i18n="project.2.role">
+                      Concept design and spatial mood
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="project.meta.focus">Focus</dt>
+                    <dd data-i18n="project.2.focus">
+                      Material selection, tone, lived feeling
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="formal-project-card">
+              <div class="formal-project-image">
+                <iframe
+                  src="https://momento360.com/e/u/990be923242b43f592c34ebd269a2125?utm_campaign=embed&utm_source=other&utm_medium=embed&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true"
+                  title="El Abd Booth virtual tour"
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div class="formal-project-body">
+                <div>
+                  <p class="formal-project-tag" data-i18n="project.3.tag">
+                    Spatial experience / 2026
+                  </p>
+                  <h3 class="formal-project-title" data-i18n="project.3.title">
+                    El Abd Booth Concept
+                  </h3>
+                  <p
+                    class="formal-project-summary"
+                    data-i18n="project.3.summary"
+                  >
+                    A self-directed exhibition booth concept centered on branded
+                    movement, visitor flow, and memorable spatial moments. The
+                    work demonstrates thinking in experience, not only form.
+                  </p>
+                </div>
+                <dl class="formal-project-meta">
+                  <div>
+                    <dt data-i18n="project.meta.role">Role</dt>
+                    <dd data-i18n="project.3.role">
+                      Creative direction and concept development
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="project.meta.focus">Focus</dt>
+                    <dd data-i18n="project.3.focus">
+                      Visitor journey, brand moments, 360 presentation
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="formal-strengths" class="formal-section formal-section-alt">
+        <div class="formal-container">
+          <p class="formal-eyebrow" data-i18n="strengths.eyebrow">
+            Strengths / workflow
+          </p>
+          <h2 class="formal-section-title" data-i18n="strengths.title">
+            The value I bring is a mix of visual sensitivity, spatial awareness,
+            and fast adaptation.
+          </h2>
+          <p class="formal-section-intro" data-i18n="strengths.intro">
+            These are the qualities I rely on most when moving from concept to
+            presentation.
+          </p>
+
+          <div class="formal-process-grid">
+            <article class="formal-process-card">
+              <span class="formal-process-index">01</span>
+              <h3 class="formal-process-title" data-i18n="strength.1.title">
+                Visual systems
+              </h3>
+              <p class="formal-process-copy" data-i18n="strength.1.copy">
+                I enjoy building coherent direction through type, proportion,
+                material references, and a clear visual hierarchy that stays
+                consistent across a project.
+              </p>
+            </article>
+            <article class="formal-process-card">
+              <span class="formal-process-index">02</span>
+              <h3 class="formal-process-title" data-i18n="strength.2.title">
+                Spatial thinking
+              </h3>
+              <p class="formal-process-copy" data-i18n="strength.2.copy">
+                Working across interiors and booths taught me to think in
+                circulation, perspective, and real-world experience, not only
+                isolated visuals.
+              </p>
+            </article>
+            <article class="formal-process-card">
+              <span class="formal-process-index">03</span>
+              <h3 class="formal-process-title" data-i18n="strength.3.title">
+                Learning speed
+              </h3>
+              <p class="formal-process-copy" data-i18n="strength.3.copy">
+                I pick up tools and workflows quickly, then focus on improving
+                polish so the final output feels more intentional and more
+                professional.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="formal-training" class="formal-section">
+        <div class="formal-container">
+          <p class="formal-eyebrow" data-i18n="training.eyebrow">
+            Training / exposure
+          </p>
+          <h2 class="formal-section-title" data-i18n="training.title">
+            Hands-on training that connects design thinking to real production
+            and technical workflow.
+          </h2>
+          <p class="formal-section-intro" data-i18n="training.intro">
+            The formal portfolio should show not just style, but evidence of
+            learning in real environments.
+          </p>
+
+          <div class="formal-training-shell">
+            <ol class="formal-timeline">
+              <li class="formal-timeline-item">
+                <p class="formal-timeline-date" data-i18n="training.1.date">
+                  May 2026
+                </p>
+                <div>
+                  <h3
+                    class="formal-timeline-title"
+                    data-i18n="training.1.title"
+                  >
+                    Cucina Factory Training
+                  </h3>
+                  <p class="formal-timeline-org" data-i18n="training.1.org">
+                    Furniture and kitchen manufacturing
+                  </p>
+                  <p class="formal-timeline-desc" data-i18n="training.1.desc">
+                    Hands-on exposure to materials, fabrication logic,
+                    production workflow, and how designed ideas become built
+                    outputs.
+                  </p>
+                </div>
+              </li>
+              <li class="formal-timeline-item">
+                <p class="formal-timeline-date" data-i18n="training.2.date">
+                  Sep 2025
+                </p>
+                <div>
+                  <h3
+                    class="formal-timeline-title"
+                    data-i18n="training.2.title"
+                  >
+                    Knauf Training Center
+                  </h3>
+                  <p class="formal-timeline-org" data-i18n="training.2.org">
+                    Ceilings, partitions, and wall systems
+                  </p>
+                  <p class="formal-timeline-desc" data-i18n="training.2.desc">
+                    Training on ceiling systems, partition assemblies, and wall
+                    solutions from a manufacturer-led technical context.
+                  </p>
+                </div>
+              </li>
+              <li class="formal-timeline-item">
+                <p class="formal-timeline-date" data-i18n="training.3.date">
+                  Aug 2025
+                </p>
+                <div>
+                  <h3
+                    class="formal-timeline-title"
+                    data-i18n="training.3.title"
+                  >
+                    ITI / 3D Modeling for Interior Design
+                  </h3>
+                  <p class="formal-timeline-org" data-i18n="training.3.org">
+                    Information Technology Institute / 60 hours
+                  </p>
+                  <p class="formal-timeline-desc" data-i18n="training.3.desc">
+                    Focused training in interior-oriented 3D modeling workflow,
+                    model construction, and technical presentation habits.
+                  </p>
+                </div>
+              </li>
+              <li class="formal-timeline-item">
+                <p class="formal-timeline-date" data-i18n="training.4.date">
+                  Aug 2025
+                </p>
+                <div>
+                  <h3
+                    class="formal-timeline-title"
+                    data-i18n="training.4.title"
+                  >
+                    ITI / Advanced Training
+                  </h3>
+                  <p class="formal-timeline-org" data-i18n="training.4.org">
+                    Information Technology Institute
+                  </p>
+                  <p class="formal-timeline-desc" data-i18n="training.4.desc">
+                    Follow-on advanced learning that extended the technical
+                    track and strengthened digital modeling confidence.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="formal-contact" class="formal-section formal-section-alt">
+        <div class="formal-container">
+          <p class="formal-eyebrow" data-i18n="contact.eyebrow">
+            Contact / next step
+          </p>
+          <h2 class="formal-section-title" data-i18n="contact.title">
+            Open to internships, collaborations, and opportunities that value
+            craft.
+          </h2>
+          <p class="formal-section-intro" data-i18n="contact.intro">
+            If the work feels aligned, the easiest next step is to reach out
+            through one of the channels below.
+          </p>
+
+          <div class="formal-contact-grid">
+            <a
+              class="formal-contact-card"
+              href="https://www.instagram.com/ahmed_saeed2_0"
+              target="_blank"
+              rel="noopener"
+            >
+              <span
+                class="formal-contact-label"
+                data-i18n="contact.card.1.label"
+                >Instagram</span
+              >
+              <span
+                class="formal-contact-value"
+                data-i18n="contact.card.1.value"
+                >@ahmed_saeed2_0</span
+              >
+            </a>
+            <a
+              class="formal-contact-card"
+              href="https://www.behance.net/ahmedsaeed375"
+              target="_blank"
+              rel="noopener"
+            >
+              <span
+                class="formal-contact-label"
+                data-i18n="contact.card.2.label"
+                >Behance</span
+              >
+              <span
+                class="formal-contact-value"
+                data-i18n="contact.card.2.value"
+                >ahmedsaeed375</span
+              >
+            </a>
+            <a
+              class="formal-contact-card"
+              href="https://www.linkedin.com/in/ahmed-saeed-682673338"
+              target="_blank"
+              rel="noopener"
+            >
+              <span
+                class="formal-contact-label"
+                data-i18n="contact.card.3.label"
+                >LinkedIn</span
+              >
+              <span
+                class="formal-contact-value"
+                data-i18n="contact.card.3.value"
+                >ahmed-saeed-682673338</span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="formal-footer">
+        <div class="formal-container">
+          <div class="formal-footer-shell">
+            <div>
+              <p class="formal-footer-name" data-i18n="footer.name">
+                Ahmed Saeed
+              </p>
+              <p class="formal-footer-tag" data-i18n="footer.tag">
+                Formal portfolio mode
+              </p>
+            </div>
+            <nav class="formal-footer-nav" aria-label="Footer navigation">
+              <a href="#formal-profile" data-i18n="nav.profile">Profile</a>
+              <a href="#formal-projects" data-i18n="nav.projects">Projects</a>
+              <a href="#formal-strengths" data-i18n="nav.strengths"
+                >Strengths</a
+              >
+              <a href="#formal-training" data-i18n="nav.training">Training</a>
+              <a href="#formal-contact" data-i18n="nav.contact">Contact</a>
+            </nav>
+            <div class="formal-footer-meta">
+              <p class="formal-footer-copy" data-i18n="footer.copy">
+                Built as the professional counterpart to the pixel portfolio.
+              </p>
+              <button
+                class="tool-btn"
+                id="enter-play-mode-footer"
+                type="button"
+                aria-label="Switch to creative play mode"
+                title="Switch to creative play mode"
+                data-i18n="actions.play"
+              >
+                Play Mode
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- END FORMAL CONTENT -->
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

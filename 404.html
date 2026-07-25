@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0820" />
+  <title>404 — LEVEL NOT FOUND | Ahmed Saeed Pixel Portfolio</title>
+  <meta name="description" content="Page not found — pixel RPG style 404." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="canonical" href="https://ahmedsaeedq11-arch.github.io/SaeeedZzzz/404.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --purple-900: #0d0820;
+      --purple-800: #1e123a;
+      --purple-500: #6845b0;
+      --purple-400: #9566f0;
+      --gold: #f4c842;
+      --gold-dim: #c9a42a;
+      --red: #f87171;
+      --white: #f0eaff;
+      --muted: #8b7aaa;
+      --pixel: "Press Start 2P", monospace;
+      --silk: "Silkscreen", monospace;
+    }
+    html, body { height: 100%; }
+    body {
+      background: var(--purple-900);
+      color: var(--white);
+      font-family: var(--silk);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 3px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .crt-frame {
+      border: 4px solid var(--purple-500);
+      background: var(--purple-800);
+      box-shadow: 0 0 0 2px var(--purple-400), 8px 8px 0 #1e123a, 0 0 60px rgba(149, 102, 240, 0.3);
+      padding: 2.5rem 2rem;
+      max-width: 540px;
+      position: relative;
+      z-index: 2;
+    }
+    .title-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--red);
+      border-bottom: 2px solid var(--gold);
+      padding: 0.45rem 0.85rem;
+      margin: -2.5rem -2rem 1.5rem;
+    }
+    .title-bar-text { font-family: var(--silk); font-size: 0.7rem; color: #fff; letter-spacing: 0.1em; }
+    .title-bar-btns { display: flex; gap: 0.4rem; }
+    .title-bar-btns span {
+      width: 11px; height: 11px;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .title-bar-btns span:nth-child(1) { background: var(--purple-400); }
+    .title-bar-btns span:nth-child(2) { background: var(--gold); }
+    .title-bar-btns span:nth-child(3) { background: #4ade80; }
+
+    .error-code {
+      font-family: var(--pixel);
+      font-size: clamp(3rem, 12vw, 5.5rem);
+      color: var(--gold);
+      line-height: 1;
+      text-shadow: 0 0 20px rgba(244, 200, 66, 0.5);
+      margin-bottom: 0.5rem;
+      animation: glitch 4s infinite;
+    }
+    @keyframes glitch {
+      0%, 100% { transform: translate(0, 0); }
+      92% { transform: translate(0, 0); }
+      93% { transform: translate(-2px, 1px); }
+      94% { transform: translate(2px, -1px); }
+      95% { transform: translate(-1px, 0); }
+    }
+    .error-label {
+      font-family: var(--silk);
+      font-size: 0.75rem;
+      color: var(--red);
+      letter-spacing: 0.2em;
+      margin-bottom: 1.5rem;
+    }
+    .error-msg {
+      font-family: var(--silk);
+      font-size: 0.85rem;
+      color: var(--white);
+      line-height: 1.9;
+      margin-bottom: 1.75rem;
+    }
+    .error-msg .blink {
+      color: var(--gold);
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .btn {
+      display: inline-block;
+      font-family: var(--silk);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      padding: 0.75rem 1.75rem;
+      text-decoration: none;
+      border: 2px solid;
+      transition: all 0.15s;
+      min-width: 220px;
+    }
+    .btn-primary { background: var(--gold); color: #000; border-color: var(--gold-dim); }
+    .btn-secondary { background: transparent; color: var(--white); border-color: var(--purple-500); }
+    .btn:hover { transform: translateY(-2px); }
+
+    .footer-hint {
+      margin-top: 2rem;
+      font-family: var(--silk);
+      font-size: 0.55rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      position: relative;
+      z-index: 2;
+    }
+    .footer-hint kbd {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border: 1px solid var(--muted);
+      color: var(--gold);
+      font-family: var(--silk);
+      font-size: 0.55rem;
+      margin: 0 0.15rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="crt-frame" role="main">
+    <div class="title-bar">
+      <div class="title-bar-text">⚠ ERROR.exe — LEVEL CORRUPTED</div>
+      <div class="title-bar-btns" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+    <div class="error-code">404</div>
+    <div class="error-label">▶ LEVEL NOT FOUND</div>
+    <p class="error-msg">
+      The page you tried to open doesn't exist on this server.<br>
+      You lost your way on the level map. <span class="blink">▼</span>
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="./">▶ RETURN TO BASE</a>
+      <a class="btn btn-secondary" href="./#projects-sec">→ BROWSE MISSIONS</a>
+    </div>
+  </main>
+  <p class="footer-hint">
+    HINT: ON THE MAIN PAGE, TRY THE <kbd>↑ ↑ ↓ ↓ ← → ← → B A</kbd> SEQUENCE
+  </p>
+</body>
+</html>
