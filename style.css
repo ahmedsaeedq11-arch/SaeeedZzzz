@@ -3699,6 +3699,27 @@ body[data-mode="formal"] h4 {
   line-height: 1.05;
 }
 
+/* ✒️ VINTAGE ARABIC TYPEWRITER INK FONT */
+body[data-mode="formal"][data-formal-lang="ar"],
+body[data-mode="formal"] [lang="ar"],
+body[data-mode="formal"] [dir="rtl"] {
+  font-family: "Amiri", "Aref Ruqaa", "Courier Prime", "Special Elite", serif !important;
+  line-height: 1.8 !important;
+}
+
+body[data-mode="formal"][data-formal-lang="ar"] h1,
+body[data-mode="formal"][data-formal-lang="ar"] h2,
+body[data-mode="formal"][data-formal-lang="ar"] h3,
+body[data-mode="formal"][data-formal-lang="ar"] h4,
+body[data-mode="formal"] [lang="ar"] h1,
+body[data-mode="formal"] [lang="ar"] h2,
+body[data-mode="formal"] [lang="ar"] h3,
+body[data-mode="formal"] [lang="ar"] h4 {
+  font-family: "Amiri", "Aref Ruqaa", serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+}
+
 .formal-topbar {
   position: sticky;
   top: 0;
