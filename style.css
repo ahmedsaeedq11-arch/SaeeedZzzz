@@ -139,28 +139,20 @@ body::after {
     transparent 3px
   );
   box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.2);
-  animation: crt-flicker 8s infinite;
+  background-size: 100% 3px;
+  animation: crt-flicker 8s infinite linear, crt-drift 10s infinite linear;
 }
 @keyframes crt-flicker {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  92% {
-    opacity: 1;
-  }
-  93% {
-    opacity: 0.92;
-  }
-  94% {
-    opacity: 1;
-  }
-  96% {
-    opacity: 0.96;
-  }
-  97% {
-    opacity: 1;
-  }
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.92; }
+  94% { opacity: 1; }
+  96% { opacity: 0.96; }
+  97% { opacity: 1; }
+}
+@keyframes crt-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100vh; }
 }
 
 /* SCROLLBAR — refined pixel feel */
@@ -300,10 +292,10 @@ body::after {
 .page-shell {
   display: grid;
   grid-template-columns: 280px 1fr;
-  gap: var(--space-6);
-  max-width: 1240px;
+  gap: var(--space-7);
+  max-width: 1280px;
   margin: 0 auto;
-  padding: var(--space-7) var(--space-5) var(--space-10);
+  padding: var(--space-8) var(--space-6) var(--space-10);
 }
 
 /* ═══ STICKY SIDEBAR ═══ */
@@ -529,8 +521,8 @@ body::after {
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
-  min-width: 0; /* prevent grid overflow */
+  gap: var(--space-7);
+  min-width: 0;
 }
 
 /* PANEL BASE */
@@ -595,13 +587,13 @@ body::after {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
 }
 .retro-body {
-  padding: var(--space-6) var(--space-7);
+  padding: var(--space-7) var(--space-7);
 }
 
 /* SECTION HEADINGS */
 .section-heading {
-  margin-bottom: var(--space-5);
-  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
   border-bottom: 1px dashed rgba(149, 102, 240, 0.25);
 }
 .eyebrow {
@@ -621,7 +613,7 @@ body::after {
   color: var(--white);
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-tight);
-  margin-top: var(--space-2);
+  margin-top: var(--space-3);
 }
 
 /* HERO */
@@ -1740,7 +1732,7 @@ body::after {
   transition: transform var(--t-fast);
 }
 .weapon-item:hover {
-  transform: translateX(4px);
+  transform: translateX(4px) translateY(-3px) rotate(-2deg);
 }
 .weapon-icon {
   width: 22px;
@@ -2858,8 +2850,243 @@ button:focus-visible,
 }
 
 /* ═══════════════════════════════════════════════════════════
-                       👔 FORMAL MODE — Professional portfolio view
-                       Activated by adding .formal-mode to <body data-mode="formal">
+                       ✨ CREATIVE ANIMATIONS & GAME FEEL
+                    ═══════════════════════════════════════════════════════════ */
+
+/* 0. Floating Hearts Progress Bar */
+.hearts-bar {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  background: rgba(13, 8, 32, 0.88);
+  border: 2px solid var(--purple-500);
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px var(--purple-400), 0 4px 20px rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.hearts-bar.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.hearts-bar-label {
+  font-family: var(--pixel);
+  font-size: 7px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.hearts-bar-slots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.heart-slot {
+  width: 22px;
+  height: 22px;
+  position: relative;
+}
+.heart-slot .heart-svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+.heart-slot .heart-svg.empty rect {
+  fill: rgba(255,255,255,0.1);
+}
+.heart-slot .heart-svg.filled rect {
+  fill: #e83a3a;
+}
+.heart-slot .heart-svg.filled rect:nth-child(7) {
+  fill: #ff7070;
+}
+.heart-slot .heart-svg.collecting {
+  animation: heart-collect 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes heart-collect {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.5); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.heart-slot .heart-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 58, 58, 0.6), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  animation: heart-glow-burst 0.8s ease-out forwards;
+}
+@keyframes heart-glow-burst {
+  0% { transform: scale(0.5); opacity: 0.9; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.hearts-bar-count {
+  font-family: var(--pixel);
+  font-size: 8px;
+  color: var(--muted-bright);
+  letter-spacing: 1px;
+}
+.hearts-bar.all-collected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold), 0 0 16px rgba(244, 200, 66, 0.4), 0 4px 20px rgba(0,0,0,0.5);
+}
+.hearts-bar.all-collected .hearts-bar-label {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Hide hearts bar in formal mode */
+body[data-mode="formal"] .hearts-bar {
+  display: none;
+}
+
+/* QUEST COMPLETE — Celebration Banner */
+.quest-complete-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.quest-complete-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.quest-complete-banner {
+  text-align: center;
+  padding: var(--space-6) var(--space-8);
+  background: rgba(13, 8, 32, 0.94);
+  border: 3px solid var(--gold);
+  box-shadow:
+    0 0 0 1px var(--gold-dim),
+    0 0 40px rgba(244, 200, 66, 0.25),
+    inset 0 0 60px rgba(244, 200, 66, 0.05);
+  animation: quest-banner-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+.quest-complete-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(244, 200, 66, 0.08), transparent);
+  animation: quest-shimmer 3s ease-in-out infinite;
+}
+@keyframes quest-shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+@keyframes quest-banner-in {
+  0% { transform: scale(0.5) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.quest-complete-title {
+  font-family: var(--pixel);
+  font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+  color: var(--gold);
+  letter-spacing: var(--ls-wider);
+  text-shadow: 0 0 20px rgba(244, 200, 66, 0.5), 0 2px 0 rgba(0,0,0,0.4);
+  margin-bottom: var(--space-3);
+}
+.quest-complete-sub {
+  font-family: var(--silk);
+  font-size: var(--fs-sm);
+  color: var(--purple-200);
+  letter-spacing: var(--ls-wide);
+}
+.quest-complete-hearts {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-4);
+}
+.quest-complete-hearts svg {
+  width: 20px;
+  height: 20px;
+}
+.quest-complete-hearts svg rect {
+  fill: #e83a3a;
+}
+.quest-complete-dismiss {
+  font-family: var(--silk);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  margin-top: var(--space-4);
+  letter-spacing: var(--ls-wider);
+  animation: blink 1.5s steps(2) infinite;
+}
+
+/* 1. Click Particles */
+.pixel-particle {
+  position: fixed;
+  pointer-events: none;
+  background-color: var(--gold);
+  z-index: 9999999;
+  width: 4px;
+  height: 4px;
+  animation: particle-fly 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+@keyframes particle-fly {
+  0% { transform: scale(1) translate(0, 0); opacity: 1; }
+  100% { transform: scale(0) translate(var(--tx), var(--ty)); opacity: 0; }
+}
+
+/* 2. Interactive Hover Glint on Mission Cards */
+.level-card {
+  position: relative;
+  overflow: hidden;
+}
+.level-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: none;
+  z-index: 5;
+  pointer-events: none;
+}
+.level-card:hover::after {
+  animation: glint-sweep 0.65s ease-in-out;
+}
+@keyframes glint-sweep {
+  0% { left: -150%; }
+  100% { left: 200%; }
+}
+
+/* 3. Floating Avatar Animation */
+@keyframes avatar-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.skills-char-sprite {
+  animation: avatar-bob 3s infinite ease-in-out;
+}
+.skills-char:hover .skills-char-sprite {
+  animation: none; /* override when scaling */
+}
+
+/* ═══════════════════════════════════════════════════════════
+                       👔 MODE TRANSITION & FORMAL MODE
                     ═══════════════════════════════════════════════════════════ */
 
 /* === Transition overlay === */
@@ -2880,8 +3107,7 @@ button:focus-visible,
   display: block;
 }
 
-/* === Formal mode: tokens override === */
-body.formal-mode {
+
   --purple-900: #fafaf7;
   --purple-800: #ffffff;
   --purple-700: #f0eee8;

@@ -119,6 +119,29 @@
 
     <canvas id="pixel-canvas" aria-hidden="true"></canvas>
 
+    <!-- FLOATING HEARTS PROGRESS BAR -->
+    <div id="hearts-bar" class="hearts-bar" aria-label="Section progress">
+      <span class="hearts-bar-label">QUEST</span>
+      <div class="hearts-bar-slots">
+        <div class="heart-slot" data-section="about-sec">
+          <svg class="heart-svg empty" viewBox="0 0 16 16"><rect x="2" y="2" width="4" height="4"/><rect x="10" y="2" width="4" height="4"/><rect x="0" y="4" width="16" height="6"/><rect x="2" y="10" width="12" height="2"/><rect x="4" y="12" width="8" height="2"/><rect x="6" y="14" width="4" height="2"/></svg>
+        </div>
+        <div class="heart-slot" data-section="skills-sec">
+          <svg class="heart-svg empty" viewBox="0 0 16 16"><rect x="2" y="2" width="4" height="4"/><rect x="10" y="2" width="4" height="4"/><rect x="0" y="4" width="16" height="6"/><rect x="2" y="10" width="12" height="2"/><rect x="4" y="12" width="8" height="2"/><rect x="6" y="14" width="4" height="2"/></svg>
+        </div>
+        <div class="heart-slot" data-section="projects-sec">
+          <svg class="heart-svg empty" viewBox="0 0 16 16"><rect x="2" y="2" width="4" height="4"/><rect x="10" y="2" width="4" height="4"/><rect x="0" y="4" width="16" height="6"/><rect x="2" y="10" width="12" height="2"/><rect x="4" y="12" width="8" height="2"/><rect x="6" y="14" width="4" height="2"/></svg>
+        </div>
+        <div class="heart-slot" data-section="certs-sec">
+          <svg class="heart-svg empty" viewBox="0 0 16 16"><rect x="2" y="2" width="4" height="4"/><rect x="10" y="2" width="4" height="4"/><rect x="0" y="4" width="16" height="6"/><rect x="2" y="10" width="12" height="2"/><rect x="4" y="12" width="8" height="2"/><rect x="6" y="14" width="4" height="2"/></svg>
+        </div>
+        <div class="heart-slot" data-section="contact-sec">
+          <svg class="heart-svg empty" viewBox="0 0 16 16"><rect x="2" y="2" width="4" height="4"/><rect x="10" y="2" width="4" height="4"/><rect x="0" y="4" width="16" height="6"/><rect x="2" y="10" width="12" height="2"/><rect x="4" y="12" width="8" height="2"/><rect x="6" y="14" width="4" height="2"/></svg>
+        </div>
+      </div>
+      <span class="hearts-bar-count">0/5</span>
+    </div>
+
     <!-- INTRO SPLASH -->
     <div
       id="intro-splash"
@@ -149,7 +172,7 @@
       role="status"
       aria-live="polite"
     >
-      <div class="konami-toast-title">⚡ CHEAT MODE ACTIVATED ⚡</div>
+      <div class="konami-toast-title">⚡ SECRET MODE ACTIVATED ⚡</div>
       <div class="konami-toast-sub">
         MP → ∞ — INFINITE VICTORY FANFARE ENABLED
       </div>
@@ -176,7 +199,6 @@
       </div>
     </div>
 
-    <!-- VICTORY BANNER -->
     <!-- PIXEL SIDE TOAST -->
     <div id="pixel-toast">
       <div class="toast-trophy">🏆</div>
@@ -247,7 +269,7 @@
     <!-- TOPBAR — Play (pixel RPG) -->
     <header class="topbar play-topbar" id="play-topbar" role="banner">
       <div class="hud-left">
-        <a class="brand" href="#play">SAEED.EXE</a>
+        <a class="brand" href="#main-content">SAEED.EXE</a>
         <span class="press-start" aria-hidden="true">▶ START</span>
       </div>
       <nav class="topnav" role="navigation" aria-label="Main navigation">
@@ -281,9 +303,6 @@
         </div>
       </div>
     </header>
-
-    <!-- Skip-link for accessibility (keyboard users) -->
-    <a href="#main-content" class="skip-link">▶ SKIP TO CONTENT</a>
 
     <div class="page-shell play-shell">
       <!-- ★ STICKY SIDEBAR ★ -->
@@ -554,7 +573,6 @@
                   class="skills-passions reveal-stagger"
                   id="preview-passions"
                 >
-                  <!-- filled by JS below -->
                 </div>
               </div>
             </div>
@@ -586,8 +604,7 @@
         <!-- PROJECTS — LEVEL MAP -->
         <section
           id="projects-sec"
-          class="panel"
-          reveal
+          class="panel reveal"
           style="padding: 1.75rem"
         >
           <div class="section-heading">
@@ -686,7 +703,7 @@
         <!-- ═══════════ FULL PROJECT PAGES ═══════════ -->
 
         <!-- PROJECT 01: Zara -->
-        <section id="project-zara" class="project-page" reveal>
+        <section id="project-zara" class="project-page reveal">
           <div class="project-page-titlebar">
             <div class="retro-btns">
               <span class="retro-btn c"></span><span class="retro-btn m"></span
@@ -774,7 +791,7 @@
         </section>
 
         <!-- PROJECT 02: Wabi-Sabi -->
-        <section id="project-wabisabi" class="project-page" reveal>
+        <section id="project-wabisabi" class="project-page reveal">
           <div class="project-page-titlebar">
             <div class="retro-btns">
               <span class="retro-btn c"></span><span class="retro-btn m"></span
@@ -868,7 +885,7 @@
         </section>
 
         <!-- PROJECT 03: El Abd Booth -->
-        <section id="project-elabd" class="project-page" reveal>
+        <section id="project-elabd" class="project-page reveal">
           <div class="project-page-titlebar">
             <div class="retro-btns">
               <span class="retro-btn c"></span><span class="retro-btn m"></span
@@ -1226,7 +1243,7 @@
                 A calm, professional portfolio built for real opportunities.
               </p>
               <p class="formal-sub" data-i18n="hero.copy">
-                Second-year design student at Innovation University, focused on
+                Third-year design student at Innovation University, focused on
                 brand identity, interior spaces, and spatial experience projects
                 with a clear visual direction.
               </p>

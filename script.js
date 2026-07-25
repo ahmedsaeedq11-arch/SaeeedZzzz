@@ -394,6 +394,7 @@ window.addEventListener("scroll", () => {
 ════════════════════════════════ */
 function typewriter(elId, text, speed, sectionEl) {
   const el = document.getElementById(elId);
+  if (!el || !sectionEl) return;
   let i = 0,
     started = false;
   const cursor = document.createElement("span");
@@ -454,7 +455,6 @@ if (audioBtn) {
 
 /* ════════════════════════════════
    🎮 KONAMI CODE EASTER EGG
-   ↑↑↓↓←→←→BA → CHEAT MODE
 ════════════════════════════════ */
 const KONAMI = [
   "ArrowUp",
@@ -480,9 +480,7 @@ function showKonamiToast() {
 
 function activateCheatMode() {
   cheatMode = true;
-  // Visual: pulse all mission complete immediately
   Object.keys(CARD_MAP).forEach((slug) => markMissionComplete(slug));
-  // Visual: change MP to ∞
   const mpVal = document.querySelector(".stat-row:nth-child(3) .stat-val");
   if (mpVal) mpVal.innerHTML = '<svg class="pixel-inf-svg" viewBox="0 0 16 8" aria-hidden="true"><path d="M2,0 h4 v2 h-4 z M10,0 h4 v2 h-4 z M0,2 h2 v4 h-2 z M14,2 h2 v4 h-2 z M2,6 h4 v2 h-4 z M10,6 h4 v2 h-4 z M6,2 h4 v4 h-4 z" fill="var(--gold)" shape-rendering="crispEdges"/></svg>';
   showKonamiToast();
@@ -647,24 +645,6 @@ if (lightboxOverlay) {
   update();
 })();
 
-/* ════════════════════════════════
-   🎨 ENHANCED CRT OVERLAY — moving scanlines
-════════════════════════════════ */
-(function () {
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // Replace static CRT overlay with a moving one (subtle 8s vertical drift)
-  if (reduce) return;
-  // No JS changes needed; the CSS keyframe `crt-flicker` already handles it.
-  // But let's add a tiny noise pulse via opacity variation every 3s.
-  let pulseT = 0;
-  function tick() {
-    pulseT += 0.016;
-    const o = 0.92 + Math.sin(pulseT * 2) * 0.04;
-    document.body.style.setProperty("--crt-opacity", String(o));
-    requestAnimationFrame(tick);
-  }
-  tick();
-})();
 
 /* ════════════════════════════════
    🌐 FORMAL LANGUAGE
@@ -700,7 +680,7 @@ const FORMAL_COPY = {
     "hero.fact.1.label": "University",
     "hero.fact.1.value": "Innovation University",
     "hero.fact.2.label": "Current year",
-    "hero.fact.2.value": "Year 03 / 04",
+    "hero.fact.2.value": "Year 03",
     "hero.fact.3.label": "Languages",
     "hero.fact.3.value": "Arabic / English",
     "profile.eyebrow": "Profile / point of view",
@@ -1305,3 +1285,177 @@ function setupModeButton(btnId, targetMode) {
 setupModeButton("enter-play-mode", MODE_PLAY);
 setupModeButton("enter-play-mode-footer", MODE_PLAY);
 setupModeButton("enter-formal-mode", MODE_FORMAL);
+
+/* ════════════════════════════════
+   🎇 CLICK PARTICLE EXPLOSION
+════════════════════════════════ */
+document.addEventListener("click", (e) => {
+  if (document.body.getAttribute("data-mode") === MODE_FORMAL) return;
+  
+  const numParticles = 6 + Math.floor(Math.random() * 4);
+  for (let i = 0; i < numParticles; i++) {
+    const particle = document.createElement("div");
+    particle.className = "pixel-particle";
+    
+    particle.style.left = `${e.clientX}px`;
+    particle.style.top = `${e.clientY}px`;
+    
+    const tx = (Math.random() - 0.5) * 100;
+    const ty = (Math.random() - 0.5) * 100;
+    particle.style.setProperty("--tx", `${tx}px`);
+    particle.style.setProperty("--ty", `${ty}px`);
+    
+    document.body.appendChild(particle);
+    
+    setTimeout(() => particle.remove(), 600);
+  }
+});
+
+/* ════════════════════════════════
+   ❤️ FLOATING HEARTS PROGRESS BAR
+════════════════════════════════ */
+(function initHeartsBar() {
+  const heartsBar = document.getElementById("hearts-bar");
+  if (!heartsBar) return;
+  
+  const slots = heartsBar.querySelectorAll(".heart-slot");
+  const countEl = heartsBar.querySelector(".hearts-bar-count");
+  const collected = new Set();
+  let heartsBarShown = false;
+
+  function showHeartsBar() {
+    if (heartsBarShown) return;
+    heartsBarShown = true;
+    heartsBar.classList.add("visible");
+  }
+
+  function playHeartCollectSound() {
+    if (!_audioEnabled) return;
+    try {
+      const ctx = getACtx();
+      const notes = [523.25, 659.25, 783.99];
+      notes.forEach((freq, i) => {
+        const t = i * 0.07;
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = "square";
+        o.frequency.setValueAtTime(freq, ctx.currentTime + t);
+        g.gain.setValueAtTime(0.12, ctx.currentTime + t);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.15);
+        o.connect(g);
+        g.connect(ctx.destination);
+        o.start(ctx.currentTime + t);
+        o.stop(ctx.currentTime + t + 0.16);
+      });
+    } catch (e) { /* silent */ }
+  }
+
+  function playAllCollectedFanfare() {
+    if (!_audioEnabled) return;
+    try {
+      const ctx = getACtx();
+      const melody = [523.25, 659.25, 783.99, 1046.5];
+      melody.forEach((freq, i) => {
+        const t = i * 0.12;
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = "square";
+        o.frequency.setValueAtTime(freq, ctx.currentTime + t);
+        g.gain.setValueAtTime(0.15, ctx.currentTime + t);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.25);
+        o.connect(g);
+        g.connect(ctx.destination);
+        o.start(ctx.currentTime + t);
+        o.stop(ctx.currentTime + t + 0.28);
+      });
+    } catch (e) { /* silent */ }
+  }
+
+  function collectHeart(sectionId) {
+    if (collected.has(sectionId)) return;
+    collected.add(sectionId);
+
+    const slot = heartsBar.querySelector(`.heart-slot[data-section="${sectionId}"]`);
+    if (!slot) return;
+
+    const svg = slot.querySelector(".heart-svg");
+    svg.classList.remove("empty");
+    svg.classList.add("filled", "collecting");
+
+    const glow = document.createElement("div");
+    glow.className = "heart-glow";
+    slot.appendChild(glow);
+
+    playHeartCollectSound();
+
+    setTimeout(() => {
+      svg.classList.remove("collecting");
+    }, 600);
+    setTimeout(() => {
+      glow.remove();
+    }, 800);
+
+    countEl.textContent = `${collected.size}/5`;
+
+    if (collected.size === 5) {
+      heartsBar.classList.add("all-collected");
+      setTimeout(() => showQuestComplete(), 400);
+    }
+  }
+
+  function showQuestComplete() {
+    playAllCollectedFanfare();
+
+    const overlay = document.createElement("div");
+    overlay.className = "quest-complete-overlay";
+    overlay.innerHTML = `
+      <div class="quest-complete-banner">
+        <div class="quest-complete-title">★ QUEST COMPLETE ★</div>
+        <div class="quest-complete-sub">ALL SECTIONS EXPLORED</div>
+        <div class="quest-complete-hearts">
+          ${Array(5).fill(`<svg viewBox="0 0 16 16"><rect x="2" y="2" width="4" height="4"/><rect x="10" y="2" width="4" height="4"/><rect x="0" y="4" width="16" height="6"/><rect x="2" y="10" width="12" height="2"/><rect x="4" y="12" width="8" height="2"/><rect x="6" y="14" width="4" height="2"/></svg>`).join("")}
+        </div>
+        <div class="quest-complete-dismiss">▶ CLICK TO CONTINUE</div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(() => overlay.classList.add("active"));
+
+    // Gold pixel particles shower
+    for (let i = 0; i < 30; i++) {
+      setTimeout(() => {
+        const p = document.createElement("div");
+        p.className = "pixel-particle";
+        p.style.left = `${Math.random() * window.innerWidth}px`;
+        p.style.top = `${Math.random() * window.innerHeight * 0.5}px`;
+        p.style.setProperty("--tx", `${(Math.random() - 0.5) * 120}px`);
+        p.style.setProperty("--ty", `${Math.random() * 80 + 40}px`);
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 600);
+      }, i * 40);
+    }
+
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("active");
+      setTimeout(() => overlay.remove(), 400);
+    });
+  }
+
+  const sectionIds = ["about-sec", "skills-sec", "projects-sec", "certs-sec", "contact-sec"];
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && document.body.getAttribute("data-mode") !== MODE_FORMAL) {
+        showHeartsBar();
+        collectHeart(entry.target.id);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sectionIds.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+})();
+
