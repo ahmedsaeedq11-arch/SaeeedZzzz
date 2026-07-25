@@ -373,21 +373,39 @@ if (passionsEl) {
 })();
 
 /* ════════════════════════════════
-   🎮 SCORE COUNTER
+   🎮 INFINITE ARCADE SCORE TICKER
 ════════════════════════════════ */
-let _scrollTick = false;
+let currentScore = 1250;
+const scoreValEl = document.getElementById("score-val");
+
+function updateScoreDisplay() {
+  if (!scoreValEl) return;
+  scoreValEl.textContent = String(Math.floor(currentScore)).padStart(6, "0");
+}
+
+// Continuous automatic score tick (like collecting coins in arcade games)
+setInterval(() => {
+  if (document.body.getAttribute("data-mode") === "formal") return;
+  
+  // Random coin value increment (+10, +25, +50, +100)
+  const coinAmounts = [10, 15, 25, 50, 75, 100];
+  const add = coinAmounts[Math.floor(Math.random() * coinAmounts.length)];
+  currentScore += add;
+  updateScoreDisplay();
+}, 250);
+
+// Bonus score on scrolling (speed multiplier)
+let lastScrollY = window.scrollY;
 window.addEventListener("scroll", () => {
-  if (_scrollTick) return;
-  _scrollTick = true;
-  requestAnimationFrame(() => {
-    const pct =
-      window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    document.getElementById("score-val").textContent = String(
-      Math.floor(pct * 999999),
-    ).padStart(6, "0");
-    _scrollTick = false;
-  });
-});
+  if (document.body.getAttribute("data-mode") === "formal") return;
+  const delta = Math.abs(window.scrollY - lastScrollY);
+  if (delta > 5) {
+    currentScore += Math.floor(delta * 1.5);
+    updateScoreDisplay();
+  }
+  lastScrollY = window.scrollY;
+}, { passive: true });
+
 
 /* ════════════════════════════════
    💬 RPG TYPEWRITER
