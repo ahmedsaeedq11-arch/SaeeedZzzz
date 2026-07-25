@@ -4170,9 +4170,89 @@ body[data-mode="formal"] h4 {
   padding: 2rem;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.64),
-    rgba(255, 252, 246, 0.88)
+    rgba(255, 255, 255, 0.54),
+    rgba(255, 252, 246, 0.78)
   );
+  backdrop-filter: blur(16px);
+}
+
+/* 🍏 iOS 26 GLOSSY GLASSMORPHISM ENHANCEMENTS */
+.formal-aside-card,
+.formal-panel,
+.formal-process-card,
+.formal-project-card,
+.formal-contact-card,
+.formal-training-shell,
+.formal-footer-shell {
+  border: 1px solid rgba(255, 255, 255, 0.65) !important;
+  background: rgba(255, 253, 248, 0.68) !important;
+  backdrop-filter: blur(24px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+  box-shadow:
+    0 16px 40px -10px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.04) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.formal-aside-card:hover,
+.formal-panel:hover,
+.formal-process-card:hover,
+.formal-project-card:hover,
+.formal-contact-card:hover {
+  transform: translateY(-4px) scale(1.004) !important;
+  box-shadow:
+    0 24px 50px -12px rgba(0, 0, 0, 0.14),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 1),
+    0 0 0 1px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* El Abd Booth Media Stack (Banner + 360) */
+.formal-elabd-media {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-height: 32rem;
+  background: linear-gradient(135deg, rgba(93, 74, 136, 0.12), rgba(184, 147, 55, 0.12));
+}
+.formal-banner-wrap {
+  width: 100%;
+  height: 16rem;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.formal-banner-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+.formal-project-card:hover .formal-banner-wrap img {
+  transform: scale(1.03);
+}
+.formal-360-wrap {
+  width: 100%;
+  height: 16rem;
+  position: relative;
+  background: #000;
+}
+.formal-360-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  padding: 4px 10px;
+  background: rgba(13, 8, 32, 0.82);
+  color: #f4c842;
+  border: 1px solid rgba(244, 200, 66, 0.4);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
 }
 .formal-project-tag {
   font-family: "JetBrains Mono", monospace;
