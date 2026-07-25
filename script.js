@@ -373,34 +373,55 @@ if (passionsEl) {
 })();
 
 /* ════════════════════════════════
-   🎮 INFINITE ARCADE SCORE TICKER
+   🎮 INFINITE ARCADE SCORE & COINS TICKER
 ════════════════════════════════ */
-let currentScore = 1250;
+let currentScore = 0;
 const scoreValEl = document.getElementById("score-val");
 
 function updateScoreDisplay() {
   if (!scoreValEl) return;
-  scoreValEl.textContent = String(Math.floor(currentScore)).padStart(6, "0");
+  scoreValEl.textContent = "+" + String(Math.floor(currentScore)).padStart(5, "0");
 }
 
-// Continuous automatic score tick (like collecting coins in arcade games)
+function addCoins(amount, sourceEl) {
+  currentScore += amount;
+  updateScoreDisplay();
+
+  // Floating "+250 COINS" indicator
+  const popup = document.createElement("div");
+  popup.className = "coin-popup";
+  popup.textContent = `+${amount} COINS!`;
+  
+  if (sourceEl && typeof sourceEl.getBoundingClientRect === "function") {
+    const rect = sourceEl.getBoundingClientRect();
+    popup.style.left = `${rect.left + rect.width / 2}px`;
+    popup.style.top = `${rect.top - 10}px`;
+  } else if (scoreValEl) {
+    const rect = scoreValEl.getBoundingClientRect();
+    popup.style.left = `${rect.left}px`;
+    popup.style.top = `${rect.bottom + 5}px`;
+  }
+  
+  document.body.appendChild(popup);
+  setTimeout(() => popup.remove(), 900);
+}
+
+// Ambient background arcade coin ticks (+5 to +15)
 setInterval(() => {
   if (document.body.getAttribute("data-mode") === "formal") return;
-  
-  // Random coin value increment (+10, +25, +50, +100)
-  const coinAmounts = [10, 15, 25, 50, 75, 100];
-  const add = coinAmounts[Math.floor(Math.random() * coinAmounts.length)];
+  const smallTicks = [5, 10, 15];
+  const add = smallTicks[Math.floor(Math.random() * smallTicks.length)];
   currentScore += add;
   updateScoreDisplay();
-}, 250);
+}, 600);
 
-// Bonus score on scrolling (speed multiplier)
+// Bonus score on fast scroll
 let lastScrollY = window.scrollY;
 window.addEventListener("scroll", () => {
   if (document.body.getAttribute("data-mode") === "formal") return;
   const delta = Math.abs(window.scrollY - lastScrollY);
-  if (delta > 5) {
-    currentScore += Math.floor(delta * 1.5);
+  if (delta > 20) {
+    currentScore += Math.floor(delta * 0.5);
     updateScoreDisplay();
   }
   lastScrollY = window.scrollY;
@@ -1389,6 +1410,14 @@ document.addEventListener("click", (e) => {
     } catch (e) { /* silent */ }
   }
 
+  const SECTION_COINS = {
+    "about-sec": 250,
+    "skills-sec": 400,
+    "projects-sec": 650,
+    "certs-sec": 300,
+    "contact-sec": 500,
+  };
+
   function collectHeart(sectionId) {
     if (collected.has(sectionId)) return;
     collected.add(sectionId);
@@ -1405,6 +1434,9 @@ document.addEventListener("click", (e) => {
     slot.appendChild(glow);
 
     playHeartCollectSound();
+
+    const reward = SECTION_COINS[sectionId] || 250;
+    addCoins(reward, slot);
 
     setTimeout(() => {
       svg.classList.remove("collecting");
@@ -1429,7 +1461,7 @@ document.addEventListener("click", (e) => {
     overlay.innerHTML = `
       <div class="quest-complete-banner">
         <div class="quest-complete-title">★ QUEST COMPLETE ★</div>
-        <div class="quest-complete-sub">ALL SECTIONS EXPLORED</div>
+        <div class="quest-complete-sub">ALL 5 HEARTS &amp; +${Math.floor(currentScore).toLocaleString()} COINS COLLECTED!</div>
         <div class="quest-complete-hearts">
           ${Array(5).fill(`<svg viewBox="0 0 16 16"><rect x="2" y="2" width="4" height="4"/><rect x="10" y="2" width="4" height="4"/><rect x="0" y="4" width="16" height="6"/><rect x="2" y="10" width="12" height="2"/><rect x="4" y="12" width="8" height="2"/><rect x="6" y="14" width="4" height="2"/></svg>`).join("")}
         </div>
