@@ -744,9 +744,15 @@ const FORMAL_COPY = {
       "A 360° exhibition booth concept designed for optimal visitor flow and branded spatial experience.",
     "project.3.role": "Creative direction and concept development",
     "project.3.focus": "Visitor journey, brand moments, 360 presentation",
+    "hero.title":
+      "A calm, <span class=\"hl-red\">professional portfolio</span> built for real opportunities.",
+    "profile.title":
+      "A young designer building work that feels <span class=\"hl-red\">intentional</span>, <span class=\"hl-red\">useful</span>, and well presented.",
+    "projects.title":
+      "Three projects that show <span class=\"hl-red\">visual range</span>, <span class=\"hl-red\">spatial thinking</span>, and <span class=\"hl-red\">presentation control</span>.",
     "strengths.eyebrow": "Strengths / workflow",
     "strengths.title":
-      "The value I bring is a mix of visual sensitivity, spatial awareness, and fast adaptation.",
+      "The value I bring is a mix of <span class=\"hl-red\">visual sensitivity</span>, <span class=\"hl-red\">spatial awareness</span>, and <span class=\"hl-red\">fast adaptation</span>.",
     "strengths.intro":
       "These are the qualities I rely on most when moving from concept to presentation.",
     "strength.1.title": "Visual systems",
@@ -878,7 +884,7 @@ const FORMAL_COPY = {
     "project.3.focus": "رحلة الزائر، لحظات البراند، عرض 360",
     "strengths.eyebrow": "نقاط القوة / أسلوب العمل",
     "strengths.title":
-      "القيمة التي أقدمها هي مزيج من الحس البصري، والوعي المكاني، وسرعة التكيف.",
+      "القيمة التي أقدمها هي مزيج من <span class=\"hl-red\">الحس البصري</span>، و<span class=\"hl-red\">الوعي المكاني</span>، و<span class=\"hl-red\">سرعة التكيف</span>.",
     "strengths.intro":
       "هذه هي الصفات التي أعتمد عليها أكثر عندما أنتقل من الفكرة إلى العرض النهائي.",
     "strength.1.title": "أنظمة بصرية",
@@ -955,7 +961,7 @@ function applyFormalLanguage(lang) {
   }
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (bundle[key]) el.textContent = bundle[key];
+    if (bundle[key]) el.innerHTML = bundle[key];
   });
   if (formalLangEnBtn)
     formalLangEnBtn.setAttribute("aria-pressed", String(nextLang === "en"));
