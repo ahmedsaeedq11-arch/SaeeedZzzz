@@ -3700,12 +3700,12 @@ body[data-mode="formal"] h4 {
   line-height: 1.05;
 }
 
-/* ✒️ VINTAGE ARABIC TYPEWRITER INK FONT */
+/* ✒️ MECHANICAL ARABIC TYPEWRITER / PRESS PRINT FONT */
 body[data-mode="formal"][data-formal-lang="ar"],
 body[data-mode="formal"] [lang="ar"],
 body[data-mode="formal"] [dir="rtl"] {
-  font-family: "Amiri", "Aref Ruqaa", "Courier Prime", "Special Elite", serif !important;
-  line-height: 1.8 !important;
+  font-family: "IBM Plex Sans Arabic", "Courier Prime", "Courier New", monospace, sans-serif !important;
+  line-height: 1.75 !important;
 }
 
 body[data-mode="formal"][data-formal-lang="ar"] h1,
@@ -3716,9 +3716,9 @@ body[data-mode="formal"] [lang="ar"] h1,
 body[data-mode="formal"] [lang="ar"] h2,
 body[data-mode="formal"] [lang="ar"] h3,
 body[data-mode="formal"] [lang="ar"] h4 {
-  font-family: "Amiri", "Aref Ruqaa", serif !important;
+  font-family: "IBM Plex Sans Arabic", "Courier Prime", monospace, sans-serif !important;
   font-weight: 700 !important;
-  letter-spacing: 0 !important;
+  letter-spacing: -0.01em !important;
 }
 
 .formal-topbar {
@@ -4590,63 +4590,93 @@ body[data-formal-lang="ar"] .formal-footer-meta {
 
 @media (max-width: 980px) {
   .formal-topbar-inner {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    padding: 0.75rem 0 !important;
+  }
+  .formal-brand {
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .formal-brand-name {
+    font-size: 1.5rem !important;
+  }
+  .formal-brand-role {
+    font-size: 0.65rem !important;
+    text-align: center !important;
   }
   .formal-topnav {
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem 1rem !important;
+  }
+  .formal-topnav a {
+    font-size: 0.78rem !important;
   }
   .formal-topbar-actions {
-    justify-content: flex-start;
+    justify-content: center !important;
+    width: 100% !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
   }
   .formal-hero-grid,
   .formal-profile-grid,
-  .formal-project-card,
   .formal-process-grid,
   .formal-contact-grid,
   .formal-footer-shell {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+  }
+  .formal-project-card {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .formal-project-image {
+    min-height: 16rem !important;
+    height: 16rem !important;
+    width: 100% !important;
   }
   .formal-project-card.is-reversed .formal-project-image,
   .formal-project-card.is-reversed .formal-project-body {
-    order: initial;
+    order: initial !important;
   }
   .formal-kicker-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
   .formal-footer-nav,
   .formal-footer-meta {
-    justify-content: flex-start;
-    text-align: left;
+    justify-content: center !important;
+    text-align: center !important;
   }
 }
 
 @media (max-width: 640px) {
   .formal-topbar-inner,
   .formal-container {
-    width: min(100% - 1.4rem, 1180px);
+    width: min(100% - 1.4rem, 1180px) !important;
   }
   .formal-section {
-    padding: 4.6rem 0;
+    padding: 3rem 0 !important;
   }
   .formal-name {
-    font-size: clamp(3rem, 18vw, 5.4rem);
+    font-size: clamp(2.2rem, 12vw, 4rem) !important;
   }
   .formal-lead {
-    font-size: clamp(1.85rem, 10vw, 3rem);
+    font-size: clamp(1.4rem, 8vw, 2.2rem) !important;
   }
   .formal-btn-primary,
-  .formal-btn-secondary,
-  .formal-topbar .tool-btn {
-    width: 100%;
+  .formal-btn-secondary {
+    width: 100% !important;
+    text-align: center !important;
   }
-  .formal-cta-row,
-  .formal-topbar-actions {
-    flex-direction: column;
-    align-items: stretch;
+  .formal-cta-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
   }
   .formal-topnav {
-    gap: 0.85rem 1rem;
+    gap: 0.5rem 0.85rem !important;
   }
   .formal-project-body,
   .formal-aside-card,
@@ -4654,10 +4684,13 @@ body[data-formal-lang="ar"] .formal-footer-meta {
   .formal-process-card,
   .formal-training-shell,
   .formal-contact-card {
-    padding: 1.35rem;
+    padding: 1.2rem !important;
   }
   .formal-timeline-item {
-    grid-template-columns: 1fr;
-    gap: 0.45rem;
+    grid-template-columns: 1fr !important;
+    gap: 0.45rem !important;
+  }
+  .formal-elabd-360-row {
+    height: 300px !important;
   }
 }

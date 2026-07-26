@@ -683,9 +683,9 @@ const FORMAL_COPY = {
     "hero.eyebrow": "Formal portfolio / design student",
     "hero.name": "Ahmed Saeed",
     "hero.title":
-      "A calm, professional portfolio built for real opportunities.",
+      "A calm, <span class=\"hl-red\">professional portfolio</span> built for real opportunities.",
     "hero.copy":
-      "Third-year design student at Innovation University, focused on brand identity, interior spaces, and spatial experience projects with a clear visual direction.",
+      "Third-year design student at Innovation University, focused on <span class=\"hl-red\">brand identity</span>, <span class=\"hl-red\">interior spaces</span>, and <span class=\"hl-red\">spatial experience</span> projects with a clear visual direction.",
     "hero.cta.primary": "View selected work",
     "hero.cta.secondary": "Get in touch",
     "hero.kicker.1.label": "Focus",
@@ -697,7 +697,7 @@ const FORMAL_COPY = {
     "hero.badge": "Available now",
     "hero.aside.title": "Creative discipline with presentation clarity.",
     "hero.aside.copy":
-      "This mode is designed for hiring managers, internship applications, and anyone who needs a clean view of the work without the pixel persona.",
+      "A structured overview presenting selected design work, core competencies, and technical background for professional review.",
     "hero.fact.1.label": "University",
     "hero.fact.1.value": "Innovation University",
     "hero.fact.2.label": "Current year",
@@ -706,24 +706,24 @@ const FORMAL_COPY = {
     "hero.fact.3.value": "Arabic / English",
     "profile.eyebrow": "Profile / point of view",
     "profile.title":
-      "A young designer building work that feels intentional, useful, and well presented.",
+      "A young designer building work that feels <span class=\"hl-red\">intentional</span>, <span class=\"hl-red\">useful</span>, and well presented.",
     "profile.intro":
-      "The goal of this portfolio is simple: show range, show discipline, and make it easy to understand how I think across brand, interior, and experiential work.",
+      "The goal of this portfolio is simple: demonstrate range, discipline, and clear design methodology across brand, interior, and spatial work.",
     "profile.panel.1.title": "How I work",
     "profile.panel.1.p1":
-      "I like design that communicates fast but still leaves a strong impression. I pay attention to hierarchy, atmosphere, and whether the final result feels honest to the concept behind it.",
+      "I value design that communicates efficiently with strong hierarchy, atmosphere, and fidelity to the underlying concept.",
     "profile.panel.1.p2":
-      "My current practice moves between brand identity, interior design, and spatial experiences. That mix helps me think both in 2D systems and in physical environments.",
+      "My work bridges brand identity, interior design, and spatial experience, allowing me to build cohesive systems across 2D graphics and physical environments.",
     "profile.panel.1.p3":
-      "I am actively improving my presentation quality, technical modeling workflow, and how AI can support design without flattening craft.",
+      "I continuously refine presentation standards, 3D modeling accuracy, and execution precision.",
     "profile.quote.copy":
-      "I want the work to feel composed, memorable, and clear enough that the idea is understood before it needs explanation.",
-    "profile.quote.sign": "Ahmed Saeed / personal approach",
+      "I aim for work that is composed, memorable, and clear enough to be understood directly.",
+    "profile.quote.sign": "Ahmed Saeed / design approach",
     "projects.eyebrow": "Selected work",
     "projects.title":
-      "Three projects that show visual range, spatial thinking, and presentation control.",
+      "Three projects that show <span class=\"hl-red\">visual range</span>, <span class=\"hl-red\">spatial thinking</span>, and <span class=\"hl-red\">presentation control</span>.",
     "projects.intro":
-      "Each project here is structured for quick scanning: what it is, what role I played, and what kind of design thinking it demonstrates.",
+      "Each project details the core concept, role, and practical design thinking behind the final presentation.",
     "project.meta.role": "Role",
     "project.meta.focus": "Focus",
     "project.1.tag": "Brand identity / 2026",
@@ -744,147 +744,141 @@ const FORMAL_COPY = {
       "A 360° exhibition booth concept designed for optimal visitor flow and branded spatial experience.",
     "project.3.role": "Creative direction and concept development",
     "project.3.focus": "Visitor journey, brand moments, 360 presentation",
-    "hero.title":
-      "A calm, <span class=\"hl-red\">professional portfolio</span> built for real opportunities.",
-    "profile.title":
-      "A young designer building work that feels <span class=\"hl-red\">intentional</span>, <span class=\"hl-red\">useful</span>, and well presented.",
-    "projects.title":
-      "Three projects that show <span class=\"hl-red\">visual range</span>, <span class=\"hl-red\">spatial thinking</span>, and <span class=\"hl-red\">presentation control</span>.",
     "strengths.eyebrow": "Strengths / workflow",
     "strengths.title":
       "The value I bring is a mix of <span class=\"hl-red\">visual sensitivity</span>, <span class=\"hl-red\">spatial awareness</span>, and <span class=\"hl-red\">fast adaptation</span>.",
     "strengths.intro":
-      "These are the qualities I rely on most when moving from concept to presentation.",
+      "Core principles guiding the execution from initial concept to technical presentation.",
     "strength.1.title": "Visual systems",
     "strength.1.copy":
-      "I enjoy building coherent direction through type, proportion, material references, and a clear visual hierarchy that stays consistent across a project.",
+      "Building coherent direction through typography, proportion, material references, and structured visual hierarchy.",
     "strength.2.title": "Spatial thinking",
     "strength.2.copy":
-      "Working across interiors and booths taught me to think in circulation, perspective, and real-world experience, not only isolated visuals.",
+      "Designing for human movement, perspective, and real-world experience across interior layouts and exhibition stands.",
     "strength.3.title": "Learning speed",
     "strength.3.copy":
-      "I pick up tools and workflows quickly, then focus on improving polish so the final output feels more intentional and more professional.",
+      "Rapid tool acquisition paired with a focus on technical polish and high presentation standards.",
     "training.eyebrow": "Training / exposure",
     "training.title":
-      "Hands-on training that connects design thinking to real production and technical workflow.",
+      "Hands-on training connecting <span class=\"hl-red\">design thinking</span> with real production and technical workflow.",
     "training.intro":
-      "The formal portfolio should show not just style, but evidence of learning in real environments.",
+      "Practical experience gained through factory internships and technical certification programs.",
     "training.1.date": "May 2026",
     "training.1.title": "Cucina Factory Training",
-    "training.1.org": "Furniture and kitchen manufacturing",
+    "training.1.org": "Furniture & Kitchen Manufacturing",
     "training.1.desc":
-      "Hands-on exposure to materials, fabrication logic, production workflow, and how designed ideas become built outputs.",
+      "Direct exposure to materials, fabrication logic, assembly workflows, and manufacturing execution.",
     "training.2.date": "Sep 2025",
     "training.2.title": "Knauf Training Center",
     "training.2.org": "Ceilings, partitions, and wall systems",
     "training.2.desc":
-      "Training on ceiling systems, partition assemblies, and wall solutions from a manufacturer-led technical context.",
+      "Technical training on interior drywall assemblies, partition systems, and ceiling construction.",
     "training.3.date": "Aug 2025",
     "training.3.title": "ITI / 3D Modeling for Interior Design",
     "training.3.org": "Information Technology Institute / 60 hours",
     "training.3.desc":
-      "Focused training in interior-oriented 3D modeling workflow, model construction, and technical presentation habits.",
+      "Intensive technical training in interior 3D modeling, spatial rendering, and presentation workflows.",
     "training.4.date": "Aug 2025",
     "training.4.title": "ITI / Advanced Training",
     "training.4.org": "Information Technology Institute",
     "training.4.desc":
-      "Follow-on advanced learning that extended the technical track and strengthened digital modeling confidence.",
+      "Advanced technical module focused on digital modeling precision and presentation polish.",
     "contact.eyebrow": "Contact / next step",
     "contact.title":
-      "Open to internships, collaborations, and opportunities that value craft.",
+      "Open to <span class=\"hl-red\">internships</span>, <span class=\"hl-red\">collaborations</span>, and opportunities that value craft.",
     "contact.intro":
-      "If the work feels aligned, the easiest next step is to reach out through one of the channels below.",
+      "Direct channels to get in touch regarding professional opportunities and collaboration.",
     "contact.card.1.label": "Instagram",
     "contact.card.1.value": "@ahmed_saeed2_0",
-    "contact.card.1.note": "Daily visual updates and direct messages.",
+    "contact.card.1.note": "Visual work updates and direct messaging.",
     "contact.card.2.label": "Behance",
     "contact.card.2.value": "ahmedsaeed375",
-    "contact.card.2.note": "Archive of visual work and project presentations.",
+    "contact.card.2.note": "Full project presentations and design documentation.",
     "contact.card.3.label": "LinkedIn",
     "contact.card.3.value": "ahmed-saeed-682673338",
-    "contact.card.3.note": "Professional profile and internship conversations.",
+    "contact.card.3.note": "Professional profile and internship inquiries.",
     "contact.cta":
-      "For internship leads, portfolio reviews, or collaboration briefs, any of these channels works.",
+      "Available for internships, freelance briefs, and portfolio inquiries through any preferred channel.",
     "footer.name": "Ahmed Saeed",
     "footer.tag": "Formal portfolio mode",
     "footer.copy":
-      "Built as the professional counterpart to the pixel portfolio.",
+      "Professional design portfolio.",
   },
   ar: {
     "brand.name": "أحمد سعيد",
-    "brand.role": "نسخة رسمية للتقديم على فرص الشغل والتدريب",
+    "brand.role": "معرض الأعمال الرسمي / تصميم داخلي وهوية بصرية",
     "nav.profile": "الملف",
     "nav.projects": "المشاريع",
     "nav.strengths": "نقاط القوة",
     "nav.training": "التدريب",
     "nav.contact": "التواصل",
     "actions.play": "وضع اللعب",
-    "hero.eyebrow": "نسخة رسمية / طالب تصميم",
+    "hero.eyebrow": "معرض رسمي / طالب تصميم",
     "hero.name": "أحمد سعيد",
-    "hero.title": "بورتفوليو هادئ ورسمي معمول لفرص حقيقية.",
+    "hero.title":
+      "معرض أعمال مهني يركز على <span class=\"hl-red\">جودة الفكرة</span> و<span class=\"hl-red\">الدقة التنفيذية</span>.",
     "hero.copy":
-      "طالب تصميم في السنة الثالثة بجامعة Innovation University، ومهتم بالهوية البصرية، والفراغات الداخلية، وتجارب المساحات مع اتجاه بصري واضح.",
-    "hero.cta.primary": "شاهد الأعمال المختارة",
-    "hero.cta.secondary": "تواصل معي",
-    "hero.kicker.1.label": "التركيز",
+      "طالب تصميم بالسنة الثالثة بجامعة Innovation University، متخصص في <span class=\"hl-red\">الهوية البصرية</span>، <span class=\"hl-red\">التصميم الداخلي</span>، و<span class=\"hl-red\">التجارب المكانية</span>.",
+    "hero.cta.primary": "مشاهدة الأعمال المختارة",
+    "hero.cta.secondary": "التواصل المباشر",
+    "hero.kicker.1.label": "التخصص",
     "hero.kicker.1.value": "هوية بصرية، تصميم داخلي، وتجارب مكانية",
     "hero.kicker.2.label": "الحالة",
-    "hero.kicker.2.value": "متاح للتدريب وفرص فريلانس مختارة",
+    "hero.kicker.2.value": "متاح لفرص التدريب والتعاون الإبداعي",
     "hero.kicker.3.label": "الموقع",
     "hero.kicker.3.value": "مصر / Innovation University",
     "hero.badge": "متاح الآن",
-    "hero.aside.title": "انضباط بصري مع عرض احترافي واضح.",
+    "hero.aside.title": "انضباط بصري ووضوح في العرض.",
     "hero.aside.copy":
-      "النسخة دي موجهة لمديري التوظيف، وفرص التدريب، وأي حد محتاج يشوف الشغل بشكل نظيف من غير شخصية الـpixel.",
+      "استعراض منظم للمشاريع المختارة والمهارات الفنية بخطوط واضحة وتفاصيل مباشرة.",
     "hero.fact.1.label": "الجامعة",
     "hero.fact.1.value": "Innovation University",
-    "hero.fact.2.label": "السنة الحالية",
-    "hero.fact.2.value": "السنة 03 / 04",
+    "hero.fact.2.label": "السنة الدراسية",
+    "hero.fact.2.value": "السنة الثالثة",
     "hero.fact.3.label": "اللغات",
     "hero.fact.3.value": "العربية / الإنجليزية",
-    "profile.eyebrow": "الملف / طريقة التفكير",
+    "profile.eyebrow": "الملف المهني / منهجية العمل",
     "profile.title":
-      "مصمم في بداية الطريق يبني شغلًا مقصودًا، مفيدًا، ومقدمًا بشكل محترم.",
+      "مصمم يهدف إلى تقديم أعمال تتسم بـ <span class=\"hl-red\">التوازن</span>، <span class=\"hl-red\">الفاعلية</span>، و<span class=\"hl-red\">الدقة الفنية</span>.",
     "profile.intro":
-      "هدف البورتفوليو ده بسيط: يوضح التنوع، والانضباط، ويخلي فهم طريقة تفكيري سهل عبر البراندنج، والداخلي، وتجارب المساحات.",
-    "profile.panel.1.title": "طريقة شغلي",
+      "تقديم رؤية شمولية واضحة لطريقة التفكير والتطبيق عبر مجالات التصميم المختلفة.",
+    "profile.panel.1.title": "منهجية العمل",
     "profile.panel.1.p1":
-      "أحب التصميم اللي يوصل بسرعة لكنه يسيب أثر واضح. أهتم بالهيراركي، والإحساس العام، وهل النتيجة النهائية صادقة للفكرة الأساسية أم لا.",
+      "الاهتمام بالتصميم الذي يوصل الفكرة بكفاءة عالية مع الامتثال للهيراركي والتوازن العام وصحة المفهوم.",
     "profile.panel.1.p2":
-      "شغلي الحالي بيتحرك بين الهوية البصرية، والتصميم الداخلي، والتجارب المكانية. المزج ده بيساعدني أفكر في أنظمة ثنائية الأبعاد وفي بيئات حقيقية في نفس الوقت.",
+      "الربط بين الهوية البصرية والتصميم الداخلي والتجارب المكانية لبناء أنظمة متكاملة في المساحات الثنائية والثلاثية الأبعاد.",
     "profile.panel.1.p3":
-      "أنا حاليًا أطور جودة التقديم، وسرعة الـworkflow في النمذجة، وكيف يمكن للذكاء الاصطناعي يدعم الشغل من غير ما يسطح الحرفة.",
+      "التطوير المستمر لجودة العرض الفني، وكفاءة النمذجة ثلاثية الأبعاد، والارتقاء بالتفاصيل التنفيذية.",
     "profile.quote.copy":
-      "أحب أن يكون الشغل متماسكًا، سهل الفهم، وله حضور يثبت الفكرة قبل ما يحتاج شرح طويل.",
-    "profile.quote.sign": "أحمد سعيد / منهج شخصي",
+      "الهدف هو تقديم أعمال متماسكة وواضحة تعبر عن الفكرة بقوة وتترك انطباعا مهنيا ثابتا.",
+    "profile.quote.sign": "أحمد سعيد / منهجية التصميم",
     "projects.eyebrow": "أعمال مختارة",
     "projects.title":
-      "ثلاثة مشاريع يوضحوا التنوع البصري، والتفكير المكاني، والسيطرة على العرض.",
+      "ثلاثة مشاريع تعكس <span class=\"hl-red\">التنوع البصري</span>، <span class=\"hl-red\">التفكير المكاني</span>، و<span class=\"hl-red\">جودة العرض</span>.",
     "projects.intro":
-      "كل مشروع هنا متبني بشكل سريع وواضح: ما هو، وما دوري فيه، ونوع التفكير التصميمي الذي يوضحه.",
+      "استعراض مباشر للمفهوم، الدور التنفيذي، والتفكير التصميمي لكل مشروع.",
     "project.meta.role": "الدور",
     "project.meta.focus": "التركيز",
     "project.1.tag": "هوية بصرية / 2026",
     "project.1.title": "إعادة هوية Zara Menswear",
     "project.1.summary":
-      "مشروع إعادة هوية بصري لعلامة تجارية رجالية يركز على الحضور البصري القوي والتموضع الحديث.",
-    "project.1.role": "توجيه براند وهوية بصرية",
-    "project.1.focus": "تموضع، نظام شعار، حضور المتجر",
+      "مشروع تطوير هوية بصرية لعلامة تجارية رجالية يركز على الحضور البصري القوي والتموضع الحديث.",
+    "project.1.role": "التوجيه البصري وتصميم الهوية",
+    "project.1.focus": "التموضع، نظام الشعار، حضور المتجر",
     "project.2.tag": "تصميم داخلي / 2026",
     "project.2.title": "مطبخ بطابع Wabi-Sabi",
     "project.2.summary":
       "تصميم داخلي قائم على التوازن بين الخامات الطبيعية، الملمس الهادئ، والمود المكاني البسيط.",
-    "project.2.role": "تصميم مفهوم ومود مكاني",
-    "project.2.focus": "اختيار خامات، مزاج بصري، إحساس معيشة",
+    "project.2.role": "تصميم المفهوم والمود المكاني",
+    "project.2.focus": "اختيار الخامات، التوازن البصري، الإحساس المعيشي",
     "project.3.tag": "تجربة مكانية / 2026",
-    "project.3.title": "فكرة جناح El Abd",
+    "project.3.title": "جناح عرض El Abd",
     "project.3.summary":
-      "مفهوم تفاعلي لجناح عرض 360 درجة يركز على حركة الزائر وتجربة البراند المكانية.",
-    "project.3.role": "توجيه إبداعي وتطوير الفكرة",
-    "project.3.focus": "رحلة الزائر، لحظات البراند، عرض 360",
+      "مفهوم تفاعلي لجناح عرض 360 درجة يركز على حركة الزائر والتجربة المكانية للعلامة التجارية.",
+    "project.3.role": "التوجيه الإبداعي وتطوير الفكرة",
+    "project.3.focus": "رحلة الزائر، نقاط التفاعل، عرض 360",
     "strengths.eyebrow": "نقاط القوة / أسلوب العمل",
     "strengths.title":
-      "القيمة التي أقدمها هي مزيج من <span class=\"hl-red\">الحس البصري</span>، و<span class=\"hl-red\">الوعي المكاني</span>، و<span class=\"hl-red\">سرعة التكيف</span>.",
     "strengths.intro":
       "هذه هي الصفات التي أعتمد عليها أكثر عندما أنتقل من الفكرة إلى العرض النهائي.",
     "strength.1.title": "أنظمة بصرية",
