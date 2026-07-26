@@ -4591,35 +4591,52 @@ body[data-formal-lang="ar"] .formal-footer-meta {
 @media (max-width: 980px) {
   .formal-topbar-inner {
     display: flex !important;
-    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
     align-items: center !important;
-    gap: 0.75rem !important;
-    padding: 0.75rem 0 !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 0 !important;
+  }
+  .formal-topbar-brand {
+    flex: 1 1 auto !important;
   }
   .formal-brand {
-    align-items: center !important;
-    text-align: center !important;
+    align-items: flex-start !important;
+    text-align: left !important;
   }
   .formal-brand-name {
-    font-size: 1.5rem !important;
+    font-size: 1.35rem !important;
   }
   .formal-brand-role {
-    font-size: 0.65rem !important;
-    text-align: center !important;
-  }
-  .formal-topnav {
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-    gap: 0.5rem 1rem !important;
-  }
-  .formal-topnav a {
-    font-size: 0.78rem !important;
+    font-size: 0.6rem !important;
+    text-align: left !important;
   }
   .formal-topbar-actions {
-    justify-content: center !important;
+    flex: 0 0 auto !important;
+    justify-content: flex-end !important;
+    gap: 0.4rem !important;
+    width: auto !important;
+  }
+  .formal-lang-btn,
+  .formal-topbar .tool-btn {
+    font-size: 0.72rem !important;
+    padding: 0.38rem 0.65rem !important;
+  }
+  .formal-topnav {
     width: 100% !important;
-    flex-wrap: wrap !important;
+    order: 3 !important;
+    display: flex !important;
+    justify-content: space-around !important;
+    overflow-x: auto !important;
     gap: 0.5rem !important;
+    padding-top: 0.35rem !important;
+    border-top: 1px solid var(--formal-line) !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .formal-topnav a {
+    font-size: 0.76rem !important;
+    padding: 0.2rem 0.4rem !important;
+    white-space: nowrap !important;
   }
   .formal-hero-grid,
   .formal-profile-grid,
@@ -4634,8 +4651,8 @@ body[data-formal-lang="ar"] .formal-footer-meta {
     flex-direction: column !important;
   }
   .formal-project-image {
-    min-height: 16rem !important;
-    height: 16rem !important;
+    min-height: 14rem !important;
+    height: 14rem !important;
     width: 100% !important;
   }
   .formal-project-card.is-reversed .formal-project-image,
@@ -4655,16 +4672,16 @@ body[data-formal-lang="ar"] .formal-footer-meta {
 @media (max-width: 640px) {
   .formal-topbar-inner,
   .formal-container {
-    width: min(100% - 1.4rem, 1180px) !important;
+    width: min(100% - 1.2rem, 1180px) !important;
   }
   .formal-section {
-    padding: 3rem 0 !important;
+    padding: 2.5rem 0 !important;
   }
   .formal-name {
     font-size: clamp(2.2rem, 12vw, 4rem) !important;
   }
   .formal-lead {
-    font-size: clamp(1.4rem, 8vw, 2.2rem) !important;
+    font-size: clamp(1.35rem, 7vw, 2.2rem) !important;
   }
   .formal-btn-primary,
   .formal-btn-secondary {
@@ -4675,22 +4692,19 @@ body[data-formal-lang="ar"] .formal-footer-meta {
     flex-direction: column !important;
     align-items: stretch !important;
   }
-  .formal-topnav {
-    gap: 0.5rem 0.85rem !important;
-  }
   .formal-project-body,
   .formal-aside-card,
   .formal-panel,
   .formal-process-card,
   .formal-training-shell,
   .formal-contact-card {
-    padding: 1.2rem !important;
+    padding: 1.15rem !important;
   }
   .formal-timeline-item {
     grid-template-columns: 1fr !important;
     gap: 0.45rem !important;
   }
   .formal-elabd-360-row {
-    height: 300px !important;
+    height: 280px !important;
   }
 }
