@@ -879,60 +879,63 @@ const FORMAL_COPY = {
     "project.3.focus": "رحلة الزائر، نقاط التفاعل، عرض 360",
     "strengths.eyebrow": "نقاط القوة / أسلوب العمل",
     "strengths.title":
+      "مزيج من <span class=\"hl-red\">الوعي البصري</span>، <span class=\"hl-red\">التفكير المكاني</span>، و<span class=\"hl-red\">سرعة التكيف</span>.",
     "strengths.intro":
-      "هذه هي الصفات التي أعتمد عليها أكثر عندما أنتقل من الفكرة إلى العرض النهائي.",
-    "strength.1.title": "أنظمة بصرية",
+      "المرتكزات الأساسية التي أعتمد عليها في تحويل المفاهيم إلى مشاريع واقعية.",
+    "strength.1.title": "الأنظمة البصرية",
     "strength.1.copy":
-      "أحب بناء اتجاه متماسك من خلال التايبوجرافي، والنسب، ومراجع الخامات، وهيراركي واضح يظل ثابتًا عبر المشروع كله.",
-    "strength.2.title": "تفكير مكاني",
+      "بناء اتجاه بصري متماسك يعتمد على التناسب، اختيار الخامات، والتدرج الهرمي الواضح.",
+    "strength.2.title": "التفكير المكاني",
     "strength.2.copy":
-      "العمل على الداخل والجناح علمني التفكير في الحركة، والمنظور، والتجربة الواقعية، وليس فقط في صورة منفصلة.",
-    "strength.3.title": "سرعة التعلم",
+      "التركيز على حركة الزائر، المنظور، والتجربة الميدانية الحقيقية داخل المساحات.",
+    "strength.3.title": "الاستيعاب والتطوير",
     "strength.3.copy":
-      "ألتقط الأدوات والـworkflows بسرعة، ثم أركز على تحسين الـpolish حتى يظهر الناتج النهائي بشكل أهدأ وأكثر احترافية.",
-    "training.eyebrow": "التدريب / الخبرة",
+      "سرعة استيعاب أدوات العمل التقنية والتزام أعلى معايير الجودة والإخراج.",
+    "training.eyebrow": "التدريب والخبرة العملية",
     "training.title":
-      "تدريب عملي يربط التفكير التصميمي بالإنتاج الحقيقي والـworkflow التقني.",
+      "تدريب عملي يربط <span class=\"hl-red\">التفكير التصميمي</span> بالإنتاج الحقيقي والـworkflow التقني.",
     "training.intro":
-      "النسخة الرسمية لازم توضح ليس فقط الذوق، بل أيضًا أدلة على التعلم داخل بيئات حقيقية.",
+      "خبرات ميدانية وبرامج تخصصية تربط التصميم بأساليب التنفيذ والإنتاج.",
     "training.1.date": "مايو 2026",
     "training.1.title": "تدريب مصنع Cucina",
     "training.1.org": "تصنيع الأثاث والمطابخ",
     "training.1.desc":
-      "احتكاك عملي بالخامات، ومنطق التنفيذ، وخطوات الإنتاج، وكيف تتحول الفكرة المصممة إلى شيء مبني فعليًا.",
+      "معايشة عملية لخطوط التصنيع، ومنطق التنفيذ، وخطوات تحويل المخططات إلى منتجات واقعية.",
     "training.2.date": "سبتمبر 2025",
     "training.2.title": "مركز تدريب Knauf",
     "training.2.org": "الأسقف والقواطيع وأنظمة الحوائط",
     "training.2.desc":
-      "تدريب على أنظمة الأسقف والقواطيع والحلول الجدارية من خلال سياق تقني تقوده الشركة المصنعة.",
+      "تدريب تقني على أنظمة الأسقف المعلقة والقواطيع الجدارية وفق المعايير القياسية.",
     "training.3.date": "أغسطس 2025",
     "training.3.title": "ITI / النمذجة ثلاثية الأبعاد للتصميم الداخلي",
-    "training.3.org": "Information Technology Institute / 60 ساعة",
+    "training.3.org": "معهد تكنولوجيا المعلومات / 60 ساعة",
     "training.3.desc":
-      "تدريب مركز على workflow النمذجة الخاص بالمجال الداخلي، وبناء الموديل، وعادات التقديم التقني.",
+      "تدريب متقدم على طرق النمذجة ثلاثية الأبعاد والإخراج التقني للتصميم الداخلي.",
     "training.4.date": "أغسطس 2025",
-    "training.4.title": "ITI / تدريب متقدم",
-    "training.4.org": "Information Technology Institute",
+    "training.4.title": "ITI / التدريب المتقدم",
+    "training.4.org": "معهد تكنولوجيا المعلومات",
     "training.4.desc":
-      "تعلم متقدم مكمل للمسار التقني وساهم في تقوية الثقة في النمذجة الرقمية.",
+      "مرحلة تقدمية تناولت دقة النمذجة الرقمية وتقنيات العرض الفني.",
     "contact.eyebrow": "التواصل / الخطوة القادمة",
-    "contact.title": "متاح للتدريب، والتعاون، والفرص التي تقدر الحرفة.",
+    "contact.title":
+      "متاح لـ <span class=\"hl-red\">فرص التدريب</span>، التعاون الإبداعي، والفرص التي تقيّم الحرفة.",
     "contact.intro":
-      "إذا كان الشغل مناسبًا، فأسهل خطوة تالية هي التواصل من خلال أي قناة من القنوات التالية.",
+      "للتواصل المباشر بشأن فرص التدريب أو التعاون الإبداعي.",
     "contact.card.1.label": "إنستجرام",
     "contact.card.1.value": "@ahmed_saeed2_0",
-    "contact.card.1.note": "تحديثات بصرية يومية ورسائل مباشرة.",
+    "contact.card.1.note": "التحديثات البصرية والرسائل المباشرة.",
     "contact.card.2.label": "بيهانس",
     "contact.card.2.value": "ahmedsaeed375",
-    "contact.card.2.note": "أرشيف الأعمال والعروض البصرية للمشاريع.",
-    "contact.card.3.label": "لينكدإن",
+    "contact.card.2.note": "أرشيف المشاريع الكاملة والتوثيق البصري.",
+    "contact.card.3.label": "لينكد إن",
     "contact.card.3.value": "ahmed-saeed-682673338",
     "contact.card.3.note": "الملف المهني ومحادثات فرص التدريب.",
     "contact.cta":
-      "للتدريب، أو مراجعة البورتفوليو، أو عروض التعاون، أي قناة من هذه القنوات مناسبة.",
+      "متاح لفرص التدريب ومراجعة الأعمال عبر أي من قنوات التواصل.",
     "footer.name": "أحمد سعيد",
-    "footer.tag": "وضع البورتفوليو الرسمي",
-    "footer.copy": "تم بناؤه كنسخة احترافية موازية للبورتفوليو الـpixel.",
+    "footer.tag": "معرض الأعمال الرسمي",
+    "footer.copy":
+      "المعرض الرسمي للمصمم أحمد سعيد.",
   },
 };
 
@@ -1241,6 +1244,9 @@ function runModeTransition(toMode, triggerEl) {
   }
 
   isTransitioning = true;
+  setTimeout(() => {
+    if (isTransitioning) cleanupTransition();
+  }, 1300);
   playModeTransformSound(toMode === MODE_FORMAL);
   const field = createTransitionField(getTransitionOrigin(triggerEl), toMode);
   const startedAt = performance.now();
@@ -1306,6 +1312,16 @@ function setupModeButton(btnId, targetMode) {
 setupModeButton("enter-play-mode", MODE_PLAY);
 setupModeButton("enter-play-mode-footer", MODE_PLAY);
 setupModeButton("enter-formal-mode", MODE_FORMAL);
+
+const pressStartBtn = document.getElementById("press-start-btn");
+if (pressStartBtn) {
+  pressStartBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    playSfx(880, 0.12, "square");
+    const target = document.getElementById("about-sec");
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+  });
+}
 
 /* ════════════════════════════════
    🎇 CLICK PARTICLE EXPLOSION
