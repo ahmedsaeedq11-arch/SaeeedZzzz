@@ -3743,6 +3743,11 @@ body[data-mode="formal"] [lang="ar"] h4 {
   align-items: center;
   padding: 1rem 0;
 }
+
+.formal-topbar-brand {
+  min-width: 0;
+  overflow: hidden;
+}
 .formal-brand {
   display: inline-flex;
   flex-direction: column;
@@ -3751,19 +3756,30 @@ body[data-mode="formal"] [lang="ar"] h4 {
   color: #0f0d14;
 }
 .formal-brand-name {
-  font-family: "Special Elite", "Courier Prime", serif;
+  font-family: "Special Elite", "Courier Prime", "IBM Plex Sans Arabic", serif;
   font-size: 1.8rem;
   line-height: 0.9;
   letter-spacing: -0.02em;
   color: #0f0d14;
 }
+
+[data-formal-lang="ar"] .formal-brand-name,
+[data-formal-lang="ar"] .formal-brand {
+  font-family: "IBM Plex Sans Arabic", "Courier Prime", monospace, sans-serif !important;
+  letter-spacing: 0 !important;
+  line-height: 1.1 !important;
+}
 .formal-brand-role {
   font-family: "Courier Prime", monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--formal-red);
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
 }
 .formal-topnav {
   display: flex;

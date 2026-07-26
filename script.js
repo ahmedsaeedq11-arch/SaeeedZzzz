@@ -673,7 +673,7 @@ if (lightboxOverlay) {
 const FORMAL_COPY = {
   en: {
     "brand.name": "Ahmed Saeed",
-    "brand.role": "Formal portfolio for internships and creative work",
+    "brand.role": "Design student / Portfolio",
     "nav.profile": "Profile",
     "nav.projects": "Projects",
     "nav.strengths": "Strengths",
@@ -806,7 +806,7 @@ const FORMAL_COPY = {
   },
   ar: {
     "brand.name": "أحمد سعيد",
-    "brand.role": "معرض الأعمال الرسمي / تصميم داخلي وهوية بصرية",
+    "brand.role": "معرض الأعمال / طالب تصميم",
     "nav.profile": "الملف",
     "nav.projects": "المشاريع",
     "nav.strengths": "نقاط القوة",
