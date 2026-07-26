@@ -3700,12 +3700,12 @@ body[data-mode="formal"] h4 {
   line-height: 1.05;
 }
 
-/* ✒️ CLASSICAL ARABIC PRESS PRINT FONT — matches Courier Prime / Special Elite feel */
+/* ✒️ ARABIC FORMAL FONT — Noto Naskh Arabic: clean print, matches typewriter aesthetic */
 body[data-mode="formal"][data-formal-lang="ar"],
 body[data-mode="formal"] [lang="ar"],
 body[data-mode="formal"] [dir="rtl"] {
-  font-family: "Amiri", "Courier Prime", serif !important;
-  line-height: 1.85 !important;
+  font-family: "Noto Naskh Arabic", "Courier Prime", serif !important;
+  line-height: 1.9 !important;
 }
 
 body[data-mode="formal"][data-formal-lang="ar"] h1,
@@ -3716,7 +3716,7 @@ body[data-mode="formal"] [lang="ar"] h1,
 body[data-mode="formal"] [lang="ar"] h2,
 body[data-mode="formal"] [lang="ar"] h3,
 body[data-mode="formal"] [lang="ar"] h4 {
-  font-family: "Amiri", "Courier Prime", serif !important;
+  font-family: "Noto Naskh Arabic", serif !important;
   font-weight: 700 !important;
   letter-spacing: 0 !important;
 }
@@ -3756,7 +3756,7 @@ body[data-mode="formal"] [lang="ar"] h4 {
   color: #0f0d14;
 }
 .formal-brand-name {
-  font-family: "Special Elite", "Courier Prime", "Amiri", serif;
+  font-family: "Special Elite", "Courier Prime", "Noto Naskh Arabic", serif;
   font-size: 1.8rem;
   line-height: 0.9;
   letter-spacing: -0.02em;
@@ -3765,7 +3765,7 @@ body[data-mode="formal"] [lang="ar"] h4 {
 
 [data-formal-lang="ar"] .formal-brand-name,
 [data-formal-lang="ar"] .formal-brand {
-  font-family: "Amiri", serif !important;
+  font-family: "Noto Naskh Arabic", serif !important;
   letter-spacing: 0 !important;
   line-height: 1.2 !important;
 }
