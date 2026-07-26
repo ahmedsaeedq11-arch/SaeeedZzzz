@@ -3700,12 +3700,12 @@ body[data-mode="formal"] h4 {
   line-height: 1.05;
 }
 
-/* ✒️ MECHANICAL ARABIC TYPEWRITER / PRESS PRINT FONT */
+/* ✒️ CLASSICAL ARABIC PRESS PRINT FONT — matches Courier Prime / Special Elite feel */
 body[data-mode="formal"][data-formal-lang="ar"],
 body[data-mode="formal"] [lang="ar"],
 body[data-mode="formal"] [dir="rtl"] {
-  font-family: "IBM Plex Sans Arabic", "Courier Prime", "Courier New", monospace, sans-serif !important;
-  line-height: 1.75 !important;
+  font-family: "Amiri", "Courier Prime", serif !important;
+  line-height: 1.85 !important;
 }
 
 body[data-mode="formal"][data-formal-lang="ar"] h1,
@@ -3716,9 +3716,9 @@ body[data-mode="formal"] [lang="ar"] h1,
 body[data-mode="formal"] [lang="ar"] h2,
 body[data-mode="formal"] [lang="ar"] h3,
 body[data-mode="formal"] [lang="ar"] h4 {
-  font-family: "IBM Plex Sans Arabic", "Courier Prime", monospace, sans-serif !important;
+  font-family: "Amiri", "Courier Prime", serif !important;
   font-weight: 700 !important;
-  letter-spacing: -0.01em !important;
+  letter-spacing: 0 !important;
 }
 
 .formal-topbar {
@@ -3756,7 +3756,7 @@ body[data-mode="formal"] [lang="ar"] h4 {
   color: #0f0d14;
 }
 .formal-brand-name {
-  font-family: "Special Elite", "Courier Prime", "IBM Plex Sans Arabic", serif;
+  font-family: "Special Elite", "Courier Prime", "Amiri", serif;
   font-size: 1.8rem;
   line-height: 0.9;
   letter-spacing: -0.02em;
@@ -3765,9 +3765,9 @@ body[data-mode="formal"] [lang="ar"] h4 {
 
 [data-formal-lang="ar"] .formal-brand-name,
 [data-formal-lang="ar"] .formal-brand {
-  font-family: "IBM Plex Sans Arabic", "Courier Prime", monospace, sans-serif !important;
+  font-family: "Amiri", serif !important;
   letter-spacing: 0 !important;
-  line-height: 1.1 !important;
+  line-height: 1.2 !important;
 }
 .formal-brand-role {
   font-family: "Courier Prime", monospace;

@@ -780,7 +780,7 @@ const FORMAL_COPY = {
       "Intensive technical training in interior 3D modeling, spatial rendering, and presentation workflows.",
     "training.4.date": "Aug 2025",
     "training.4.title": "ITI / Advanced Training",
-    "training.4.org": "Information Technology Institute",
+    "training.4.org": "Information Technology Institute / 30 hours",
     "training.4.desc":
       "Advanced technical module focused on digital modeling precision and presentation polish.",
     "contact.eyebrow": "Contact / next step",
@@ -913,7 +913,7 @@ const FORMAL_COPY = {
       "تدريب متقدم على طرق النمذجة ثلاثية الأبعاد والإخراج التقني للتصميم الداخلي.",
     "training.4.date": "أغسطس 2025",
     "training.4.title": "ITI / التدريب المتقدم",
-    "training.4.org": "معهد تكنولوجيا المعلومات",
+    "training.4.org": "معهد تكنولوجيا المعلومات / 30 ساعة",
     "training.4.desc":
       "مرحلة تقدمية تناولت دقة النمذجة الرقمية وتقنيات العرض الفني.",
     "contact.eyebrow": "التواصل / الخطوة القادمة",
